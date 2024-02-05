@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		217519D92B71049E00C06FB3 /* UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		217519D92B71049E00C06FB3 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		217519DC2B71049E00C06FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		217519DE2B71049E00C06FB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		217519E02B71049E00C06FB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		217519D02B71049E00C06FB3 = {
 			isa = PBXGroup;
 			children = (
-				217519DB2B71049E00C06FB3 /* UIKit */,
+				217519DB2B71049E00C06FB3 /* Tasks */,
 				217519DA2B71049E00C06FB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		217519DA2B71049E00C06FB3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				217519D92B71049E00C06FB3 /* UIKit.app */,
+				217519D92B71049E00C06FB3 /* Tasks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		217519DB2B71049E00C06FB3 /* UIKit */ = {
+		217519DB2B71049E00C06FB3 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
 				217519DC2B71049E00C06FB3 /* AppDelegate.swift */,
@@ -64,15 +64,15 @@
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,
 				217519EA2B7104A000C06FB3 /* Info.plist */,
 			);
-			path = UIKit;
+			path = Tasks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		217519D82B71049E00C06FB3 /* UIKit */ = {
+		217519D82B71049E00C06FB3 /* Tasks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 217519ED2B7104A000C06FB3 /* Build configuration list for PBXNativeTarget "UIKit" */;
+			buildConfigurationList = 217519ED2B7104A000C06FB3 /* Build configuration list for PBXNativeTarget "Tasks" */;
 			buildPhases = (
 				217519D52B71049E00C06FB3 /* Sources */,
 				217519D62B71049E00C06FB3 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = UIKit;
+			name = Tasks;
 			productName = UIKit;
-			productReference = 217519D92B71049E00C06FB3 /* UIKit.app */;
+			productReference = 217519D92B71049E00C06FB3 /* Tasks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 217519D42B71049E00C06FB3 /* Build configuration list for PBXProject "UIKit" */;
+			buildConfigurationList = 217519D42B71049E00C06FB3 /* Build configuration list for PBXProject "Tasks" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				217519D82B71049E00C06FB3 /* UIKit */,
+				217519D82B71049E00C06FB3 /* Tasks */,
 			);
 		};
 /* End PBXProject section */
@@ -344,7 +344,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		217519D42B71049E00C06FB3 /* Build configuration list for PBXProject "UIKit" */ = {
+		217519D42B71049E00C06FB3 /* Build configuration list for PBXProject "Tasks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				217519EB2B7104A000C06FB3 /* Debug */,
@@ -353,7 +353,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		217519ED2B7104A000C06FB3 /* Build configuration list for PBXNativeTarget "UIKit" */ = {
+		217519ED2B7104A000C06FB3 /* Build configuration list for PBXNativeTarget "Tasks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				217519EE2B7104A000C06FB3 /* Debug */,

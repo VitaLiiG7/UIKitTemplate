@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         true
     }
-
+    
     // MARK: UISceneSession Lifecycle
 
     func application(

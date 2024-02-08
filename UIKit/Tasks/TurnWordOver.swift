@@ -5,22 +5,25 @@ import UIKit
 
 /// Класс Вью Контроллер
 final class TurnWordOver: UIViewController {
-    
     // MARK: - Private Properties
+
     private let userInterfaceView = UserInterfaceView()
 
     // MARK: - Life Cycle
+
     override func loadView() {
         view = userInterfaceView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         callButton()
         hideElements()
     }
 
     // MARK: - Private Methods
+
     private func hideElements() {
         userInterfaceView.leadWordLabel.isHidden = true
         userInterfaceView.resultLabel.isHidden = true
@@ -32,7 +35,7 @@ final class TurnWordOver: UIViewController {
         userInterfaceView.startButton.addTarget(self, action: #selector(expandWord), for: .touchUpInside)
     }
 
-    @objc func expandWord() {
+    @objc private func expandWord() {
         let alert = UIAlertController(title: "Введите ваше слово", message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Отмена", style: .default)
         let actionOk = UIAlertAction(title: "Ок", style: .default) { _ in

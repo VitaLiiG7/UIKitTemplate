@@ -5,20 +5,7 @@ import UIKit
 
 /// Kласс для отображения юай элементов
 final class UserInterfaceView: UIView {
-    lazy var startButton: UIButton = {
-        let startButton = UIButton()
-        startButton.frame = CGRect(x: 20, y: 406, width: 335, height: 44)
-        startButton.layer.cornerRadius = 12
-        startButton.backgroundColor = UIColor(
-            _colorLiteralRed: 76 / 255.0,
-            green: 216 / 255.0,
-            blue: 102 / 255.0,
-            alpha: 1
-        )
-        startButton.setTitle("Начать", for: .normal)
-        startButton.titleLabel?.font = UIFont(name: "Verdana", size: 16)
-        return startButton
-    }()
+    // MARK: - Private Properties
 
     let leadWordLabel: UILabel = {
         let leadWordLabel = UILabel()
@@ -58,6 +45,23 @@ final class UserInterfaceView: UIView {
         invertedWordLabel.textAlignment = .center
         return invertedWordLabel
     }()
+
+    lazy var startButton: UIButton = {
+        let startButton = UIButton()
+        startButton.frame = CGRect(x: 20, y: 406, width: 335, height: 44)
+        startButton.layer.cornerRadius = 12
+        startButton.backgroundColor = UIColor(
+            _colorLiteralRed: 76 / 255.0,
+            green: 216 / 255.0,
+            blue: 102 / 255.0,
+            alpha: 1
+        )
+        startButton.setTitle("Начать", for: .normal)
+        startButton.titleLabel?.font = UIFont(name: "Verdana", size: 16)
+        return startButton
+    }()
+
+    // MARK: - Life Cycle
 
     override init(frame: CGRect) {
         super.init(frame: frame)

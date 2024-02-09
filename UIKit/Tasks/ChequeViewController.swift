@@ -5,10 +5,14 @@ import UIKit
 
 /// Класс выводит заказ стола
 final class ChequeViewController: UIViewController {
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
     }
+
+    // MARK: - Private Methods
 
     @IBAction func payCheckButton(_ sender: Any) {
         let alert = UIAlertController(title: "Вы хотите оплатить \nчек?", message: nil, preferredStyle: .alert)

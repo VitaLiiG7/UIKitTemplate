@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Класс выставление чека
+/// Класс lвыставление чека
 final class TableReservationsViewController: UIViewController {
     // MARK: - Private Methods
 

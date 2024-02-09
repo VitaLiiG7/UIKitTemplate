@@ -133,6 +133,7 @@
                     <navigationItem key="navigationItem" id="2bL-8f-cAz"/>
                     <connections>
                         <outlet property="buttonTappedotlet" destination="Jix-Xl-FGv" id="hTe-7P-mxf"/>
+                        <outlet property="enterButton" destination="5lR-Oi-nmG" id="4Un-L8-MdE"/>
                         <outlet property="loginField" destination="dSm-Sr-gyX" id="CWm-mz-1vF"/>
                         <outlet property="passwordField" destination="4oB-xg-0MH" id="3Ml-kN-Rte"/>
                     </connections>
@@ -354,7 +355,7 @@
                                     </fragment>
                                     <fragment content="₽">
                                         <attributes>
-                                            <font key="NSFont" size="16" name=".SFNS-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="16"/>
                                             <font key="NSOriginalFont" size="16" name="Verdana-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -387,7 +388,7 @@
                                     </fragment>
                                     <fragment content="₽">
                                         <attributes>
-                                            <font key="NSFont" size="16" name=".SFNS-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="16"/>
                                             <font key="NSOriginalFont" size="16" name="Verdana-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -435,7 +436,7 @@
                                         <attributes>
                                             <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="NSColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="cellTitle"/>
                                             <real key="NSKern" value="0.0"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
@@ -595,7 +596,6 @@
         <!--Navigation Controller-->
         <scene sceneID="YA8-Sj-8Hm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cjq-U2-xlW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HGN-Yd-JxU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eR9-zk-N8j">
@@ -607,6 +607,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Y7C-2H-mBU"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjq-U2-xlW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="56.92307692307692" y="-2.1327014218009479"/>
         </scene>

@@ -10,18 +10,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
-        options connectionOptions: UIScene.ConnectionOptions) {
-        // guard let _ = (scene as? UIWindowScene) else { return }
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
+        guard let window = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: window)
+        let registrationViewController = RegistrationViewController()
+        let navViewController = UINavigationController()
+        navViewController.viewControllers = [registrationViewController]
+        self.window?.rootViewController = navViewController
+        self.window?.makeKeyAndVisible()
+
+        func sceneDidDisconnect(_ scene: UIScene) {}
+
+        func sceneDidBecomeActive(_ scene: UIScene) {}
+
+        func sceneWillResignActive(_ scene: UIScene) {}
+
+        func sceneWillEnterForeground(_ scene: UIScene) {}
+
+        func sceneDidEnterBackground(_ scene: UIScene) {}
     }
-    
-
-    func sceneDidDisconnect(_ scene: UIScene) { }
-
-    func sceneDidBecomeActive(_ scene: UIScene) { }
-
-    func sceneWillResignActive(_ scene: UIScene) { }
-
-    func sceneWillEnterForeground(_ scene: UIScene) { }
-
-    func sceneDidEnterBackground(_ scene: UIScene) { }
 }

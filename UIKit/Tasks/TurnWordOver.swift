@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Класс Вью Контроллер
+/// Класс для ввода слова
 final class TurnWordOver: UIViewController {
     // MARK: - Private Properties
 
@@ -17,8 +17,7 @@ final class TurnWordOver: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        callButton()
+        pressButton()
         hideElements()
     }
 
@@ -31,7 +30,7 @@ final class TurnWordOver: UIViewController {
         userInterfaceView.originalWordLabel.isHidden = true
     }
 
-    private func callButton() {
+    private func pressButton() {
         userInterfaceView.startButton.addTarget(self, action: #selector(expandWord), for: .touchUpInside)
     }
 
@@ -39,7 +38,7 @@ final class TurnWordOver: UIViewController {
         let alert = UIAlertController(title: "Введите ваше слово", message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Отмена", style: .default)
         let actionOk = UIAlertAction(title: "Ок", style: .default) { _ in
-            let model = Model()
+            let model = ReversedWord()
             if let text = alert.textFields?[0].text {
                 self.userInterfaceView.originalWordLabel.text = text
                 self.userInterfaceView.invertedWordLabel.text = model.flipWord(text)
@@ -57,6 +56,6 @@ final class TurnWordOver: UIViewController {
 
         alert.addAction(cancel)
         alert.addAction(actionOk)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
 }

@@ -20,7 +20,7 @@ final class UserInterfaceView: UIView {
     let originalWordLabel: UILabel = {
         let originalWordLabel = UILabel()
         originalWordLabel.frame = CGRect(x: 50, y: 163, width: 275, height: 57)
-        originalWordLabel.textColor = .systemGray2
+        originalWordLabel.textColor = .lightGray
         originalWordLabel.font = .italicSystemFont(ofSize: 16)
         originalWordLabel.textAlignment = .center
         return originalWordLabel
@@ -51,7 +51,7 @@ final class UserInterfaceView: UIView {
         startButton.frame = CGRect(x: 20, y: 406, width: 335, height: 44)
         startButton.layer.cornerRadius = 12
         startButton.backgroundColor = UIColor(
-            _colorLiteralRed: 76 / 255.0,
+            red: 76 / 255.0,
             green: 216 / 255.0,
             blue: 102 / 255.0,
             alpha: 1

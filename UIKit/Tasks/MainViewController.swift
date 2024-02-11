@@ -9,7 +9,7 @@ final class MainViewController: UIViewController {
 
     private let pictureBackgroundView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "picture background")
+        view.image = UIImage(named: "pictureBackground")
         view.contentMode = .scaleAspectFill
         view.frame = CGRect(x: 0, y: 50, width: 380, height: 760)
         return view
@@ -34,7 +34,7 @@ final class MainViewController: UIViewController {
         button.backgroundColor = .additionbutton
         button.setTitle("Калькулятор", for: .normal)
         button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 20)
-        button.layer.borderColor = UIColor(named: "calculator button frame")?.cgColor
+        button.layer.borderColor = UIColor(named: "calculatorButtonFrame")?.cgColor
         return button
     }()
 
@@ -45,7 +45,7 @@ final class MainViewController: UIViewController {
         button.setTitle("Угадай число", for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 25)
-        button.layer.borderColor = UIColor(named: "guess number button")?.cgColor
+        button.layer.borderColor = UIColor(named: "guessNumberButton")?.cgColor
         return button
     }()
 

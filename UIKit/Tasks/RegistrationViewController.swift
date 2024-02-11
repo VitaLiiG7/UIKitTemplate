@@ -65,7 +65,7 @@ final class RegistrationViewController: UIViewController {
         return label
     }()
 
-    // создание текстфилдов
+    // создание текстфилдов.
     private let typingEmailField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Typing email"

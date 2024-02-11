@@ -69,15 +69,15 @@ final class MainViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ок", style: .default)
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)
         var finalResult = 0
-        let foldAction = UIAlertAction(title: "Сложить", style: .default) { _ in
+        let foldAction = UIAlertAction(title: "Сложить", style: .default) { [weak self] _ in
             if let textField = alert.textFields {
                 finalResult = (Int(textField[0].text ?? "") ?? 0) + (Int(textField[1].text ?? "") ?? 0)
             }
-
+            
             alertResult.addAction(cancelAction)
             alertResult.addAction(okAction)
             alertResult.message = "\(finalResult)"
-            self.present(alertResult, animated: true)
+            self?.present(alertResult, animated: true)
         }
 
         alert.addTextField { texfield in

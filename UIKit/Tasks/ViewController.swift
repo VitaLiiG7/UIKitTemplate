@@ -4,9 +4,14 @@
 import UIKit
 
 /// Класс Вью Контроллер
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setup()
     }
+
+    private func setup() {}
 }

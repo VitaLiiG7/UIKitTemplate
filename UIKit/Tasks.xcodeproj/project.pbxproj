@@ -10,20 +10,24 @@
 		21067BF72B76903600A7C194 /* BirthdayReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21067BF62B76903600A7C194 /* BirthdayReminderViewController.swift */; };
 		21067BF92B76AC3E00A7C194 /* InformationAboutPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21067BF82B76AC3E00A7C194 /* InformationAboutPersonViewController.swift */; };
 		21067BFC2B77001200A7C194 /* NumberPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21067BFB2B77001200A7C194 /* NumberPickerViewController.swift */; };
-		21067BFE2B77080100A7C194 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21067BFD2B77080100A7C194 /* DatePickerViewController.swift */; };
 		217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519DC2B71049E00C06FB3 /* AppDelegate.swift */; };
 		217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519DE2B71049E00C06FB3 /* SceneDelegate.swift */; };
 		217519E12B71049E00C06FB3 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519E02B71049E00C06FB3 /* RegistrationViewController.swift */; };
 		217519E42B71049F00C06FB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217519E22B71049F00C06FB3 /* Main.storyboard */; };
 		217519E62B7104A000C06FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217519E52B7104A000C06FB3 /* Assets.xcassets */; };
 		217519E92B7104A000C06FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */; };
+		21D29FF52B77DABD003D6647 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D29FF42B77DABD003D6647 /* People.swift */; };
+		21D29FFA2B77ED10003D6647 /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21D29FF82B77ED10003D6647 /* Verdana-Bold.ttf */; };
+		21D29FFB2B77ED10003D6647 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21D29FF92B77ED10003D6647 /* Verdana.ttf */; };
+		21D29FFD2B77F286003D6647 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D29FFC2B77F286003D6647 /* CustomLabel.swift */; };
+		21D2A0002B78321B003D6647 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D29FFF2B78321B003D6647 /* UserView.swift */; };
+		21D2A0022B785CC0003D6647 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2A0012B785CC0003D6647 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		21067BF62B76903600A7C194 /* BirthdayReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayReminderViewController.swift; sourceTree = "<group>"; };
 		21067BF82B76AC3E00A7C194 /* InformationAboutPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAboutPersonViewController.swift; sourceTree = "<group>"; };
 		21067BFB2B77001200A7C194 /* NumberPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPickerViewController.swift; sourceTree = "<group>"; };
-		21067BFD2B77080100A7C194 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		217519D92B71049E00C06FB3 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		217519DC2B71049E00C06FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		217519DE2B71049E00C06FB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +36,12 @@
 		217519E52B7104A000C06FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		217519E82B7104A000C06FB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		217519EA2B7104A000C06FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21D29FF42B77DABD003D6647 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		21D29FF82B77ED10003D6647 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		21D29FF92B77ED10003D6647 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
+		21D29FFC2B77F286003D6647 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		21D29FFF2B78321B003D6647 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		21D2A0012B785CC0003D6647 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,13 +55,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21067BFA2B76FF5F00A7C194 /* Picer */ = {
+		21067BFA2B76FF5F00A7C194 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
 				21067BFB2B77001200A7C194 /* NumberPickerViewController.swift */,
-				21067BFD2B77080100A7C194 /* DatePickerViewController.swift */,
+				21D29FF42B77DABD003D6647 /* People.swift */,
 			);
-			path = Picer;
+			path = Picker;
 			sourceTree = "<group>";
 		};
 		217519D02B71049E00C06FB3 = {
@@ -73,18 +83,39 @@
 		217519DB2B71049E00C06FB3 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				21067BFA2B76FF5F00A7C194 /* Picer */,
+				21067BFA2B76FF5F00A7C194 /* Picker */,
 				217519DC2B71049E00C06FB3 /* AppDelegate.swift */,
 				217519DE2B71049E00C06FB3 /* SceneDelegate.swift */,
 				217519E02B71049E00C06FB3 /* RegistrationViewController.swift */,
 				21067BF62B76903600A7C194 /* BirthdayReminderViewController.swift */,
+				21D29FFF2B78321B003D6647 /* UserView.swift */,
+				21D2A0012B785CC0003D6647 /* UserModel.swift */,
 				21067BF82B76AC3E00A7C194 /* InformationAboutPersonViewController.swift */,
+				21D29FFE2B77F2A7003D6647 /* Custom */,
 				217519E22B71049F00C06FB3 /* Main.storyboard */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,
 				217519EA2B7104A000C06FB3 /* Info.plist */,
+				21D29FF72B77ECE9003D6647 /* Font */,
 			);
 			path = Tasks;
+			sourceTree = "<group>";
+		};
+		21D29FF72B77ECE9003D6647 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				21D29FF82B77ED10003D6647 /* Verdana-Bold.ttf */,
+				21D29FF92B77ED10003D6647 /* Verdana.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		21D29FFE2B77F2A7003D6647 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				21D29FFC2B77F286003D6647 /* CustomLabel.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,9 +178,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D29FFB2B77ED10003D6647 /* Verdana.ttf in Resources */,
 				217519E92B7104A000C06FB3 /* LaunchScreen.storyboard in Resources */,
 				217519E62B7104A000C06FB3 /* Assets.xcassets in Resources */,
 				217519E42B71049F00C06FB3 /* Main.storyboard in Resources */,
+				21D29FFA2B77ED10003D6647 /* Verdana-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,11 +236,14 @@
 			files = (
 				217519E12B71049E00C06FB3 /* RegistrationViewController.swift in Sources */,
 				21067BF92B76AC3E00A7C194 /* InformationAboutPersonViewController.swift in Sources */,
-				21067BFE2B77080100A7C194 /* DatePickerViewController.swift in Sources */,
 				217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */,
 				217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */,
+				21D29FFD2B77F286003D6647 /* CustomLabel.swift in Sources */,
+				21D2A0002B78321B003D6647 /* UserView.swift in Sources */,
 				21067BFC2B77001200A7C194 /* NumberPickerViewController.swift in Sources */,
 				21067BF72B76903600A7C194 /* BirthdayReminderViewController.swift in Sources */,
+				21D2A0022B785CC0003D6647 /* UserModel.swift in Sources */,
+				21D29FF52B77DABD003D6647 /* People.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

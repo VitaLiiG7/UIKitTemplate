@@ -57,6 +57,7 @@ final class RegistrationViewController: UIViewController {
         faceIDLabel.text = "Use FaceID"
         faceIDLabel.font = .boldSystemFont(ofSize: 16)
         faceIDLabel.textColor = .black
+        faceIDLabel.isHidden = true
         return faceIDLabel
     }()
 
@@ -78,6 +79,7 @@ final class RegistrationViewController: UIViewController {
         let faceIDswitch = UISwitch()
         faceIDswitch.frame = CGRect(x: 248, y: 544, width: 54, height: 35)
         faceIDswitch.setOn(true, animated: false)
+        faceIDswitch.isHidden = true
         return faceIDswitch
     }()
 
@@ -112,7 +114,7 @@ final class RegistrationViewController: UIViewController {
         loginButton.layer.cornerRadius = 12
 //        loginButtun.isEnabled = false
         loginButton.alpha = 0.5
-        loginButton.frame = CGRect(x: 20, y: 671, width: 335, height: 44)
+        loginButton.frame = CGRect(x: 20, y: 671, width: 350, height: 44)
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return loginButton
     }()
@@ -166,6 +168,8 @@ extension RegistrationViewController: UITextFieldDelegate {
         let password = typingPasswordField.text ?? ""
         if email.count > 5, password.count > 5 {
             loginButton.isEnabled = true
+            faceIDLabel.isHidden = false
+            faceIDswitch.isHidden = false
             loginButton.alpha = 1
         }
 

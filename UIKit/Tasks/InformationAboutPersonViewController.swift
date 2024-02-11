@@ -7,14 +7,17 @@ protocol InformationDelegate: AnyObject {
     func informationTransfer(_ user: UserModel)
 }
 
-/// Класс информация о человеке
+/// Класс в котором заполняется и передается информация о человеке
 class InformationAboutPersonViewController: UIViewController {
     var number = NumberPicker()
-    var gender = People()
+    var gender = GenderPicker()
     var delegate: InformationDelegate?
+
+    // MARK: - Private Properties
 
     private let datePicker = UIDatePicker()
 
+    // создание изображения
     private let photoImageView: UIImageView = {
         let photoImageView = UIImageView()
         photoImageView.frame = CGRect(x: 125, y: 66, width: 125, height: 125)
@@ -24,6 +27,7 @@ class InformationAboutPersonViewController: UIViewController {
         return photoImageView
     }()
 
+    // создание лейблов
     private let changePhotoLabel: UILabel = {
         let changePhotoLabel = UILabel()
         changePhotoLabel.frame = CGRect(x: 125, y: 199, width: 175, height: 31)
@@ -40,19 +44,41 @@ class InformationAboutPersonViewController: UIViewController {
         return nameSurnameLabel
     }()
 
+    private let birthdayLabel: CustomLabel = {
+        let birthdayLabel = CustomLabel()
+        birthdayLabel.frame = CGRect(x: 20, y: 314, width: 175, height: 19)
+        birthdayLabel.text = "Birthday"
+        return birthdayLabel
+    }()
+
+    private let ageLabel: CustomLabel = {
+        let ageLabel = CustomLabel()
+        ageLabel.frame = CGRect(x: 20, y: 389, width: 175, height: 19)
+        ageLabel.text = "Age"
+        return ageLabel
+    }()
+
+    private let genderLabel: CustomLabel = {
+        let genderLabel = CustomLabel()
+        genderLabel.frame = CGRect(x: 20, y: 462, width: 175, height: 19)
+        genderLabel.text = "Gender"
+        return genderLabel
+    }()
+
+    private let telegramLabel: CustomLabel = {
+        let telegramLabel = CustomLabel()
+        telegramLabel.frame = CGRect(x: 20, y: 537, width: 175, height: 19)
+        telegramLabel.text = "Telegram"
+        return telegramLabel
+    }()
+
+    // создание текстфилдов
     var typingNameSurnameField: UITextField = {
         let typingNameSurnameField = UITextField()
         typingNameSurnameField.placeholder = "Typing Name Surname"
         typingNameSurnameField.font = UIFont.systemFont(ofSize: 14)
         typingNameSurnameField.frame = CGRect(x: 20, y: 268, width: 250, height: 17)
         return typingNameSurnameField
-    }()
-
-    private let birthdayLabel: CustomLabel = {
-        let birthdayLabel = CustomLabel()
-        birthdayLabel.frame = CGRect(x: 20, y: 314, width: 175, height: 19)
-        birthdayLabel.text = "Birthday"
-        return birthdayLabel
     }()
 
     private let typingDateBirthField: UITextField = {
@@ -64,13 +90,6 @@ class InformationAboutPersonViewController: UIViewController {
         return typingDateBirthField
     }()
 
-    private let ageLabel: CustomLabel = {
-        let ageLabel = CustomLabel()
-        ageLabel.frame = CGRect(x: 20, y: 389, width: 175, height: 19)
-        ageLabel.text = "Age"
-        return ageLabel
-    }()
-
     var typingAgeField: UITextField = {
         let typingAgeField = UITextField()
         typingAgeField.placeholder = "Typing age"
@@ -79,26 +98,12 @@ class InformationAboutPersonViewController: UIViewController {
         return typingAgeField
     }()
 
-    private let genderLabel: CustomLabel = {
-        let genderLabel = CustomLabel()
-        genderLabel.frame = CGRect(x: 20, y: 462, width: 175, height: 19)
-        genderLabel.text = "Gender"
-        return genderLabel
-    }()
-
     private let indicateGenderField: UITextField = {
         let indicateGenderField = UITextField()
         indicateGenderField.placeholder = "Indicate Gender"
         indicateGenderField.font = UIFont.systemFont(ofSize: 14)
         indicateGenderField.frame = CGRect(x: 20, y: 491, width: 250, height: 17)
         return indicateGenderField
-    }()
-
-    private let telegramLabel: CustomLabel = {
-        let telegramLabel = CustomLabel()
-        telegramLabel.frame = CGRect(x: 20, y: 537, width: 175, height: 19)
-        telegramLabel.text = "Telegram"
-        return telegramLabel
     }()
 
     private lazy var typingTelegramField: UITextField = {
@@ -110,62 +115,59 @@ class InformationAboutPersonViewController: UIViewController {
         return typingTelegramField
     }()
 
-    private let lineOneView: UIView = {
-        let lineOneView = UIView()
+    // создание линий
+    private let lineOneView: CustomView = {
+        let lineOneView = CustomView()
         lineOneView.frame = CGRect(x: 20, y: 293, width: 350, height: 1)
-        lineOneView.backgroundColor = UIColor(red: 208 / 255.0, green: 214 / 255.0, blue: 220 / 255.0, alpha: 1)
         return lineOneView
     }()
 
-    private let lineTwoView: UIView = {
-        let lineTwoView = UIView()
+    private let lineTwoView: CustomView = {
+        let lineTwoView = CustomView()
         lineTwoView.frame = CGRect(x: 20, y: 366, width: 350, height: 1)
-        lineTwoView.backgroundColor = UIColor(red: 208 / 255.0, green: 214 / 255.0, blue: 220 / 255.0, alpha: 1)
         return lineTwoView
     }()
 
-    private let lineThreeView: UIView = {
-        let lineThreeView = UIView()
+    private let lineThreeView: CustomView = {
+        let lineThreeView = CustomView()
         lineThreeView.frame = CGRect(x: 20, y: 443, width: 350, height: 1)
-        lineThreeView.backgroundColor = UIColor(red: 208 / 255.0, green: 214 / 255.0, blue: 220 / 255.0, alpha: 1)
         return lineThreeView
     }()
 
-    private let lineFourView: UIView = {
-        let lineFourView = UIView()
+    private let lineFourView: CustomView = {
+        let lineFourView = CustomView()
         lineFourView.frame = CGRect(x: 20, y: 516, width: 350, height: 1)
-        lineFourView.backgroundColor = UIColor(red: 208 / 255.0, green: 214 / 255.0, blue: 220 / 255.0, alpha: 1)
         return lineFourView
     }()
 
-    private let lineFiveView: UIView = {
-        let lineFiveView = UIView()
+    private let lineFiveView: CustomView = {
+        let lineFiveView = CustomView()
         lineFiveView.frame = CGRect(x: 20, y: 591, width: 350, height: 1)
-        lineFiveView.backgroundColor = UIColor(red: 208 / 255.0, green: 214 / 255.0, blue: 220 / 255.0, alpha: 1)
         return lineFiveView
     }()
 
-    private lazy var cancelButton: UIButton = {
+    // создание кнопок
+    private let cancelButton: UIButton = {
         let cancelButton = UIButton()
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(.systemBlue, for: .normal)
         cancelButton.titleLabel?.font = .systemFont(ofSize: 16)
         cancelButton.frame = CGRect(x: 20, y: 15, width: 60, height: 20)
-        cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         return cancelButton
     }()
 
-    private lazy var addButton: UIButton = {
+    private let addButton: UIButton = {
         let cancelButton = UIButton()
         cancelButton.setTitle("Add", for: .normal)
         cancelButton.setTitleColor(.systemBlue, for: .normal)
         cancelButton.titleLabel?.font = .systemFont(ofSize: 16)
         cancelButton.frame = CGRect(x: 325, y: 15, width: 30, height: 20)
-        cancelButton.addTarget(self, action: #selector(informationSend), for: .touchUpInside)
         return cancelButton
     }()
 
     var convertedDate: String = ""
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,7 +175,9 @@ class InformationAboutPersonViewController: UIViewController {
         setupPicker()
     }
 
-    func setupView() {
+    // MARK: - Private Methods
+
+    private func setupView() {
         view.backgroundColor = .white
         for item in [
             nameSurnameLabel, typingNameSurnameField, birthdayLabel,
@@ -186,14 +190,17 @@ class InformationAboutPersonViewController: UIViewController {
         ] {
             view.addSubview(item)
         }
+
+        addButton.addTarget(self, action: #selector(informationSend), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
     }
 
-    func setupPicker() {
-        // DataPicker
+    private func setupPicker() {
+        // установка DataPicker
         typingDateBirthField.inputView = datePicker
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
-
+        datePicker.backgroundColor = .white
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
@@ -201,16 +208,17 @@ class InformationAboutPersonViewController: UIViewController {
         toolBar.setItems([flexSpace, doneButton], animated: true)
         typingDateBirthField.inputAccessoryView = toolBar
 
-        // Picker Age
+        // установк Picker Age
         let toolBarTwo = UIToolbar()
         toolBarTwo.sizeToFit()
         let button = UIBarButtonItem(title: "ОК", style: .done, target: self, action: #selector(secondDoneAction))
+        number.backgroundColor = .white
         typingAgeField.inputView = number
 
         toolBarTwo.setItems([flexSpace, button], animated: true)
         typingAgeField.inputAccessoryView = toolBarTwo
 
-        // Picker Gender
+        // установк Picker Gender
         indicateGenderField.inputView = gender
         let toolBarThree = UIToolbar()
         toolBarThree.sizeToFit()
@@ -221,11 +229,12 @@ class InformationAboutPersonViewController: UIViewController {
             action: #selector(thirdDoneAction)
         )
         toolBarThree.setItems([flexSpace, buttonThrid], animated: true)
+        gender.backgroundColor = .white
         indicateGenderField.inputAccessoryView = gender
         indicateGenderField.inputAccessoryView = toolBarThree
     }
 
-    @objc func selectTelegram() {
+    @objc private func selectTelegram() {
         let alert = UIAlertController(title: "Please enter Telegram", message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .default)
         let actionOk = UIAlertAction(title: "Ok", style: .default) { _ in
@@ -244,29 +253,28 @@ class InformationAboutPersonViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    @objc func informationSend() {
+    @objc private func informationSend() {
         let person = UserModel(
             name: typingNameSurnameField.text ?? "",
             age: typingAgeField.text ?? "",
             image: "photo",
-            dayTillBirthday: convertedDate, tillBirthday: "\(Int.random(in: 1 ... 360)) \ndays"
+            dayBirthday: convertedDate, tillBirthday: "\(Int.random(in: 1 ... 360)) \ndays"
         )
         delegate?.informationTransfer(person)
-
         dismiss(animated: true, completion: nil)
     }
 
-    @objc func thirdDoneAction() {
+    @objc private func thirdDoneAction() {
         indicateGenderField.text = gender.result
         indicateGenderField.resignFirstResponder()
     }
 
-    @objc func secondDoneAction() {
+    @objc private func secondDoneAction() {
         typingAgeField.resignFirstResponder()
-        typingAgeField.text = number.info
+        typingAgeField.text = number.ageInformation
     }
 
-    @objc func doneAction() {
+    @objc private func doneAction() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         let convertedDateFormatter = DateFormatter()
@@ -276,7 +284,7 @@ class InformationAboutPersonViewController: UIViewController {
         typingDateBirthField.resignFirstResponder()
     }
 
-    @objc func cancel() {
+    @objc private func cancel() {
         dismiss(animated: true, completion: nil)
     }
 }

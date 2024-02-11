@@ -3,8 +3,10 @@
 
 import UIKit
 
-/// Класс
+/// Класс кастомного лейбла
 class CustomLabel: UILabel {
+    // MARK: - Life Cycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         styleLabel()
@@ -17,7 +19,7 @@ class CustomLabel: UILabel {
 
     // MARK: - Public Methods
 
-    func styleLabel() {
+    private func styleLabel() {
         textColor = UIColor(red: 17 / 255.0, green: 17 / 255.0, blue: 17 / 255.0, alpha: 1)
         font = UIFont(name: "Verdana-Bold", size: 16)
     }

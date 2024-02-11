@@ -3,8 +3,19 @@
 
 import UIKit
 
-/// Класс
+/// Класс для переиспользования лейблов, изображения
 class UserView: UIView {
+    // MARK: - Public Properties
+
+    let avatarImageView: UIImageView = {
+        let image = UIImageView()
+        image.frame = CGRect(x: 8, y: 11, width: 75, height: 75)
+        image.image = UIImage(named: "boy")
+        image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 12
+        return image
+    }()
+
     var thirdNameLabel: CustomLabel = {
         let label = CustomLabel()
         label.frame = CGRect(x: 91, y: 25, width: 180, height: 20)
@@ -12,7 +23,7 @@ class UserView: UIView {
         return label
     }()
 
-    var dayTillBirthday: UILabel = {
+    var dayBirthday: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 91, y: 53, width: 180, height: 20)
         label.text = "USer Birtchday"
@@ -31,14 +42,7 @@ class UserView: UIView {
         return label
     }()
 
-    let avatarImageView: UIImageView = {
-        let image = UIImageView()
-        image.frame = CGRect(x: 8, y: 11, width: 75, height: 75)
-        image.image = UIImage(named: "boy")
-        image.contentMode = .scaleAspectFit
-        image.layer.cornerRadius = 12
-        return image
-    }()
+    // MARK: - Life Cycle
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,9 +54,11 @@ class UserView: UIView {
         super.init(coder: coder)
     }
 
-    func setupView() {
+    // MARK: - Private Methods
+
+    private func setupView() {
         addSubview(thirdNameLabel)
-        addSubview(dayTillBirthday)
+        addSubview(dayBirthday)
         addSubview(avatarImageView)
         addSubview(tillBirthday)
     }

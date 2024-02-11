@@ -24,7 +24,7 @@ final class RegistrationViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = UIColor(named: "labelColor")
+        label.textColor = UIColor(named: "color")
         return label
     }()
 

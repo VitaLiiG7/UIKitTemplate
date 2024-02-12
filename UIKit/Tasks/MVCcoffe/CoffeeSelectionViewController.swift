@@ -7,7 +7,8 @@ import UIKit
 class CoffeeSelectionViewController: UIViewController {
     // MARK: - Life Cycle
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+    }
 }

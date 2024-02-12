@@ -20,6 +20,7 @@
 		21E0140D2B7A699C00491177 /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E0140C2B7A699B00491177 /* ThanksViewController.swift */; };
 		21E014102B7A69E200491177 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E0140E2B7A69E200491177 /* Verdana.ttf */; };
 		21E014112B7A69E200491177 /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E0140F2B7A69E200491177 /* Verdana-Bold.ttf */; };
+		21E014152B7A82DB00491177 /* ViewCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E014142B7A82DB00491177 /* ViewCoffee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		21E0140C2B7A699B00491177 /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
 		21E0140E2B7A69E200491177 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		21E0140F2B7A69E200491177 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		21E014142B7A82DB00491177 /* ViewCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoffee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,7 @@
 				21E014132B7A6AC000491177 /* Setting */,
 				217519E02B71049E00C06FB3 /* AuthorizationViewController.swift */,
 				21E014022B7A67E600491177 /* MenuViewController.swift */,
-				21E014042B7A685200491177 /* CoffeeSelectionViewController.swift */,
+				21E014162B7A82E800491177 /* MVCcoffe */,
 				21E014062B7A689A00491177 /* ChoiceRoastingViewController.swift */,
 				21E014082B7A691400491177 /* IngredientsViewController.swift */,
 				21E0140A2B7A696400491177 /* ChequeViewController.swift */,
@@ -102,6 +104,15 @@
 				217519DE2B71049E00C06FB3 /* SceneDelegate.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		21E014162B7A82E800491177 /* MVCcoffe */ = {
+			isa = PBXGroup;
+			children = (
+				21E014042B7A685200491177 /* CoffeeSelectionViewController.swift */,
+				21E014142B7A82DB00491177 /* ViewCoffee.swift */,
+			);
+			path = MVCcoffe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 			files = (
 				21E014052B7A685200491177 /* CoffeeSelectionViewController.swift in Sources */,
 				217519E12B71049E00C06FB3 /* AuthorizationViewController.swift in Sources */,
+				21E014152B7A82DB00491177 /* ViewCoffee.swift in Sources */,
 				217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */,
 				217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */,
 				21E014092B7A691400491177 /* IngredientsViewController.swift in Sources */,

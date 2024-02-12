@@ -4,7 +4,7 @@
 import UIKit
 
 /// Класс где создан пикер для выбора возраста
-class NumberPicker: UIPickerView {
+final class NumberPicker: UIPickerView {
     var ageInformation: String = ""
 
     // MARK: - Life Cycle

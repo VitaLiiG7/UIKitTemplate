@@ -4,7 +4,7 @@
 import UIKit
 
 /// Класс где создан пикер для выбора пола
-class GenderPicker: UIPickerView {
+final class GenderPicker: UIPickerView {
     var people: [String] = ["Male", "Female"]
     var result = ""
 

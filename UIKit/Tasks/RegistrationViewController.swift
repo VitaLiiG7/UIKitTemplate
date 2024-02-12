@@ -5,9 +5,8 @@ import UIKit
 
 /// Класс для регистрации пользователя
 final class RegistrationViewController: UIViewController {
-    // MARK: - Private Properties
 
-    // создание изображений
+    // MARK: - Visual Components
     private let cakeImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 125, y: 70, width: 125, height: 125)
@@ -23,7 +22,7 @@ final class RegistrationViewController: UIViewController {
         label.text = "Birthday \n Reminder"
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont(name: "Verdana", size: 18)
         label.textColor = UIColor(named: "color")
         return label
     }()
@@ -81,7 +80,7 @@ final class RegistrationViewController: UIViewController {
     }()
 
     // создание свитча
-    private let faceIDswitch: UISwitch = {
+    private let faceIDSwitch: UISwitch = {
         let faceIDswitch = UISwitch()
         faceIDswitch.frame = CGRect(x: 248, y: 544, width: 54, height: 35)
         faceIDswitch.setOn(true, animated: false)
@@ -125,18 +124,20 @@ final class RegistrationViewController: UIViewController {
         return button
     }()
 
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 
+    // MARK: - Private Methods
     private func setupView() {
         for item in [
             cakeImageView, birthdayReminderLabel, signLabel,
             emailLabel, typingEmailField, passwordLabel,
             typingPasswordField, lineOneView, lineTwoView,
             hidePasswordButton, loginButton, faceIDLabel,
-            faceIDswitch
+            faceIDSwitch
         ] {
             view.addSubview(item)
         }
@@ -174,7 +175,7 @@ extension RegistrationViewController: UITextFieldDelegate {
         if email.count > 5, password.count > 5 {
             loginButton.isEnabled = true
             faceIDLabel.isHidden = false
-            faceIDswitch.isHidden = false
+            faceIDSwitch.isHidden = false
             loginButton.alpha = 1
         }
 

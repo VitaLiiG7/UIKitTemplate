@@ -5,15 +5,8 @@ import UIKit
 
 /// Класс куда добавляются пользователи и информация о них
 final class BirthdayReminderViewController: UIViewController {
-    var people: [UserModel] = [
-        UserModel(name: "Helena Link", age: "25!", image: "woman", dayBirthday: "10.03", tillBirthday: ""),
-        UserModel(name: "Verona Tusk", age: "39", image: "womanOne", dayBirthday: "20.03", tillBirthday: "10 days"),
-        UserModel(name: "Alex Smith", age: "51", image: "man", dayBirthday: "21.04", tillBirthday: "42 days"),
-        UserModel(name: "Tom Johnson", age: "18", image: "boy", dayBirthday: "05.06", tillBirthday: "87 days"),
-    ] {
-        didSet { userAdding() }
-    }
-
+    
+    // MARK: - Constants
     // создание лейбла
     private let birthdayReminderLabel: UILabel = {
         let label = UILabel()
@@ -32,16 +25,29 @@ final class BirthdayReminderViewController: UIViewController {
         image.image = UIImage(named: "cakeOne")
         return image
     }()
+    
+    // MARK: - Public Properties
 
+    var people: [UserModel] = [
+        UserModel(name: "Helena Link", age: "25!", image: "woman", dayBirthday: "10.03", tillBirthday: ""),
+        UserModel(name: "Verona Tusk", age: "39", image: "womanOne", dayBirthday: "20.03", tillBirthday: "10 days"),
+        UserModel(name: "Alex Smith", age: "51", image: "man", dayBirthday: "21.04", tillBirthday: "42 days"),
+        UserModel(name: "Tom Johnson", age: "18", image: "boy", dayBirthday: "05.06", tillBirthday: "87 days"),
+    ] {
+        didSet { addUser() }
+    }
+
+    // MARK: - Private Properties
     private var delegate: InformationDelegate?
-
+   
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        userAdding()
+        addUser()
         setupNavigationItem()
     }
-
+    // MARK: - Private Methods
     private func setupView() {
         view.backgroundColor = .white
         view.addSubview(cakeImageView)
@@ -49,15 +55,15 @@ final class BirthdayReminderViewController: UIViewController {
 
     private func setupNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "plus"),
+            image: .plus,
             style: .done,
             target: self,
-            action: #selector(addButtun)
+            action: #selector(addReminder)
         )
     }
 
     // метод для установки местоположения пользователя
-    private func userAdding() {
+    private func addUser() {
         var startY = 94
         for item in people {
             userCreate(person: item, sizeY: startY)
@@ -76,7 +82,7 @@ final class BirthdayReminderViewController: UIViewController {
         view.addSubview(userView)
     }
 
-    @objc private func addButtun() {
+    @objc private func addReminder() {
         let modalViewController = InformationAboutPersonViewController()
         modalViewController.delegate = self
         present(modalViewController, animated: true, completion: nil)

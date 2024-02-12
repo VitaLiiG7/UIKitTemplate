@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210E889B2B78FBD5009BE327 /* PlayrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210E889A2B78FBD5009BE327 /* PlayrViewController.swift */; };
+		210E889B2B78FBD5009BE327 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210E889A2B78FBD5009BE327 /* PlayerViewController.swift */; };
 		210E889D2B7969EA009BE327 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210E889C2B7969EA009BE327 /* Album.swift */; };
 		216B61CA2B78EB230099576B /* queen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 216B61C62B78EB220099576B /* queen.mp3 */; };
 		216B61CB2B78EB230099576B /* korol.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 216B61C72B78EB230099576B /* korol.mp3 */; };
@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		210E889A2B78FBD5009BE327 /* PlayrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayrViewController.swift; sourceTree = "<group>"; };
+		210E889A2B78FBD5009BE327 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		210E889C2B7969EA009BE327 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		216B61C62B78EB220099576B /* queen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = queen.mp3; sourceTree = "<group>"; };
 		216B61C72B78EB230099576B /* korol.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = korol.mp3; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 				217519DC2B71049E00C06FB3 /* AppDelegate.swift */,
 				217519DE2B71049E00C06FB3 /* SceneDelegate.swift */,
 				217519E02B71049E00C06FB3 /* Playlist.swift */,
-				210E889A2B78FBD5009BE327 /* PlayrViewController.swift */,
+				210E889A2B78FBD5009BE327 /* PlayerViewController.swift */,
 				210E889C2B7969EA009BE327 /* Album.swift */,
 				217519E22B71049F00C06FB3 /* Main.storyboard */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
@@ -199,7 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				210E889B2B78FBD5009BE327 /* PlayrViewController.swift in Sources */,
+				210E889B2B78FBD5009BE327 /* PlayerViewController.swift in Sources */,
 				217519E12B71049E00C06FB3 /* Playlist.swift in Sources */,
 				217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */,
 				217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */,

@@ -19,11 +19,11 @@
                                 <rect key="frame" x="20" y="100" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageTwo" id="Hu6-Me-dRE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yesterday" highlightedImage="Shut" id="Hu6-Me-dRE" userLabel="yesterday">
                                 <rect key="frame" x="20" y="202" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageThree" id="SNc-4b-gml">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="queenSong" id="SNc-4b-gml" userLabel="queenSong">
                                 <rect key="frame" x="20" y="305" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -264,10 +264,10 @@
             </objects>
             <point key="canvasLocation" x="49.618320610687022" y="-2.1126760563380285"/>
         </scene>
-        <!--Playr View Controller-->
+        <!--Player View Controller-->
         <scene sceneID="RDu-Zl-Zwg">
             <objects>
-                <viewController id="8Ni-ox-gUi" customClass="PlayrViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8Ni-ox-gUi" customClass="PlayerViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z71-kK-rM9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,7 +286,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageThree" id="RRS-TT-pel">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eminemSong" id="RRS-TT-pel">
                                 <rect key="frame" x="10" y="552" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -390,7 +390,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="next" title=""/>
                                 <connections>
-                                    <action selector="nextSongButton:" destination="8Ni-ox-gUi" eventType="touchUpInside" id="Suf-Bz-GUc"/>
+                                    <action selector="playNextSong:" destination="8Ni-ox-gUi" eventType="touchUpInside" id="Suf-Bz-GUc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="k4N-NV-Knl">
@@ -399,7 +399,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="last" title=""/>
                                 <connections>
-                                    <action selector="previousSongButton:" destination="8Ni-ox-gUi" eventType="touchUpInside" id="CbR-Tl-7xj"/>
+                                    <action selector="playPreviousSong:" destination="8Ni-ox-gUi" eventType="touchUpInside" id="CbR-Tl-7xj"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="2YN-vK-j7k">
@@ -409,7 +409,7 @@
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="sliderAction:" destination="8Ni-ox-gUi" eventType="valueChanged" id="9xn-yE-gUC"/>
+                                    <action selector="changeVolume:" destination="8Ni-ox-gUi" eventType="valueChanged" id="9xn-yE-gUC"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5e6-MU-u6G">
@@ -461,7 +461,7 @@
                         <outlet property="nameImage" destination="RRS-TT-pel" id="iTR-IL-znK"/>
                         <outlet property="nameSong" destination="WMs-DT-AEb" id="KKl-pv-8fA"/>
                         <outlet property="playButtonOutlet" destination="YcZ-qj-niN" id="pto-Yg-rEp"/>
-                        <outlet property="rewind" destination="Mz3-7I-uu0" id="qRK-Wm-Tte"/>
+                        <outlet property="rewindSong" destination="Mz3-7I-uu0" id="qRK-Wm-Tte"/>
                         <outlet property="slider" destination="2YN-vK-j7k" id="iIU-Qu-1Tf"/>
                         <outlet property="soLabel" destination="5e6-MU-u6G" id="ouv-pf-6Xq"/>
                         <outlet property="sound" destination="33A-xS-uWZ" id="KJG-lJ-6Y7"/>
@@ -477,17 +477,19 @@
         <segue reference="ZpX-eB-d8c"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Shut" width="1500" height="1125"/>
+        <image name="eminemSong" width="1125" height="1135"/>
         <image name="forward_30 (1)" width="24" height="24"/>
         <image name="imageOne" width="75" height="75"/>
-        <image name="imageThree" width="75" height="75"/>
-        <image name="imageTwo" width="75" height="75"/>
         <image name="last" width="24" height="24"/>
         <image name="myPlane" width="21" height="18"/>
         <image name="next" width="24" height="24"/>
         <image name="play" width="55" height="55"/>
         <image name="pleer" width="375" height="761"/>
+        <image name="queenSong" width="75" height="75"/>
         <image name="replay_30" width="24" height="24"/>
         <image name="sound" width="16" height="20"/>
         <image name="x" width="14" height="14"/>
+        <image name="yesterday" width="75" height="75"/>
     </resources>
 </document>

@@ -13,7 +13,7 @@ final class Playlist: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let secondVC = segue.destination as? PlayrViewController else {
+        guard let secondVC = segue.destination as? PlayerViewController else {
             return
         }
 

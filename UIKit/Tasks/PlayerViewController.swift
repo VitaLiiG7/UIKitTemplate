@@ -7,11 +7,11 @@ import UIKit
 /// Класс создание музыкального плеера
 final class PlayerViewController: UIViewController {
     // MARK: - Public Properties
-    
+
     var index = 0
-    
+
     // MARK: - Private Properties
-    
+
     private let album: [Album] = [
         Album(song: "queen", image: "queenSong", nameSong: "we will rock you", nameArtist: "Eminem", time: "03:23"),
         Album(
@@ -26,9 +26,9 @@ final class PlayerViewController: UIViewController {
     private var timer: Timer?
     private var player = AVAudioPlayer()
     private var isPlay = true
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet private var nameExecutor: UILabel!
     @IBOutlet private var nameSong: UILabel!
     @IBOutlet private var nameImage: UIImageView!
@@ -39,27 +39,24 @@ final class PlayerViewController: UIViewController {
     @IBOutlet private var rewindSong: UISlider!
     @IBOutlet private var sound: UIButton!
     @IBOutlet private var timeSong: UILabel!
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        setupPlayer()
-        timeSong.text = "00: 00"
-        nameSong.textColor = .white
-        nameExecutor.textColor = .white
+        rewindPlayer()
     }
-    
+
     // перемотка музыки
-    private func setupPlayer() {
+    private func rewindPlayer() {
         nameExecutor.text = album[index].nameArtist
         nameSong.text = album[index].nameSong
         nameImage.image = UIImage(named: album[index].image)
         favoriteButton.addTarget(self, action: #selector(changeSlider), for: .valueChanged)
         slider.transform = CGAffineTransformMakeRotation(CGFloat(-Double.pi / 2))
     }
-    
+
     private func setup() {
         do {
             if let audioPath = Bundle.main.path(forResource: album[index].song, ofType: "mp3") {
@@ -69,7 +66,7 @@ final class PlayerViewController: UIViewController {
         } catch {
             print("Error")
         }
-        
+
         timer = Timer.scheduledTimer(
             timeInterval: 0.0001,
             target: self,
@@ -78,9 +75,9 @@ final class PlayerViewController: UIViewController {
             repeats: true
         )
     }
-    
+
     // MARK: - IBAction
-    
+
     // метод включения выключения музыки
     @IBAction private func playButton(_ sender: Any) {
         if player.isPlaying {
@@ -93,7 +90,7 @@ final class PlayerViewController: UIViewController {
             isPlay = true
         }
     }
-    
+
     // следующая песня
     @IBAction private func playNextSong(_ sender: Any) {
         player.stop()
@@ -108,7 +105,7 @@ final class PlayerViewController: UIViewController {
         setup()
         player.play()
     }
-    
+
     // предыдущая песня
     @IBAction func playPreviousSong(_ sender: Any) {
         player.stop()
@@ -123,7 +120,7 @@ final class PlayerViewController: UIViewController {
         setup()
         player.play()
     }
-    
+
     // громкость
     @IBAction func changeVolume(_ sender: Any) {
         if slider.value == 0 {
@@ -133,12 +130,12 @@ final class PlayerViewController: UIViewController {
         }
         player.volume = slider.value
     }
-    
+
     // перемотка песни
     @IBAction func rewindSong(_ sender: Any) {
         rewindSong.maximumValue = Float(player.duration)
     }
-    
+
     // Открытие алертконтроллера
     @IBAction func openPlaylistButton(_ sender: Any) {
         let playlistAlert = UIAlertController(
@@ -147,16 +144,16 @@ final class PlayerViewController: UIViewController {
             preferredStyle: .alert
         )
         let okAction = UIAlertAction(title: "Ок", style: .cancel)
-        
+
         playlistAlert.addAction(okAction)
         present(playlistAlert, animated: true)
     }
-    
+
     // закрыть экран
     @IBAction private func cancelButton(_ sender: Any) {
         dismiss(animated: true)
     }
-    
+
     // включить и выключить звук
     @IBAction func activateSound(_ sender: Any) {
         if sound.currentImage == UIImage(named: "sound") {
@@ -169,7 +166,7 @@ final class PlayerViewController: UIViewController {
             slider.value = 0.1
         }
     }
-    
+
     @objc private func updateTimeSong() {
         let time = Int(player.duration) - Int(player.currentTime)
         let minets = time / 60
@@ -177,7 +174,7 @@ final class PlayerViewController: UIViewController {
         timeSong.text = NSString(format: "-%02d:%02d", minets, second) as String
         rewindSong.value = Float(player.currentTime)
     }
-    
+
     @objc private func changeSlider(sender: UISlider) {
         if sender == favoriteButton {
             player.currentTime = TimeInterval(sender.value)

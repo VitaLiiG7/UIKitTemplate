@@ -423,6 +423,12 @@
                                             <font key="NSFont" size="16" name="Verdana"/>
                                         </attributes>
                                     </fragment>
+                                    <fragment content="ккккк">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                        </attributes>
+                                    </fragment>
                                 </attributedString>
                                 <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
@@ -474,7 +480,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZpX-eB-d8c"/>
+        <segue reference="7kI-Gl-chY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Shut" width="1500" height="1125"/>

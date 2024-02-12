@@ -35,36 +35,36 @@ final class InformationAboutPersonViewController: UIViewController {
         return changePhotoLabel
     }()
 
-    private let nameSurnameLabel: CustomLabel = {
-        let nameSurnameLabel = CustomLabel()
+    private let nameSurnameLabel: BaseLabel = {
+        let nameSurnameLabel = BaseLabel()
         nameSurnameLabel.frame = CGRect(x: 20, y: 239, width: 175, height: 31)
         nameSurnameLabel.text = "Name Surname"
         return nameSurnameLabel
     }()
 
-    private let birthdayLabel: CustomLabel = {
-        let birthdayLabel = CustomLabel()
+    private let birthdayLabel: BaseLabel = {
+        let birthdayLabel = BaseLabel()
         birthdayLabel.frame = CGRect(x: 20, y: 314, width: 175, height: 19)
         birthdayLabel.text = "Birthday"
         return birthdayLabel
     }()
 
-    private let ageLabel: CustomLabel = {
-        let ageLabel = CustomLabel()
+    private let ageLabel: BaseLabel = {
+        let ageLabel = BaseLabel()
         ageLabel.frame = CGRect(x: 20, y: 389, width: 175, height: 19)
         ageLabel.text = "Age"
         return ageLabel
     }()
 
-    private let genderLabel: CustomLabel = {
-        let genderLabel = CustomLabel()
+    private let genderLabel: BaseLabel = {
+        let genderLabel = BaseLabel()
         genderLabel.frame = CGRect(x: 20, y: 462, width: 175, height: 19)
         genderLabel.text = "Gender"
         return genderLabel
     }()
 
-    private let telegramLabel: CustomLabel = {
-        let telegramLabel = CustomLabel()
+    private let telegramLabel: BaseLabel = {
+        let telegramLabel = BaseLabel()
         telegramLabel.frame = CGRect(x: 20, y: 537, width: 175, height: 19)
         telegramLabel.text = "Telegram"
         return telegramLabel

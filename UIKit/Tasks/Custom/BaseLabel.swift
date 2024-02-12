@@ -3,8 +3,8 @@
 
 import UIKit
 
-/// Класс кастомного лейбла
-class CustomLabel: UILabel {
+/// Класс для повторяющихся характеристик у лейблов 
+class BaseLabel: UILabel {
     // MARK: - Initializers
 
     override init(frame: CGRect) {

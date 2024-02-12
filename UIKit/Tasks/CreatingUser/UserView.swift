@@ -16,8 +16,8 @@ class UserView: UIView {
         return image
     }()
 
-    var thirdNameLabel: CustomLabel = {
-        let label = CustomLabel()
+    var thirdNameLabel: BaseLabel = {
+        let label = BaseLabel()
         label.frame = CGRect(x: 91, y: 25, width: 180, height: 20)
         label.text = "name"
         return label

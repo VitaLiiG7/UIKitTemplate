@@ -20,7 +20,7 @@
 		21D29FF52B77DABD003D6647 /* GenderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D29FF42B77DABD003D6647 /* GenderPicker.swift */; };
 		21D29FFA2B77ED10003D6647 /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21D29FF82B77ED10003D6647 /* Verdana-Bold.ttf */; };
 		21D29FFB2B77ED10003D6647 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21D29FF92B77ED10003D6647 /* Verdana.ttf */; };
-		21D29FFD2B77F286003D6647 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D29FFC2B77F286003D6647 /* CustomLabel.swift */; };
+		21D29FFD2B77F286003D6647 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D29FFC2B77F286003D6647 /* BaseLabel.swift */; };
 		21D2A0002B78321B003D6647 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D29FFF2B78321B003D6647 /* UserView.swift */; };
 		21D2A0022B785CC0003D6647 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2A0012B785CC0003D6647 /* UserModel.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +41,7 @@
 		21D29FF42B77DABD003D6647 /* GenderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPicker.swift; sourceTree = "<group>"; };
 		21D29FF82B77ED10003D6647 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
 		21D29FF92B77ED10003D6647 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
-		21D29FFC2B77F286003D6647 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		21D29FFC2B77F286003D6647 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		21D29FFF2B78321B003D6647 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		21D2A0012B785CC0003D6647 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,7 +131,7 @@
 		21D29FFE2B77F2A7003D6647 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				21D29FFC2B77F286003D6647 /* CustomLabel.swift */,
+				21D29FFC2B77F286003D6647 /* BaseLabel.swift */,
 				216B61BA2B78B8540099576B /* CustomView.swift */,
 			);
 			path = Custom;
@@ -257,7 +257,7 @@
 				21067BF92B76AC3E00A7C194 /* InformationAboutPersonViewController.swift in Sources */,
 				217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */,
 				217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */,
-				21D29FFD2B77F286003D6647 /* CustomLabel.swift in Sources */,
+				21D29FFD2B77F286003D6647 /* BaseLabel.swift in Sources */,
 				21D2A0002B78321B003D6647 /* UserView.swift in Sources */,
 				216B61BB2B78B8540099576B /* CustomView.swift in Sources */,
 				21067BFC2B77001200A7C194 /* NumberPickerViewController.swift in Sources */,

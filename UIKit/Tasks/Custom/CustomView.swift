@@ -3,7 +3,7 @@
 
 import UIKit
 
-// Класс кастомного view
+// Класс для повторяющего цвета у view
 class CustomView: UIView {
     // MARK: - Initializers
 

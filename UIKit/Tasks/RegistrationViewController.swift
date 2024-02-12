@@ -5,8 +5,8 @@ import UIKit
 
 /// Класс для регистрации пользователя
 final class RegistrationViewController: UIViewController {
-
     // MARK: - Visual Components
+
     private let cakeImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 125, y: 70, width: 125, height: 125)
@@ -125,12 +125,14 @@ final class RegistrationViewController: UIViewController {
     }()
 
     // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 
     // MARK: - Private Methods
+
     private func setupView() {
         for item in [
             cakeImageView, birthdayReminderLabel, signLabel,

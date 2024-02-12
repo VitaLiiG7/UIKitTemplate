@@ -4,18 +4,16 @@
 import UIKit
 
 protocol InformationDelegate: AnyObject {
-    func informationTransfer(_ user: UserModel)
+    func transferInformation(_ user: UserModel)
 }
 
 /// Класс в котором заполняется и передается информация о человеке
-class InformationAboutPersonViewController: UIViewController {
-    var number = NumberPicker()
-    var gender = GenderPicker()
+final class InformationAboutPersonViewController: UIViewController {
+    private var number = NumberPicker()
+    private var gender = GenderPicker()
     var delegate: InformationDelegate?
 
-    // MARK: - Private Properties
-
-    private let datePicker = UIDatePicker()
+    // MARK: - Visual Components
 
     // создание изображения
     private let photoImageView: UIImageView = {
@@ -76,7 +74,7 @@ class InformationAboutPersonViewController: UIViewController {
     var typingNameSurnameField: UITextField = {
         let typingNameSurnameField = UITextField()
         typingNameSurnameField.placeholder = "Typing Name Surname"
-        typingNameSurnameField.font = UIFont.systemFont(ofSize: 14)
+        typingNameSurnameField.font = UIFont(name: "Verdana", size: 14)
         typingNameSurnameField.frame = CGRect(x: 20, y: 268, width: 250, height: 17)
         return typingNameSurnameField
     }()
@@ -90,7 +88,7 @@ class InformationAboutPersonViewController: UIViewController {
         return typingDateBirthField
     }()
 
-    var typingAgeField: UITextField = {
+    private var typingAgeField: UITextField = {
         let typingAgeField = UITextField()
         typingAgeField.placeholder = "Typing age"
         typingAgeField.font = UIFont.systemFont(ofSize: 14)
@@ -165,7 +163,10 @@ class InformationAboutPersonViewController: UIViewController {
         return cancelButton
     }()
 
-    var convertedDate: String = ""
+    // MARK: - Private Properties
+
+    private let datePicker = UIDatePicker()
+    private var convertedDate: String = ""
 
     // MARK: - Life Cycle
 
@@ -191,7 +192,7 @@ class InformationAboutPersonViewController: UIViewController {
             view.addSubview(item)
         }
 
-        addButton.addTarget(self, action: #selector(informationSend), for: .touchUpInside)
+        addButton.addTarget(self, action: #selector(sendInformation), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
     }
 
@@ -201,37 +202,41 @@ class InformationAboutPersonViewController: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.backgroundColor = .white
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+        let toolBarDateBirth = UIToolbar()
+        toolBarDateBirth.sizeToFit()
+        let doneButton = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(creatureDateFormatter)
+        )
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolBar.setItems([flexSpace, doneButton], animated: true)
-        typingDateBirthField.inputAccessoryView = toolBar
+        toolBarDateBirth.setItems([flexSpace, doneButton], animated: true)
+        typingDateBirthField.inputAccessoryView = toolBarDateBirth
 
         // установк Picker Age
-        let toolBarTwo = UIToolbar()
-        toolBarTwo.sizeToFit()
-        let button = UIBarButtonItem(title: "ОК", style: .done, target: self, action: #selector(secondDoneAction))
+        let toolBarAge = UIToolbar()
+        toolBarAge.sizeToFit()
+        let button = UIBarButtonItem(title: "ОК", style: .done, target: self, action: #selector(chooseAge))
         number.backgroundColor = .white
         typingAgeField.inputView = number
 
-        toolBarTwo.setItems([flexSpace, button], animated: true)
-        typingAgeField.inputAccessoryView = toolBarTwo
+        toolBarAge.setItems([flexSpace, button], animated: true)
+        typingAgeField.inputAccessoryView = toolBarAge
 
         // установк Picker Gender
         indicateGenderField.inputView = gender
-        let toolBarThree = UIToolbar()
-        toolBarThree.sizeToFit()
+        let toolBarGender = UIToolbar()
+        toolBarGender.sizeToFit()
         let buttonThrid = UIBarButtonItem(
             title: "ОК",
             style: .done,
             target: self,
-            action: #selector(thirdDoneAction)
+            action: #selector(chooseGender)
         )
-        toolBarThree.setItems([flexSpace, buttonThrid], animated: true)
+        toolBarGender.setItems([flexSpace, buttonThrid], animated: true)
         gender.backgroundColor = .white
         indicateGenderField.inputAccessoryView = gender
-        indicateGenderField.inputAccessoryView = toolBarThree
+        indicateGenderField.inputAccessoryView = toolBarGender
     }
 
     @objc private func selectTelegram() {
@@ -253,28 +258,28 @@ class InformationAboutPersonViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    @objc private func informationSend() {
+    @objc private func sendInformation() {
         let person = UserModel(
             name: typingNameSurnameField.text ?? "",
             age: typingAgeField.text ?? "",
             image: "photo",
             dayBirthday: convertedDate, tillBirthday: "\(Int.random(in: 1 ... 360)) \ndays"
         )
-        delegate?.informationTransfer(person)
+        delegate?.transferInformation(person)
         dismiss(animated: true, completion: nil)
     }
 
-    @objc private func thirdDoneAction() {
+    @objc private func chooseGender() {
         indicateGenderField.text = gender.result
         indicateGenderField.resignFirstResponder()
     }
 
-    @objc private func secondDoneAction() {
+    @objc private func chooseAge() {
         typingAgeField.resignFirstResponder()
         typingAgeField.text = number.ageInformation
     }
 
-    @objc private func doneAction() {
+    @objc private func creatureDateFormatter() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         let convertedDateFormatter = DateFormatter()

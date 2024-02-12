@@ -5,7 +5,7 @@ import UIKit
 
 /// Класс кастомного лейбла
 class CustomLabel: UILabel {
-    // MARK: - Life Cycle
+    // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)

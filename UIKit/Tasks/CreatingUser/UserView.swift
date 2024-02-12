@@ -10,7 +10,7 @@ class UserView: UIView {
     let avatarImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 8, y: 11, width: 75, height: 75)
-        image.image = UIImage(named: "boy")
+        image.image = .boy
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 12
         return image
@@ -26,7 +26,7 @@ class UserView: UIView {
     var dayBirthday: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 91, y: 53, width: 180, height: 20)
-        label.text = "USer Birtchday"
+        label.text = "User Birthday"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(red: 17 / 255.0, green: 17 / 255.0, blue: 17 / 255.0, alpha: 1)
         return label

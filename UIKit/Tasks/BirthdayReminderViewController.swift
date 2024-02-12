@@ -5,8 +5,8 @@ import UIKit
 
 /// Класс куда добавляются пользователи и информация о них
 final class BirthdayReminderViewController: UIViewController {
-    
     // MARK: - Constants
+
     // создание лейбла
     private let birthdayReminderLabel: UILabel = {
         let label = UILabel()
@@ -25,7 +25,7 @@ final class BirthdayReminderViewController: UIViewController {
         image.image = UIImage(named: "cakeOne")
         return image
     }()
-    
+
     // MARK: - Public Properties
 
     var people: [UserModel] = [
@@ -38,16 +38,20 @@ final class BirthdayReminderViewController: UIViewController {
     }
 
     // MARK: - Private Properties
+
     private var delegate: InformationDelegate?
-   
+
     // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         addUser()
         setupNavigationItem()
     }
+
     // MARK: - Private Methods
+
     private func setupView() {
         view.backgroundColor = .white
         view.addSubview(cakeImageView)
@@ -65,14 +69,14 @@ final class BirthdayReminderViewController: UIViewController {
     // метод для установки местоположения пользователя
     private func addUser() {
         var startY = 94
-        for item in people {
-            userCreate(person: item, sizeY: startY)
+        for person in people {
+            createUser(person: person, sizeY: startY)
             startY += 95
         }
     }
 
     // метод для создания пользователя
-    private func userCreate(person: UserModel, sizeY: Int) {
+    private func createUser(person: UserModel, sizeY: Int) {
         let userView = UserView()
         userView.thirdNameLabel.text = person.name
         userView.avatarImageView.image = UIImage(named: person.image)
@@ -91,7 +95,7 @@ final class BirthdayReminderViewController: UIViewController {
 
 // расширение для получения информации с другого экрана
 extension BirthdayReminderViewController: InformationDelegate {
-    func informationTransfer(_ user: UserModel) {
+    func transferInformation(_ user: UserModel) {
         people.append(user)
     }
 }

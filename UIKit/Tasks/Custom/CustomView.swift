@@ -5,7 +5,7 @@ import UIKit
 
 // Класс кастомного view
 class CustomView: UIView {
-    // MARK: - Life Cycle
+    // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)

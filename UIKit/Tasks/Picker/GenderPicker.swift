@@ -5,7 +5,7 @@ import UIKit
 
 /// Класс где создан пикер для выбора пола
 final class GenderPicker: UIPickerView {
-    var people: [String] = ["Male", "Female"]
+    private var genders: [String] = ["Male", "Female"]
     var result = ""
 
     override init(frame: CGRect) {
@@ -31,17 +31,17 @@ extension GenderPicker: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        people.count
+        genders.count
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        result = people[row]
+        result = genders[row]
     }
 }
 
 // расширение определяет, какой текст будет отображаться в каждой строке и сохраняет выбранное значение
 extension GenderPicker: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        people[row]
+        genders[row]
     }
 }

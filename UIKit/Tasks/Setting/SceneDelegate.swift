@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = AuthorizationViewController()
+        window?.rootViewController = CoffeeSelectionViewController()
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
     }

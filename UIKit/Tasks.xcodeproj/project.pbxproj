@@ -21,6 +21,7 @@
 		21E014102B7A69E200491177 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E0140E2B7A69E200491177 /* Verdana.ttf */; };
 		21E014112B7A69E200491177 /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21E0140F2B7A69E200491177 /* Verdana-Bold.ttf */; };
 		21E014152B7A82DB00491177 /* ViewCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E014142B7A82DB00491177 /* ViewCoffee.swift */; };
+		21E014192B7AEBEA00491177 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E014182B7AEBEA00491177 /* CustomLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		21E0140E2B7A69E200491177 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		21E0140F2B7A69E200491177 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
 		21E014142B7A82DB00491177 /* ViewCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoffee.swift; sourceTree = "<group>"; };
+		21E014182B7AEBEA00491177 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				21E014082B7A691400491177 /* IngredientsViewController.swift */,
 				21E0140A2B7A696400491177 /* ChequeViewController.swift */,
 				21E0140C2B7A699B00491177 /* ThanksViewController.swift */,
+				21E014172B7AEB2900491177 /* Extension */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,
 				21E014122B7A69EE00491177 /* Font */,
@@ -113,6 +116,14 @@
 				21E014142B7A82DB00491177 /* ViewCoffee.swift */,
 			);
 			path = MVCcoffe;
+			sourceTree = "<group>";
+		};
+		21E014172B7AEB2900491177 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				21E014182B7AEBEA00491177 /* CustomLabel.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +248,7 @@
 				217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */,
 				21E014092B7A691400491177 /* IngredientsViewController.swift in Sources */,
 				21E014072B7A689A00491177 /* ChoiceRoastingViewController.swift in Sources */,
+				21E014192B7AEBEA00491177 /* CustomLabel.swift in Sources */,
 				21E014032B7A67E600491177 /* MenuViewController.swift in Sources */,
 				21E0140B2B7A696400491177 /* ChequeViewController.swift in Sources */,
 				21E0140D2B7A699C00491177 /* ThanksViewController.swift in Sources */,

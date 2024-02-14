@@ -35,12 +35,15 @@ final class ViewCoffee: UIView {
         return label
     }()
 
-    let ingredientsLabel = CustomLabel(
+    let ingredientsLabel = CoffeeModifierLabel(
         name: "Дополнительные ингредіенты",
         frame: CGRect(x: 195, y: 599, width: 165, height: 50)
     )
 
-    let roastingLabel = CustomLabel(name: "Темная \nобжарка", frame: CGRect(x: 15, y: 599, width: 165, height: 50))
+    let roastingLabel = CoffeeModifierLabel(
+        name: "Темная \nобжарка",
+        frame: CGRect(x: 15, y: 599, width: 165, height: 50)
+    )
 
     let modificationLabel: UILabel = {
         let label = UILabel()
@@ -54,6 +57,7 @@ final class ViewCoffee: UIView {
     let ingredientView: UIView = {
         let ingredient = UIView()
         ingredient.frame = CGRect(x: 15, y: 482, width: 165, height: 165)
+        // Добавить в асет
         ingredient.backgroundColor = UIColor(red: 247 / 255.0, green: 247 / 255.0, blue: 247 / 255.0, alpha: 1)
         ingredient.layer.cornerRadius = 12
         ingredient.backgroundColor = .colour
@@ -61,50 +65,43 @@ final class ViewCoffee: UIView {
     }()
 
     let coffeeView: UIView = {
-        let coffee = UIView()
-        coffee.frame = CGRect(x: 195, y: 482, width: 165, height: 165)
-        coffee.backgroundColor = UIColor(red: 247 / 255.0, green: 247 / 255.0, blue: 247 / 255.0, alpha: 1)
-        coffee.layer.cornerRadius = 12
-        coffee.backgroundColor = .colour
-        return coffee
+        let view = UIView()
+        view.frame = CGRect(x: 195, y: 482, width: 165, height: 165)
+        view.backgroundColor = UIColor(red: 247 / 255.0, green: 247 / 255.0, blue: 247 / 255.0, alpha: 1)
+        view.layer.cornerRadius = 12
+        view.backgroundColor = .colour
+        return view
     }()
 
     let backgroundView: UIView = {
-        let coffee = UIView()
-        coffee.frame = CGRect(x: 0, y: 0, width: 375, height: 346)
-        coffee.backgroundColor = .backgroundView
-        coffee.layer.cornerRadius = 20
-        return coffee
+        let view = UIView()
+        view.frame = CGRect(x: 0, y: 0, width: 375, height: 346)
+        view.backgroundColor = .backgroundView
+        view.layer.cornerRadius = 20
+        return view
     }()
 
     let coffeeImageView: UIImageView = {
-        let coffee = UIImageView()
-        coffee.image = .coffee
-        coffee.frame = CGRect(x: 112, y: 128, width: 150, height: 150)
-        return coffee
-    }()
-
-    let planeImageView: UIImageView = {
-        let plane = UIImageView()
-        plane.image = .plane
-        plane.frame = CGRect(x: 330.55, y: 58.27, width: 20.21, height: 20.18)
-        return plane
+        let view = UIImageView()
+        view.image = .coffee
+        view.frame = CGRect(x: 112, y: 128, width: 150, height: 150)
+        return view
     }()
 
     let darkRoastingImageView: UIImageView = {
-        let darkRoasting = UIImageView()
-        darkRoasting.image = .darkRoasting
-        darkRoasting.frame = CGRect(x: 46, y: 499, width: 100, height: 100)
-        darkRoasting.isUserInteractionEnabled = true
-        return darkRoasting
+        let view = UIImageView()
+        view.image = .darkRoasting
+        view.frame = CGRect(x: 46, y: 499, width: 100, height: 100)
+        view.isUserInteractionEnabled = true
+        return view
     }()
 
-    let chooseIngredientsImageView: UIImageView = {
-        let ingredients = UIImageView()
-        ingredients.frame = CGRect(x: 252, y: 528, width: 50, height: 50)
-        ingredients.image = .plus
-        ingredients.isUserInteractionEnabled = true
-        return ingredients
+    var chooseIngredientsImageView: UIImageView = {
+        let view = UIImageView()
+        view.frame = CGRect(x: 252, y: 528, width: 50, height: 50)
+        view.image = .plus
+        view.isUserInteractionEnabled = true
+        return view
     }()
 
     // MARK: - Initializers
@@ -112,6 +109,7 @@ final class ViewCoffee: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        backgroundColor = .white
     }
 
     required init?(coder: NSCoder) {
@@ -131,7 +129,6 @@ final class ViewCoffee: UIView {
             modificationLabel,
             ingredientsLabel,
             coffeeImageView,
-            planeImageView,
             darkRoastingImageView,
             chooseIngredientsImageView
         ].forEach { addSubview($0) }

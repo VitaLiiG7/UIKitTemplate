@@ -4,9 +4,4 @@
 import UIKit
 
 /// Класс для авторизации пользователя
-class AuthorizationViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-    }
-}
+class AuthorizationViewController: UIViewController {}

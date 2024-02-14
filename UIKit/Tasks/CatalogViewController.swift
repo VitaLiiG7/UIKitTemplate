@@ -1,10 +1,10 @@
-// ViewController.swift
+// CatalogViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Класс Вью Контроллер
-class ViewController: UIViewController {
+/// Экран Каталог товара
+class CatalogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

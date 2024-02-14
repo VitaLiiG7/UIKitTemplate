@@ -5,23 +5,23 @@ import UIKit
 
 /// Класс для авторизации пользователя
 final class AuthorizationViewController: UIViewController {
-    // MARK: - Constants
+    // MARK: - Visual Components
 
-    private let eyeImage: UIImageView = {
+    private let eyeImageView: UIImageView = {
         var image = UIImageView()
         image.frame = CGRect(x: 335, y: 505, width: 22, height: 19)
         image.image = UIImage(named: "eye")
         return image
     }()
 
-    private let grayLineLogin: UIImageView = {
+    private let grayLineLoginImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 20, y: 460, width: 335, height: 1)
         image.backgroundColor = UIColor.systemGray3
         return image
     }()
 
-    private let grayLinePassword: UIImageView = {
+    private let grayLinePasswordImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 20, y: 530, width: 335, height: 1)
         image.backgroundColor = UIColor.systemGray3
@@ -80,8 +80,6 @@ final class AuthorizationViewController: UIViewController {
         return view
     }()
 
-    // MARK: - Variables
-
     private lazy var loginTextField: UITextField = {
         let tfield = UITextField()
         tfield.frame = CGRect(x: 20, y: 440, width: 175, height: 17)
@@ -91,13 +89,15 @@ final class AuthorizationViewController: UIViewController {
     }()
 
     private lazy var passwordTextField: UITextField = {
-        let tf = UITextField()
-        tf.frame = CGRect(x: 20, y: 510, width: 175, height: 17)
-        tf.placeholder = "Введите пароль"
-        tf.isSecureTextEntry = true
-        tf.addTarget(self, action: #selector(changePassword), for: .editingChanged)
-        return tf
+        let textField = UITextField()
+        textField.frame = CGRect(x: 20, y: 510, width: 175, height: 17)
+        textField.placeholder = "Введите пароль"
+        textField.isSecureTextEntry = true
+        textField.addTarget(self, action: #selector(changePassword), for: .editingChanged)
+        return textField
     }()
+
+    // MARK: - Private Methods
 
     // метод реализующий скрытие кнопки пока ТФ не заполнены
     @objc private func changePassword() {
@@ -113,13 +113,11 @@ final class AuthorizationViewController: UIViewController {
     }
 
     @objc private func pushToMenuController() {
-        let rootVC = MenuViewController()
-        let navVC = UINavigationController(rootViewController: rootVC)
+        let modalViewController = MenuViewController()
+        let navVC = UINavigationController(rootViewController: modalViewController)
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
     }
-
-    // MARK: - SetupUI
 
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.4726310968, green: 0.3272212744, blue: 0.1946154535, alpha: 1)
@@ -131,14 +129,15 @@ final class AuthorizationViewController: UIViewController {
         view.addSubview(passwordLabel)
         view.addSubview(passwordTextField)
         view.addSubview(enterButton)
-        view.addSubview(grayLinePassword)
-        view.addSubview(grayLineLogin)
-        view.addSubview(eyeImage)
+        view.addSubview(grayLinePasswordImageView)
+        view.addSubview(grayLineLoginImageView)
+        view.addSubview(eyeImageView)
     }
+
+    // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.4726310968, green: 0.3272212744, blue: 0.1946154535, alpha: 1)
         setupUI()
     }
 }

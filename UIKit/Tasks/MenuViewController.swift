@@ -4,8 +4,10 @@
 import UIKit
 
 /// Класс для выбора еды
-class MenuViewController: UIViewController {
-    private let guestLabelUp: UILabel = {
+final class MenuViewController: UIViewController {
+    // MARK: - Visual Components
+
+    private let letterGLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.text = "Г"
@@ -14,35 +16,35 @@ class MenuViewController: UIViewController {
         return label
     }()
 
-    private let guestAvatar: UIImageView = {
+    private let guestAvatarImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 320, y: 230, width: 44, height: 44)
-        image.image = UIImage(named: "g")
+        image.image = UIImage(named: "letterG")
         return image
     }()
 
-    private let cupWithCoffeImage: UIImageView = {
+    private let cupWithCoffeImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "cupWithCoffe")
         image.frame = CGRect(x: 272, y: 685, width: 70, height: 70)
         return image
     }()
 
-    private let cupImage: UIImageView = {
+    private let cupImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "cup")
         image.frame = CGRect(x: 271, y: 605, width: 70, height: 44)
         return image
     }()
 
-    private let pieImage: UIImageView = {
+    private let pieImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "pie")
         image.frame = CGRect(x: 270, y: 505, width: 70, height: 70)
         return image
     }()
 
-    private let coffeButton: UIButton = {
+    private let choseCoffeButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
         button.setTitle("Кофий", for: .normal)
@@ -61,7 +63,7 @@ class MenuViewController: UIViewController {
         return button
     }()
 
-    private let ptiButton: UIButton = {
+    private let pieButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
         button.setTitle("Пти пате аля «РюсЪ»", for: .normal)
@@ -70,28 +72,28 @@ class MenuViewController: UIViewController {
         return button
     }()
 
-    private let thirdVarMenuImage: UIImageView = {
+    private let backgroundTopButtonMenuImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "rect")
         image.frame = CGRect(x: 21, y: 680, width: 335, height: 80)
         return image
     }()
 
-    private let secondVarMenuImage: UIImageView = {
+    private let backgroundMiddleButtonImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "rect")
         image.frame = CGRect(x: 20, y: 590, width: 335, height: 80)
         return image
     }()
 
-    private let variantsMenuImage: UIImageView = {
+    private let backgroundBotButtonImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "variants")
         image.frame = CGRect(x: 20, y: 500, width: 335, height: 80)
         return image
     }()
 
-    private let menuImage: UIImageView = {
+    private let menuImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "menu")
         image.frame = CGRect(x: 120, y: 410, width: 125, height: 80)
@@ -115,7 +117,7 @@ class MenuViewController: UIViewController {
         return label
     }()
 
-    private let labelPointView: UILabel = {
+    private let geoPointLabel: UILabel = {
         let label = UILabel()
         label.text = "Адреса кофеен"
         label.font = UIFont(name: "Verdana-Bold", size: 12)
@@ -123,7 +125,7 @@ class MenuViewController: UIViewController {
         return label
     }()
 
-    private let pointView: UIImageView = {
+    private let geoPointImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "point")
         image.frame = CGRect(x: 20, y: 330, width: 335, height: 70)
@@ -155,17 +157,12 @@ class MenuViewController: UIViewController {
         return view
     }()
 
+    // MARK: - Private methods
+
     @objc private func pushToCheque() {
         let rootVC = ChequeViewController()
         let navVC = UINavigationController(rootViewController: rootVC)
         present(navVC, animated: true)
-    }
-
-    // MARK: - Life Cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
     }
 
     private func setupUI() {
@@ -173,21 +170,28 @@ class MenuViewController: UIViewController {
         view.addSubview(cofeinovLabel)
         view.addSubview(secondView)
         view.addSubview(guestLabel)
-        view.addSubview(pointView)
-        view.addSubview(labelPointView)
+        view.addSubview(geoPointImageView)
+        view.addSubview(geoPointLabel)
         view.addSubview(textLabelPointView)
         view.addSubview(pointViewLabel)
-        view.addSubview(menuImage)
-        view.addSubview(variantsMenuImage)
-        view.addSubview(secondVarMenuImage)
-        view.addSubview(thirdVarMenuImage)
-        view.addSubview(ptiButton)
+        view.addSubview(menuImageView)
+        view.addSubview(backgroundTopButtonMenuImageView)
+        view.addSubview(backgroundMiddleButtonImageView)
+        view.addSubview(backgroundBotButtonImageView)
+        view.addSubview(pieButton)
         view.addSubview(hotButton)
-        view.addSubview(coffeButton)
-        view.addSubview(pieImage)
-        view.addSubview(cupImage)
-        view.addSubview(cupWithCoffeImage)
-        view.addSubview(guestAvatar)
-        view.addSubview(guestLabelUp)
+        view.addSubview(choseCoffeButton)
+        view.addSubview(pieImageView)
+        view.addSubview(cupImageView)
+        view.addSubview(cupWithCoffeImageView)
+        view.addSubview(guestAvatarImageView)
+        view.addSubview(letterGLabel)
+    }
+
+    // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
     }
 }

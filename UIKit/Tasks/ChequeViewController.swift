@@ -4,8 +4,8 @@
 import UIKit
 
 /// Класс для выдачи чека
-class ChequeViewController: UIViewController {
-    // MARK: - Constants
+final class ChequeViewController: UIViewController {
+    // MARK: - Visual Components
 
     private let espressoPriceLabel: UILabel = {
         let label = UILabel()
@@ -31,7 +31,7 @@ class ChequeViewController: UIViewController {
         return label
     }()
 
-    private let venzel: UIImageView = {
+    private let venzelImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "venzelLast")
         image.frame = CGRect(x: 130, y: 490, width: 100, height: 40)
@@ -46,7 +46,7 @@ class ChequeViewController: UIViewController {
         return label
     }()
 
-    private let espresso50ml: UILabel = {
+    private let espresso50mlLabel: UILabel = {
         let label = UILabel()
         label.text = "Эспрессо 50мл"
         label.font = UIFont(name: "Verdana", size: 16)
@@ -54,7 +54,7 @@ class ChequeViewController: UIViewController {
         return label
     }()
 
-    private let milk: UILabel = {
+    private let milkLabel: UILabel = {
         let label = UILabel()
         label.text = "Молоко"
         label.font = UIFont(name: "Verdana", size: 16)
@@ -62,7 +62,7 @@ class ChequeViewController: UIViewController {
         return label
     }()
 
-    private let americano: UILabel = {
+    private let americanoLabel: UILabel = {
         let label = UILabel()
         label.text = "Американо"
         label.font = UIFont(name: "Verdana-Bold", size: 18)
@@ -92,8 +92,6 @@ class ChequeViewController: UIViewController {
         return image
     }()
 
-    // MARK: - Button
-
     private let payButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.white, for: .normal)
@@ -106,13 +104,6 @@ class ChequeViewController: UIViewController {
         return button
     }()
 
-    @objc private func payButtonAction() {
-        let rootVC = ThanksViewController()
-        let navVC = UINavigationController(rootViewController: rootVC)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true)
-    }
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -120,18 +111,25 @@ class ChequeViewController: UIViewController {
         setupUI()
     }
 
-    // MARK: - SetupUI
+    // MARK: - Private Methods
+
+    @objc private func payButtonAction() {
+        let destinationViewController = ThanksViewController()
+        let navigationController = UINavigationController(rootViewController: destinationViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
+    }
 
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(venzelLeft)
         view.addSubview(venzelRight)
         view.addSubview(bilLabel)
-        view.addSubview(americano)
-        view.addSubview(milk)
-        view.addSubview(espresso50ml)
+        view.addSubview(americanoLabel)
+        view.addSubview(milkLabel)
+        view.addSubview(espresso50mlLabel)
         view.addSubview(totalLabel)
-        view.addSubview(venzel)
+        view.addSubview(venzelImageView)
         view.addSubview(payButton)
         view.addSubview(americanoPriceLabel)
         view.addSubview(milkPriceLabel)

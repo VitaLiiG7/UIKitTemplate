@@ -4,12 +4,12 @@
 import UIKit
 
 // Класс успешного заказа
-class ThanksViewController: UIViewController {
-    // MARK: - Constants
+final class ThanksViewController: UIViewController {
+    // MARK: - Visual Components
 
-    private let cancelImage: UIImageView = {
+    private let cancelCrossButtonImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "x")
+        image.image = UIImage(named: "crossButton")
         image.frame = CGRect(x: 20, y: 60, width: 14, height: 14)
         return image
     }()
@@ -28,9 +28,9 @@ class ThanksViewController: UIViewController {
         return label
     }()
 
-    private let thxImage: UIImageView = {
+    private let thanksForOrderImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "thx")
+        image.image = UIImage(named: "thanksForOrder")
         image.frame = CGRect(x: 85, y: 250, width: 235, height: 128)
         return image
     }()
@@ -42,9 +42,7 @@ class ThanksViewController: UIViewController {
         return image
     }()
 
-    // MARK: - Button
-
-    private let okButton: UIButton = {
+    private let moveTransitionButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Хорошо", for: .normal)
@@ -52,16 +50,9 @@ class ThanksViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 18)
         button.layer.cornerRadius = 12
         button.frame = CGRect(x: 20, y: 650, width: 345, height: 53)
-        button.addTarget(self, action: #selector(okButtonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(transitionAction), for: .touchUpInside)
         return button
     }()
-
-    @objc private func okButtonAction() {
-        let rootVC = MenuViewController()
-        let navVC = UINavigationController(rootViewController: rootVC)
-        navVC.modalPresentationStyle = .fullScreen
-        present(navVC, animated: true)
-    }
 
     // MARK: - Life Cycle
 
@@ -70,14 +61,21 @@ class ThanksViewController: UIViewController {
         setupUI()
     }
 
-    // MARK: - SetupUI
+    // MARK: - Private methods
+
+    @objc private func transitionAction() {
+        let rootVC = MenuViewController()
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
+    }
 
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(topImage)
-        view.addSubview(thxImage)
+        view.addSubview(thanksForOrderImageView)
         view.addSubview(shareLabel)
-        view.addSubview(okButton)
-        view.addSubview(cancelImage)
+        view.addSubview(moveTransitionButton)
+        view.addSubview(cancelCrossButtonImage)
     }
 }

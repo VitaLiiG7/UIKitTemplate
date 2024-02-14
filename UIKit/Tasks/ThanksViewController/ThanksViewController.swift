@@ -3,5 +3,5 @@
 
 import UIKit
 
-// Класс успешного заказа
-class ThanksViewController: UIViewController {}
+// Экран успешного заказа
+final class ThanksViewController: UIViewController {}

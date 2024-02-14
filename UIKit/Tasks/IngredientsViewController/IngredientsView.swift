@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// класс для выбора ингридиентов
+/// Экран  для выбора ингридиентов
 final class IngredientsView: UIView {
     // MARK: - Constants
 

@@ -3,9 +3,9 @@
 
 import UIKit
 
-/// Класс для выдачи чека
+/// Экран выдачи чека
 final class ChequeViewController: UIViewController {
-    var label: UILabel = {
+    var testlabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 15, y: 669, width: 345, height: 30)
         label.text = ""
@@ -14,4 +14,8 @@ final class ChequeViewController: UIViewController {
         label.textColor = .black
         return label
     }()
+
+    override func viewDidLoad() {
+        view.backgroundColor = .green
+    }
 }

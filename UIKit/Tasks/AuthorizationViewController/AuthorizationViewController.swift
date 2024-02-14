@@ -3,5 +3,5 @@
 
 import UIKit
 
-/// Класс для авторизации пользователя
+/// Класс  авторизации пользователя
 class AuthorizationViewController: UIViewController {}

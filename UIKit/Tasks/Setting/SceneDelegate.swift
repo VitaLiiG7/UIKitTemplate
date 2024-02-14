@@ -12,12 +12,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
+        setupWindow()
+    }
+    
+    func setupWindow() {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let menuViewController = MenuViewController()
+        let menuViewController = CoffeeSelectionViewController()
         let navigationController = UINavigationController()
         navigationController.viewControllers = [menuViewController]
-        window?.rootViewController = navigationController
+        window?.rootViewController = menuViewController
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
     }

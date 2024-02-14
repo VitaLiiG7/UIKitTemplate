@@ -3,5 +3,5 @@
 
 import UIKit
 
-/// Класс для выбора еды
-class MenuViewController: UIViewController { }
+/// Экран для выбора еды
+class MenuViewController: UIViewController {}

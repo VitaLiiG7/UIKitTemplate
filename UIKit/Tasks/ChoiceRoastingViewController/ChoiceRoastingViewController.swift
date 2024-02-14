@@ -3,11 +3,13 @@
 
 import UIKit
 
+/// протокол Делегата для передачи информации
 protocol CoffeeRoastDelegate: AnyObject {
-    func changeRoasting(roasting: Model)
+    // метод который передает информацию изображение обжарки кофе и его название
+    func changeRoasting(roasting: coffeeAndIngredients)
 }
 
-/// Класс для выбора обжарки зерен
+/// Экрна для выбора обжарки зерен
 final class ChoiceRoastingViewController: UIViewController {
     // MARK: - Constants
 
@@ -142,7 +144,7 @@ final class ChoiceRoastingViewController: UIViewController {
     }
 
     @objc private func closeScreen() {
-        let coffeeMapdict = Model(coffeeMap: [Constants.nameRoast: Constants.imageRoast])
+        let coffeeMapdict = coffeeAndIngredients(coffeeMap: [Constants.nameRoast: Constants.imageRoast])
         delegate?.changeRoasting(roasting: coffeeMapdict)
         dismiss(animated: true)
     }

@@ -12,7 +12,7 @@
 		217519E12B71049E00C06FB3 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519E02B71049E00C06FB3 /* AuthorizationViewController.swift */; };
 		217519E62B7104A000C06FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217519E52B7104A000C06FB3 /* Assets.xcassets */; };
 		217519E92B7104A000C06FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */; };
-		21A8B0BC2B7B6545003156B5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0BB2B7B6545003156B5 /* Model.swift */; };
+		21A8B0BC2B7B6545003156B5 /* coffeeAndIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0BB2B7B6545003156B5 /* coffeeAndIngredients.swift */; };
 		21A8B0BE2B7B69D3003156B5 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0BD2B7B69D3003156B5 /* IngredientsView.swift */; };
 		21A8B0C12B7B6E33003156B5 /* IngredientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0C02B7B6E33003156B5 /* IngredientLabel.swift */; };
 		21A8B0C42B7C0E28003156B5 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0C32B7C0E28003156B5 /* NavigationItem.swift */; };
@@ -36,7 +36,7 @@
 		217519E52B7104A000C06FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		217519E82B7104A000C06FB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		217519EA2B7104A000C06FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21A8B0BB2B7B6545003156B5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		21A8B0BB2B7B6545003156B5 /* coffeeAndIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coffeeAndIngredients.swift; sourceTree = "<group>"; };
 		21A8B0BD2B7B69D3003156B5 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
 		21A8B0C02B7B6E33003156B5 /* IngredientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientLabel.swift; sourceTree = "<group>"; };
 		21A8B0C32B7C0E28003156B5 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				21A8B0CB2B7C403D003156B5 /* ThanksViewController */,
 				21A8B0C22B7C0D11003156B5 /* NavigationItem+Extension */,
 				21E014172B7AEB2900491177 /* CustomLabels */,
-				21A8B0BB2B7B6545003156B5 /* Model.swift */,
+				21A8B0BB2B7B6545003156B5 /* coffeeAndIngredients.swift */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,
 				21E014122B7A69EE00491177 /* Font */,
@@ -312,7 +312,7 @@
 				21E014052B7A685200491177 /* CoffeeSelectionViewController.swift in Sources */,
 				217519E12B71049E00C06FB3 /* AuthorizationViewController.swift in Sources */,
 				21E014152B7A82DB00491177 /* ViewCoffee.swift in Sources */,
-				21A8B0BC2B7B6545003156B5 /* Model.swift in Sources */,
+				21A8B0BC2B7B6545003156B5 /* coffeeAndIngredients.swift in Sources */,
 				21A8B0BE2B7B69D3003156B5 /* IngredientsView.swift in Sources */,
 				217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */,
 				21A8B0C42B7C0E28003156B5 /* NavigationItem.swift in Sources */,

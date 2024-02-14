@@ -3,8 +3,8 @@
 
 import Foundation
 
-/// Класс модель
-struct Model {
+/// модель для передачи ингридиетнтов и кофе 
+struct coffeeAndIngredients {
     /// Класс модель для передачи данных между контроллерами
     var coffeeMap: [String: String]
     var sum: Int

@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Класс кастомный лейбл ингридиент
+/// Вью выбора ингридиентов
 final class IngredientLabel: UILabel {
     convenience init(name: String, frame: CGRect) {
         self.init(frame: frame)

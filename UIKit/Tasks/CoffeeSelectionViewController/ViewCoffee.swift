@@ -3,13 +3,28 @@
 
 import UIKit
 
-// Класс для отображения юайэлементов на экране заказа кофе
+// Экран заказа кофе
 final class ViewCoffee: UIView {
+    // MARK: - Constants
+
+    enum Constants {
+        static let american = "Американо"
+        static let cappuccino = "Американо"
+        static let latte = "latte"
+        static let font = "Verdana-Bold"
+        static let modification = "Модификация"
+        static let darkRoasting = "Темная \nобжарка"
+        static let additionalIngredients = "Дополнительные ингредіенты"
+        static let order = "Заказать"
+        static let rate = "Цѣна - "
+        static let price = "100 руб"
+    }
+
     // MARK: - Visual Components
 
     let segmentControll: UISegmentedControl = {
         var segment = UISegmentedControl()
-        segment = UISegmentedControl(items: ["Американо", "Капучино", "Латте"])
+        segment = UISegmentedControl(items: [Constants.american, Constants.cappuccino, Constants.latte])
         segment.frame = CGRect(x: 15, y: 368, width: 345, height: 44)
         return segment
     }()
@@ -19,37 +34,38 @@ final class ViewCoffee: UIView {
         button.frame = CGRect(x: 15, y: 717, width: 345, height: 53)
         button.backgroundColor = .order
         button.layer.cornerRadius = 12
-        button.setTitle("Заказать", for: .normal)
+        button.setTitle(Constants.order, for: .normal)
         button.tintColor = .white
-        button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 18)
+        button.titleLabel?.font = UIFont(name: Constants.font, size: 18)
+//        button.addTarget(self, action: #selector(placeOrder), for: .touchUpInside)
         return button
     }()
 
     let priceLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 15, y: 669, width: 345, height: 30)
-        label.text = "Цѣна - 100 руб"
+        label.text = Constants.rate + Constants.price
         label.textAlignment = .right
-        label.font = UIFont(name: "Verdana-Bold", size: 18)
+        label.font = UIFont(name: Constants.font, size: 18)
         label.textColor = .black
         return label
     }()
 
     let ingredientsLabel = CoffeeModifierLabel(
-        name: "Дополнительные ингредіенты",
+        name: Constants.additionalIngredients,
         frame: CGRect(x: 195, y: 599, width: 165, height: 50)
     )
 
     let roastingLabel = CoffeeModifierLabel(
-        name: "Темная \nобжарка",
+        name: Constants.darkRoasting,
         frame: CGRect(x: 15, y: 599, width: 165, height: 50)
     )
 
     let modificationLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 15, y: 432, width: 200, height: 30)
-        label.text = "Модификация"
-        label.font = UIFont(name: "Verdana-Bold", size: 18)
+        label.text = Constants.modification
+        label.font = UIFont(name: Constants.font, size: 18)
         label.textColor = .black
         return label
     }()

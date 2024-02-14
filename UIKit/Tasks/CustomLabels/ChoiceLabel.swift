@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Класс для кастомного лейбла для избежания копи паста
+/// Лейбл Вид обжарки
 final class CoffeeModifierLabel: UILabel {
     convenience init(name: String, frame: CGRect) {
         self.init(frame: frame)

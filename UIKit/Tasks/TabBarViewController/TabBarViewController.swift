@@ -26,23 +26,23 @@ final class TabBarViewController: UITabBarController {
 
         tabBar.tintColor = .colorButton
 
-        catalogNavViewController.tabBarItem = UITabBarItem(
-            title: Constants.catalog,
-            image: .catalog,
-            tag: 0
-        )
-
-        basketViewController.tabBarItem = UITabBarItem(
-            title: Constants.basket,
-            image: .profile,
-            tag: 1
-        )
-
-        profileNavViewController.tabBarItem = UITabBarItem(
-            title: Constants.profile,
-            image: .basket,
-            tag: 2
-        )
+//         catalogNavViewController.tabBarItem = UITabBarItem(
+//            title: Constants.catalog,
+//            image: .catalog,
+//            tag: 0
+//         )
+//
+//         basketViewController.tabBarItem = UITabBarItem(
+//            title: Constants.basket,
+//            image: .profile,
+//            tag: 1
+//         )
+//
+//         profileNavViewController.tabBarItem = UITabBarItem(
+//            title: Constants.profile,
+//            image: .basket,
+//            tag: 2
+//         )
 
         setViewControllers([catalogNavViewController, profileNavViewController, basketViewController], animated: true)
     }

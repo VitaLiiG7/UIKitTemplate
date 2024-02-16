@@ -12,14 +12,20 @@
 		217519E12B71049E00C06FB3 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519E02B71049E00C06FB3 /* CatalogViewController.swift */; };
 		217519E62B7104A000C06FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217519E52B7104A000C06FB3 /* Assets.xcassets */; };
 		217519E92B7104A000C06FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */; };
-		21A8B0CD2B7CD681003156B5 /* FootwearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0CC2B7CD681003156B5 /* FootwearViewController.swift */; };
-		21A8B0CF2B7CD789003156B5 /* ShoeSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0CE2B7CD789003156B5 /* ShoeSizeViewController.swift */; };
+		21A8B0CF2B7CD789003156B5 /* ChoosingShoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0CE2B7CD789003156B5 /* ChoosingShoesViewController.swift */; };
 		21A8B0D12B7CD7DA003156B5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0D02B7CD7DA003156B5 /* ProfileViewController.swift */; };
 		21A8B0D32B7CE298003156B5 /* InformationAboutPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0D22B7CE298003156B5 /* InformationAboutPersonViewController.swift */; };
 		21A8B0D52B7CE369003156B5 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0D42B7CE369003156B5 /* BasketViewController.swift */; };
 		21A8B0D72B7CE405003156B5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0D62B7CE405003156B5 /* TabBarViewController.swift */; };
 		21A8B0DC2B7D168A003156B5 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21A8B0DA2B7D168A003156B5 /* Verdana.ttf */; };
 		21A8B0DD2B7D168A003156B5 /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21A8B0DB2B7D168A003156B5 /* Verdana-Bold.ttf */; };
+		21A8B0E32B7D5574003156B5 /* CastomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0E22B7D5574003156B5 /* CastomImage.swift */; };
+		21A8B0E52B7D64F2003156B5 /* ViewCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0E42B7D64F2003156B5 /* ViewCatalog.swift */; };
+		21C085292B7DF5CC00D48833 /* CastomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C085282B7DF5CC00D48833 /* CastomView.swift */; };
+		21C0852B2B7E19E800D48833 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0852A2B7E19E800D48833 /* ProductView.swift */; };
+		21C0852E2B7E48F400D48833 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0852D2B7E48F400D48833 /* Product.swift */; };
+		21C085302B7E864600D48833 /* ChoosingSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0852F2B7E864600D48833 /* ChoosingSizeViewController.swift */; };
+		21C085372B7EE59D00D48833 /* InformationAboutShoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C085362B7EE59D00D48833 /* InformationAboutShoes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,14 +36,20 @@
 		217519E52B7104A000C06FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		217519E82B7104A000C06FB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		217519EA2B7104A000C06FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21A8B0CC2B7CD681003156B5 /* FootwearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootwearViewController.swift; sourceTree = "<group>"; };
-		21A8B0CE2B7CD789003156B5 /* ShoeSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSizeViewController.swift; sourceTree = "<group>"; };
+		21A8B0CE2B7CD789003156B5 /* ChoosingShoesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingShoesViewController.swift; sourceTree = "<group>"; };
 		21A8B0D02B7CD7DA003156B5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		21A8B0D22B7CE298003156B5 /* InformationAboutPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAboutPersonViewController.swift; sourceTree = "<group>"; };
 		21A8B0D42B7CE369003156B5 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		21A8B0D62B7CE405003156B5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		21A8B0DA2B7D168A003156B5 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		21A8B0DB2B7D168A003156B5 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		21A8B0E22B7D5574003156B5 /* CastomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomImage.swift; sourceTree = "<group>"; };
+		21A8B0E42B7D64F2003156B5 /* ViewCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCatalog.swift; sourceTree = "<group>"; };
+		21C085282B7DF5CC00D48833 /* CastomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomView.swift; sourceTree = "<group>"; };
+		21C0852A2B7E19E800D48833 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		21C0852D2B7E48F400D48833 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		21C0852F2B7E864600D48833 /* ChoosingSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingSizeViewController.swift; sourceTree = "<group>"; };
+		21C085362B7EE59D00D48833 /* InformationAboutShoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAboutShoes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,13 +83,14 @@
 			isa = PBXGroup;
 			children = (
 				21A8B0D82B7CE40B003156B5 /* Setting */,
-				21A8B0D62B7CE405003156B5 /* TabBarViewController.swift */,
-				217519E02B71049E00C06FB3 /* CatalogViewController.swift */,
-				21A8B0CC2B7CD681003156B5 /* FootwearViewController.swift */,
-				21A8B0CE2B7CD789003156B5 /* ShoeSizeViewController.swift */,
+				21A8B0DE2B7D4714003156B5 /* TabBarViewController */,
+				21A8B0E12B7D47A7003156B5 /* CatalogViewController */,
+				21C0852C2B7E19FC00D48833 /* ChoosingShoesViewController */,
+				21C085312B7E869200D48833 /* ChoosingSizeViewController */,
 				21A8B0D02B7CD7DA003156B5 /* ProfileViewController.swift */,
 				21A8B0D22B7CE298003156B5 /* InformationAboutPersonViewController.swift */,
 				21A8B0D42B7CE369003156B5 /* BasketViewController.swift */,
+				21C085282B7DF5CC00D48833 /* CastomView.swift */,
 				21A8B0D92B7D1603003156B5 /* Font */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,
@@ -102,6 +115,43 @@
 				21A8B0DA2B7D168A003156B5 /* Verdana.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		21A8B0DE2B7D4714003156B5 /* TabBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				21A8B0D62B7CE405003156B5 /* TabBarViewController.swift */,
+			);
+			path = TabBarViewController;
+			sourceTree = "<group>";
+		};
+		21A8B0E12B7D47A7003156B5 /* CatalogViewController */ = {
+			isa = PBXGroup;
+			children = (
+				217519E02B71049E00C06FB3 /* CatalogViewController.swift */,
+				21A8B0E42B7D64F2003156B5 /* ViewCatalog.swift */,
+				21A8B0E22B7D5574003156B5 /* CastomImage.swift */,
+			);
+			path = CatalogViewController;
+			sourceTree = "<group>";
+		};
+		21C0852C2B7E19FC00D48833 /* ChoosingShoesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				21A8B0CE2B7CD789003156B5 /* ChoosingShoesViewController.swift */,
+				21C0852A2B7E19E800D48833 /* ProductView.swift */,
+				21C0852D2B7E48F400D48833 /* Product.swift */,
+			);
+			path = ChoosingShoesViewController;
+			sourceTree = "<group>";
+		};
+		21C085312B7E869200D48833 /* ChoosingSizeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				21C0852F2B7E864600D48833 /* ChoosingSizeViewController.swift */,
+				21C085362B7EE59D00D48833 /* InformationAboutShoes.swift */,
+			);
+			path = ChoosingSizeViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,15 +269,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21C085372B7EE59D00D48833 /* InformationAboutShoes.swift in Sources */,
 				21A8B0D12B7CD7DA003156B5 /* ProfileViewController.swift in Sources */,
+				21C085302B7E864600D48833 /* ChoosingSizeViewController.swift in Sources */,
 				217519E12B71049E00C06FB3 /* CatalogViewController.swift in Sources */,
-				21A8B0CD2B7CD681003156B5 /* FootwearViewController.swift in Sources */,
 				217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */,
+				21A8B0E52B7D64F2003156B5 /* ViewCatalog.swift in Sources */,
 				21A8B0D72B7CE405003156B5 /* TabBarViewController.swift in Sources */,
 				217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */,
-				21A8B0CF2B7CD789003156B5 /* ShoeSizeViewController.swift in Sources */,
+				21A8B0CF2B7CD789003156B5 /* ChoosingShoesViewController.swift in Sources */,
+				21A8B0E32B7D5574003156B5 /* CastomImage.swift in Sources */,
+				21C085292B7DF5CC00D48833 /* CastomView.swift in Sources */,
 				21A8B0D52B7CE369003156B5 /* BasketViewController.swift in Sources */,
+				21C0852B2B7E19E800D48833 /* ProductView.swift in Sources */,
 				21A8B0D32B7CE298003156B5 /* InformationAboutPersonViewController.swift in Sources */,
+				21C0852E2B7E48F400D48833 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

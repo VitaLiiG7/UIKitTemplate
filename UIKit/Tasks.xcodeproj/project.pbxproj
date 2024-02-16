@@ -19,11 +19,9 @@
 		21A8B0D72B7CE405003156B5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0D62B7CE405003156B5 /* TabBarViewController.swift */; };
 		21A8B0DC2B7D168A003156B5 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21A8B0DA2B7D168A003156B5 /* Verdana.ttf */; };
 		21A8B0DD2B7D168A003156B5 /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21A8B0DB2B7D168A003156B5 /* Verdana-Bold.ttf */; };
-		21A8B0E32B7D5574003156B5 /* CastomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0E22B7D5574003156B5 /* CastomImage.swift */; };
+		21A8B0E32B7D5574003156B5 /* CustomRoundShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0E22B7D5574003156B5 /* CustomRoundShadowImageView.swift */; };
 		21A8B0E52B7D64F2003156B5 /* ViewCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0E42B7D64F2003156B5 /* ViewCatalog.swift */; };
-		21C085292B7DF5CC00D48833 /* CastomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C085282B7DF5CC00D48833 /* CastomView.swift */; };
 		21C0852B2B7E19E800D48833 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0852A2B7E19E800D48833 /* ProductView.swift */; };
-		21C0852E2B7E48F400D48833 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0852D2B7E48F400D48833 /* Product.swift */; };
 		21C085302B7E864600D48833 /* ChoosingSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0852F2B7E864600D48833 /* ChoosingSizeViewController.swift */; };
 		21C085372B7EE59D00D48833 /* InformationAboutShoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C085362B7EE59D00D48833 /* InformationAboutShoes.swift */; };
 /* End PBXBuildFile section */
@@ -43,11 +41,9 @@
 		21A8B0D62B7CE405003156B5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		21A8B0DA2B7D168A003156B5 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		21A8B0DB2B7D168A003156B5 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
-		21A8B0E22B7D5574003156B5 /* CastomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomImage.swift; sourceTree = "<group>"; };
+		21A8B0E22B7D5574003156B5 /* CustomRoundShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundShadowImageView.swift; sourceTree = "<group>"; };
 		21A8B0E42B7D64F2003156B5 /* ViewCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCatalog.swift; sourceTree = "<group>"; };
-		21C085282B7DF5CC00D48833 /* CastomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomView.swift; sourceTree = "<group>"; };
 		21C0852A2B7E19E800D48833 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
-		21C0852D2B7E48F400D48833 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		21C0852F2B7E864600D48833 /* ChoosingSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingSizeViewController.swift; sourceTree = "<group>"; };
 		21C085362B7EE59D00D48833 /* InformationAboutShoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAboutShoes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +86,6 @@
 				21A8B0D02B7CD7DA003156B5 /* ProfileViewController.swift */,
 				21A8B0D22B7CE298003156B5 /* InformationAboutPersonViewController.swift */,
 				21A8B0D42B7CE369003156B5 /* BasketViewController.swift */,
-				21C085282B7DF5CC00D48833 /* CastomView.swift */,
 				21A8B0D92B7D1603003156B5 /* Font */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,
@@ -130,7 +125,7 @@
 			children = (
 				217519E02B71049E00C06FB3 /* CatalogViewController.swift */,
 				21A8B0E42B7D64F2003156B5 /* ViewCatalog.swift */,
-				21A8B0E22B7D5574003156B5 /* CastomImage.swift */,
+				21A8B0E22B7D5574003156B5 /* CustomRoundShadowImageView.swift */,
 			);
 			path = CatalogViewController;
 			sourceTree = "<group>";
@@ -140,7 +135,6 @@
 			children = (
 				21A8B0CE2B7CD789003156B5 /* ChoosingShoesViewController.swift */,
 				21C0852A2B7E19E800D48833 /* ProductView.swift */,
-				21C0852D2B7E48F400D48833 /* Product.swift */,
 			);
 			path = ChoosingShoesViewController;
 			sourceTree = "<group>";
@@ -278,12 +272,10 @@
 				21A8B0D72B7CE405003156B5 /* TabBarViewController.swift in Sources */,
 				217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */,
 				21A8B0CF2B7CD789003156B5 /* ChoosingShoesViewController.swift in Sources */,
-				21A8B0E32B7D5574003156B5 /* CastomImage.swift in Sources */,
-				21C085292B7DF5CC00D48833 /* CastomView.swift in Sources */,
+				21A8B0E32B7D5574003156B5 /* CustomRoundShadowImageView.swift in Sources */,
 				21A8B0D52B7CE369003156B5 /* BasketViewController.swift in Sources */,
 				21C0852B2B7E19E800D48833 /* ProductView.swift in Sources */,
 				21A8B0D32B7CE298003156B5 /* InformationAboutPersonViewController.swift in Sources */,
-				21C0852E2B7E48F400D48833 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

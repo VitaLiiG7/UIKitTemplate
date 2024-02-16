@@ -4,7 +4,7 @@
 import UIKit
 
 /// Экран профиль пользователя с личными данными ( делает коллега )
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

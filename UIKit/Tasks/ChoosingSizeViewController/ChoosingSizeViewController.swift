@@ -3,30 +3,26 @@
 
 import UIKit
 
-protocol SizeDelegate: AnyObject {
-    func transferShoeSize(size: Int)
-}
+// Экран размера обуви
+final class ChoosingSizeViewController: UIViewController {
+    // MARK: - Constants
 
-// Экран для выбора размера обуви
-class ChoosingSizeViewController: UIViewController {
     enum Constants {
         static let chooseSize = "Выберите размер"
         static let sizeFont = 16
         static let fontVerdana = "Verdana"
+        static let startTopButton = 77
+        static let startTopView = 103
+        static let stepTop = 36
+        static let size = "EU"
+        static let price = "2250 р"
+        static let blackHeels = "blackHeels"
+        static let shoes = "Туфли женские"
     }
 
-    let size = [35, 36, 37, 38, 39]
-    weak var delegate: SizeDelegate?
+    // MARK: - Visual Components
 
-    lazy var cancelButton: UIButton = {
-        let button = UIButton()
-        button.setImage(.cross, for: .normal)
-        button.addTarget(self, action: #selector(closeScreen), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    let brandLabel: UILabel = {
+    private let brandLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.text = Constants.chooseSize
@@ -34,6 +30,23 @@ class ChoosingSizeViewController: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+
+    // MARK: - Private Properties
+
+    private let size = [35, 36, 37, 38, 39]
+    private var currentItem: InformationAboutShoes = .init(
+        price: Constants.price,
+        shoeImage: Constants.blackHeels,
+        shoeName: Constants.shoes
+    )
+
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setImage(.cross, for: .normal)
+        button.addTarget(self, action: #selector(closeScreen), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
 
     // MARK: - Life Cycle
@@ -47,22 +60,27 @@ class ChoosingSizeViewController: UIViewController {
 
     // MARK: - Private Methods
 
-    func setupView() {
+    private func setupView() {
         view.addSubview(brandLabel)
         view.addSubview(cancelButton)
         view.backgroundColor = .white
     }
 
-    func addSize() {
-        var topButton = 77
-        var topView = 103
+    private func array(_ item: InformationAboutShoes) {
+        currentItem = item
+    }
+
+    private func addSize() {
+        var topButton = Constants.startTopButton
+        var topView = Constants.startTopView
         for index in 0 ..< size.count {
             let sizeButton = UIButton()
-            sizeButton.setTitle("\(size[index]) EU", for: .normal)
+            sizeButton.setTitle("\(size[index]) \(Constants.size)", for: .normal)
             sizeButton.setTitleColor(.black, for: .normal)
             sizeButton.contentHorizontalAlignment = .left
             sizeButton.tag = index
             sizeButton.addTarget(self, action: #selector(chooseShoeSize), for: .touchUpInside)
+
             let sizeView = UIView()
             sizeView.backgroundColor = .systemGray
             sizeView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,6 +88,7 @@ class ChoosingSizeViewController: UIViewController {
 
             view.addSubview(sizeButton)
             view.addSubview(sizeView)
+
             sizeView.widthAnchor.constraint(equalToConstant: 335).isActive = true
             sizeView.heightAnchor.constraint(equalToConstant: 1).isActive = true
             sizeView.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(topView)).isActive = true
@@ -80,12 +99,12 @@ class ChoosingSizeViewController: UIViewController {
             sizeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(topButton)).isActive = true
             sizeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
 
-            topView += 36
-            topButton += 36
+            topView += Constants.stepTop
+            topButton += Constants.stepTop
         }
     }
 
-    func configure() {
+    private func configure() {
         brandLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 11).isActive = true
         brandLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 87).isActive = true
         brandLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
@@ -99,7 +118,8 @@ class ChoosingSizeViewController: UIViewController {
 
     @objc func chooseShoeSize(sender: UIButton) {
         let tag = sender.tag
-        delegate?.transferShoeSize(size: size[tag])
+        let basketViewControlle = BasketViewController()
+        basketViewControlle.addCard(info: currentItem, size: size[tag])
     }
 
     @objc func closeScreen() {

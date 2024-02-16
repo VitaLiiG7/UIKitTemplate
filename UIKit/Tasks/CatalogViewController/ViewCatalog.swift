@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Экран для отображения интерфейса
+/// Класс для отображения интерфейса на экране каталог
 final class ViewCatalog: UIView {
     // MARK: - Constants
 
@@ -22,11 +22,11 @@ final class ViewCatalog: UIView {
 
     // MARK: - Visual Components
 
-    let bootsImageView = CastomImage(image: .boots)
-    let sneakersImageView = CastomImage(image: .sneakers)
-    let brandImageView = CastomImage(image: .brends)
-    let shoesImageView = CastomImage(image: .shoes)
-    let bagImageView = CastomImage(image: .bag)
+    let bootsImageView = CustomRoundShadowImageView(image: .boots)
+    let sneakersImageView = CustomRoundShadowImageView(image: .sneakers)
+    let brandImageView = CustomRoundShadowImageView(image: .brends)
+    let shoesImageView = CustomRoundShadowImageView(image: .shoes)
+    let bagImageView = CustomRoundShadowImageView(image: .bag)
     let tapGestureRoas = UITapGestureRecognizer()
 
     let newProductsLabel: UILabel = {
@@ -113,7 +113,7 @@ final class ViewCatalog: UIView {
         view.layer.cornerRadius = 12
         view.backgroundColor = .colorView
         view.layer.shadowOpacity = 0.5
-        view.layer.shadowRadius = 04
+        view.layer.shadowRadius = 4
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

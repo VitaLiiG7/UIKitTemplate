@@ -3,12 +3,18 @@
 
 import Foundation
 
-/// Модель для передачи данных
-struct InformationAboutShoes {
+/// Модель для передачи данных между экранами
+struct InformationAboutShoes: Hashable {
+    // размер обуви
     let size: [Int]
+    // цена обуви
     let price: String
+    // название изображения
     let shoeImage: String
+    // название обуви
     let shoeName: String
+
+    // MARK: - Initializers
 
     init(price: String, shoeImage: String, shoeName: String) {
         size = [0]

@@ -3,13 +3,14 @@
 
 import UIKit
 
-// Класс
-class ProductView: UIView {
+// Класс для отображения интерфейса на экране выбор обуви
+final class ProductView: UIView {
     // MARK: - Constants
 
     enum Constants {
         static let sizePrice = 10
         static let price = "2250 р"
+        static let cornerRadius = 20
     }
 
     // MARK: - Visual Components
@@ -32,15 +33,6 @@ class ProductView: UIView {
         return label
     }()
 
-//    let basketImageView: UIImageView = {
-//        let image = UIImageView()
-//        image.image = .emptyBasket
-//        image.contentMode = .scaleAspectFit
-//        image.translatesAutoresizingMaskIntoConstraints = false
-//        image.isUserInteractionEnabled = true
-//        return image
-//    }()
-
     let basketButton: UIButton = {
         let image = UIButton()
         image.setImage(.emptyBasket, for: .normal)
@@ -48,25 +40,29 @@ class ProductView: UIView {
         return image
     }()
 
+    // MARK: - Initializers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
         setupConstraints()
         backgroundColor = .colorView
-        layer.cornerRadius = 20
+        layer.cornerRadius = CGFloat(Constants.cornerRadius)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
-    func setupView() {
+    // MARK: - Private Methods
+
+    private func setupView() {
         addSubview(shoesImageView)
         addSubview(priceProductLabel)
         addSubview(basketButton)
     }
 
-    func setupConstraints() {
+    private func setupConstraints() {
         shoesImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 29).isActive = true
         shoesImageView.topAnchor.constraint(equalTo: topAnchor, constant: 29).isActive = true
         shoesImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true

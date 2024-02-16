@@ -3,99 +3,127 @@
 
 import UIKit
 
-protocol InformationDelegate: AnyObject {
-    func sendInformation(info: InformationAboutShoes)
-}
+// protocol InformationDelegate: AnyObject {
+//    func sendInformation(info: InformationAboutShoes)
+// }
 
 /// Экран для выбора размера обуви
-class ChoosingShoesViewController: UIViewController {
+final class ChoosingShoesViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
         static let title = "Обувь"
+        static let startTop = 130
+        static let startLead = 20
+        static let stepTop = 173
+        static let stepLead = 178
+        static let ruble = "₽"
+        static let priceOne = "2250"
+        static let priceTwo = "4250"
+        static let priceThree = "5750"
+        static let priceFour = "3500"
+        static let priceFive = "5750"
+        static let nameImageOne = "blackHeels"
+        static let nameImageTwo = "Blackshoes"
+        static let nameImageThree = "pinkSneakers"
+        static let nameImageFour = "yellowHeels"
+        static let nameImageFive = "whiteSneakers"
+        static let nameImageSix = "notEmptyBasket"
+        static let nameImageSeven = "emptyBasket"
+        static let shoeNameOne = "Туфли женские"
+        static let shoeNameTwo = "Ботинки женские"
+        static let shoeNameThree = "Кроссовки женские спортивные"
+        static let shoeNameFour = "Туфли женские"
+        static let shoeNameFive = "белые кросовки"
     }
 
-    weak var delegate: InformationDelegate?
+    // MARK: - Private Properties
 
-    private var items = [
-        Product(price: "2250 р", productImage: "blackHeels", basketImage: "emptyBasket"),
-        Product(price: "4250 р", productImage: "Blackshoes", basketImage: "emptyBasket"),
-        Product(price: "5750 р", productImage: "pinkSneakers", basketImage: "emptyBasket"),
-        Product(price: "3500 р", productImage: "yellowHeels", basketImage: "emptyBasket"),
-        Product(price: "5750 р", productImage: "whiteSneakers", basketImage: "emptyBasket"),
-    ] {
-        didSet {
-            addProduct()
-        }
-    }
-
-    let info = [
-        InformationAboutShoes(price: "2250 р", shoeImage: "blackHeels", shoeName: "Туфли женские"),
-        InformationAboutShoes(price: "4250 р", shoeImage: "Blackshoes", shoeName: "Ботинки женские"),
-        InformationAboutShoes(price: "5750 р", shoeImage: "pinkSneakers", shoeName: "Кроссовки женские спортивные"),
-        InformationAboutShoes(price: "3500 р", shoeImage: "yellowHeels", shoeName: "Туфли женские"),
-        InformationAboutShoes(price: "5750 р", shoeImage: "whiteSneakers", shoeName: "белые кросовки"),
+    private let product = ProductView()
+    private let info = [
+        InformationAboutShoes(
+            price: Constants.priceOne,
+            shoeImage: Constants.nameImageOne,
+            shoeName: Constants.shoeNameOne
+        ),
+        InformationAboutShoes(
+            price: Constants.priceTwo,
+            shoeImage: Constants.nameImageTwo,
+            shoeName: Constants.shoeNameTwo
+        ),
+        InformationAboutShoes(
+            price: Constants.priceThree,
+            shoeImage: Constants.nameImageThree,
+            shoeName: Constants.shoeNameThree
+        ),
+        InformationAboutShoes(
+            price: Constants.priceFour,
+            shoeImage: Constants.nameImageFour,
+            shoeName: Constants.shoeNameFour
+        ),
+        InformationAboutShoes(
+            price: Constants.priceFive,
+            shoeImage: Constants.nameImageFive,
+            shoeName: Constants.shoeNameFive
+        ),
     ]
 
-    let info1: [String] = ["Jopa", "Mashina"]
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         addProduct()
-        view.backgroundColor = .white
-        title = Constants.title
     }
 
-    func addProduct() {
-        var top = 130
-        var left = 20
-        for item in 0 ..< items.count {
+    // MARK: - Private Methods
+
+    private func setupView() {
+        view.backgroundColor = .white
+        title = Constants.title
+        navigationController?.navigationBar.tintColor = .black
+    }
+
+    private func addProduct() {
+        var top = Constants.startTop
+        var lead = Constants.startLead
+        for item in 0 ..< info.count {
             let products = ProductView()
             view.addSubview(products)
             products.basketButton.addTarget(self, action: #selector(putInBasket(button:)), for: .touchUpInside)
-
             products.translatesAutoresizingMaskIntoConstraints = false
-            products.shoesImageView.image = UIImage(named: items[item].productImage)
-            products.priceProductLabel.text = "\(items[item].price)"
+
+            products.shoesImageView.image = UIImage(named: info[item].shoeImage)
+            products.priceProductLabel.text = "\(info[item].price) \(Constants.ruble)"
             products.basketButton.tag = item
+
             products.widthAnchor.constraint(equalToConstant: view.bounds.width / 2.3).isActive = true
             products.heightAnchor.constraint(equalTo: products.widthAnchor).isActive = true
+
             if item % 2 == 0 {
                 products.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(top)).isActive = true
-                products.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(left)).isActive = true
-                left += 178
+                products.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat(lead)).isActive = true
+                lead += Constants.stepTop
             } else {
                 products.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(top)).isActive = true
-                products.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(left)).isActive = true
-                left -= 178
-                top += 173
+                products.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: CGFloat(lead)).isActive = true
+                lead -= Constants.stepLead
+                top += Constants.stepTop
             }
         }
     }
 
-    var number: [Int] = []
-
     @objc func putInBasket(button: UIButton) {
         let modalViewController = ChoosingSizeViewController()
-//        let tag = button.tag
-//        _ = info[button.tag]
-//        delegate?.sendInformation(info: info[tag])
-        
         let tag = button.tag
-         let selectedInfo = info1[button.tag] // Получение выбранной информации
-//        delegate?.sendInformation(info: selectedInfo)
+        let products = view.subviews[tag] as? ProductView
 
+        if products?.basketButton.currentImage == UIImage(named: Constants.nameImageSix) {
+            products?.basketButton.setImage(UIImage(named: Constants.nameImageSeven), for: .normal)
+        } else {
+            products?.basketButton.setImage(UIImage(named: Constants.nameImageSix), for: .normal)
+        }
 
-//        let info = InformationAboutShoes(price: info.price, shoeImage: im, shoeName: )
-//        delegate?.sendInformation(info: InformationAboutShoes)
-        modalViewController.delegate = self
         present(modalViewController, animated: true, completion: nil)
-    }
-}
-
-extension ChoosingShoesViewController: SizeDelegate {
-    func transferShoeSize(size: Int) {
-        number.append(size)
     }
 }

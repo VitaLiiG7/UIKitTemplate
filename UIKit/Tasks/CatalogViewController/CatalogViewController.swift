@@ -3,45 +3,55 @@
 
 import UIKit
 
-/// Экран Каталог товара
+/// Экран выбраной категори товара в магазине'
 final class CatalogViewController: UIViewController {
+    // MARK: - Constants
+
     enum Constants {
         static let catalog = "Каталог"
         static let basket = "Корзина"
         static let profile = "Профиль"
+        static let boots = "boots"
+        static let sneakers = "sneakers"
     }
 
-    var viewCatalog = ViewCatalog()
-    private let shoeImage = [UIImage(named: "boots"), UIImage(named: "sneakers")]
-    private let shoeImageMap: [Int: [UIImage]] = [
-        0: [.womanShoes, .womanSandals, .brends, .slipper, .brownBag],
-        1: [.colorfulSneakers, .redSneakers, .brends, .childrenRunningShoes, .pinkBackpack],
-        2: [.boots, .sneakers, .brends, .shoes, .bag],
+    // MARK: - Private Properties
+
+    private let viewCatalog = ViewCatalog()
+    private let shoeImage = [UIImage(named: Constants.boots), UIImage(named: Constants.sneakers)]
+    private let shoeImageMap: [[UIImage]] = [
+        [.womanShoes, .womanSandals, .brends, .slipper, .brownBag],
+        [.boots, .sneakers, .brends, .shoes, .bag],
+        [.colorfulSneakers, .redSneakers, .brends, .childrenRunningShoes, .pinkBackpack]
     ]
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = viewCatalog
+        setupView()
         setupConstraints()
         setupActions()
         setNavigationItem()
-        view.backgroundColor = .white
         settingImageTabBar()
+        view.backgroundColor = .white
     }
 
     // MARK: - Private Methods
+
+    private func setupView() {
+        view = viewCatalog
+        title = Constants.catalog
+    }
 
     private func setupActions() {
         viewCatalog.segmentControll.addTarget(self, action: #selector(changingImage), for: .valueChanged)
         viewCatalog.tapGestureRoas.addTarget(self, action: #selector(chooseShoes))
         viewCatalog.shoesView.addGestureRecognizer(viewCatalog.tapGestureRoas)
         viewCatalog.segmentControll.selectedSegmentIndex = 1
-        title = "Каталог"
     }
 
-    func setNavigationItem() {
+    private func setNavigationItem() {
         let item = UIBarButtonItem(image: .barcode, style: .done, target: nil, action: nil)
         let item2 = UIBarButtonItem(image: .camera, style: .done, target: nil, action: nil)
         navigationItem.rightBarButtonItems = [item, item2]
@@ -49,7 +59,7 @@ final class CatalogViewController: UIViewController {
         navigationItem.rightBarButtonItems?[1].tintColor = .black
     }
 
-    func settingImageTabBar() {
+    private func settingImageTabBar() {
         if let tabBarItem1 = tabBarController?.tabBar.items?[0] {
             tabBarItem1.title = Constants.catalog
             tabBarItem1.image = .catalogEmpty
@@ -67,22 +77,6 @@ final class CatalogViewController: UIViewController {
         }
     }
 
-    @objc private func changingImage(target: UISegmentedControl) {
-        if target == viewCatalog.segmentControll {
-            let segmentIndex = target.selectedSegmentIndex
-            let segmenDictionary = shoeImageMap[segmentIndex]
-            viewCatalog.bootsImageView.image = segmenDictionary?[0]
-            viewCatalog.sneakersImageView.image = segmenDictionary?[1]
-            viewCatalog.brandImageView.image = segmenDictionary?[2]
-            viewCatalog.shoesImageView.image = segmenDictionary?[3]
-            viewCatalog.bagImageView.image = segmenDictionary?[4]
-        }
-    }
-
-    @objc private func chooseShoes() {
-        navigationController?.pushViewController(ChoosingShoesViewController(), animated: true)
-    }
-
     private func setupConstraints() {
         viewCatalog.bootsImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         viewCatalog.bootsImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 186).isActive = true
@@ -98,11 +92,6 @@ final class CatalogViewController: UIViewController {
         viewCatalog.segmentControll.topAnchor.constraint(equalTo: view.topAnchor, constant: 122).isActive = true
         viewCatalog.segmentControll.widthAnchor.constraint(equalToConstant: 345).isActive = true
         viewCatalog.segmentControll.heightAnchor.constraint(equalToConstant: 44).isActive = true
-
-        viewCatalog.newProductsLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 22).isActive = true
-        viewCatalog.newProductsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 186).isActive = true
-        viewCatalog.newProductsLabel.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        viewCatalog.newProductsLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
 
         viewCatalog.brandsView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         viewCatalog.brandsView.topAnchor.constraint(equalTo: view.topAnchor, constant: 326).isActive = true
@@ -134,6 +123,15 @@ final class CatalogViewController: UIViewController {
         viewCatalog.bagImageView.widthAnchor.constraint(equalToConstant: 99).isActive = true
         viewCatalog.bagImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
 
+        setupConstraintsLabel()
+    }
+
+    func setupConstraintsLabel() {
+        viewCatalog.newProductsLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 22).isActive = true
+        viewCatalog.newProductsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 186).isActive = true
+        viewCatalog.newProductsLabel.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        viewCatalog.newProductsLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
+
         viewCatalog.brandLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
         viewCatalog.brandLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 357).isActive = true
         viewCatalog.brandLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
@@ -153,5 +151,24 @@ final class CatalogViewController: UIViewController {
         viewCatalog.bagLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 557).isActive = true
         viewCatalog.bagLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         viewCatalog.bagLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
+    }
+
+    @objc private func changingImage(target: UISegmentedControl) {
+        if target == viewCatalog.segmentControll {
+            let segmentIndex = target.selectedSegmentIndex
+            let segmenDictionary = shoeImageMap[segmentIndex]
+            viewCatalog.bootsImageView.image = segmenDictionary[0]
+            viewCatalog.sneakersImageView.image = segmenDictionary[1]
+            viewCatalog.brandImageView.image = segmenDictionary[2]
+            viewCatalog.shoesImageView.image = segmenDictionary[3]
+            viewCatalog.bagImageView.image = segmenDictionary[4]
+        }
+    }
+
+    @objc private func chooseShoes() {
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        navigationItem.backBarButtonItem = backButton
+        navigationController?.pushViewController(ChoosingShoesViewController(), animated: true)
     }
 }

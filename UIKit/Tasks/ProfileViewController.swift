@@ -5,17 +5,19 @@ import UIKit
 
 /// Экран профиль пользователя с личными данными ( делает коллега )
 class ProfileViewController: UIViewController {
-    
-    //MARK: - Constants
+    // MARK: - Constants
+
+    private let gest = UITapGestureRecognizer()
+
     enum Constants {
         static let minSize = CGFloat(14)
         static let font = "Verdana"
         static let boldFont = "Verdana-Bold"
         static let mediumSize = CGFloat(16)
     }
+
     // MARK: - Visual Components
 
-    private let gest = UITapGestureRecognizer()
     private let feedBackImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +51,7 @@ class ProfileViewController: UIViewController {
     private let myDataLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = true
         label.text = "Мои данные"
         label.font = UIFont(name: Constants.font, size: Constants.mediumSize)
         return label
@@ -58,6 +61,7 @@ class ProfileViewController: UIViewController {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = .iconUserData
+        image.isUserInteractionEnabled = true
         return image
     }()
 
@@ -172,8 +176,6 @@ class ProfileViewController: UIViewController {
         userDataLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
         userDataLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 45).isActive = true
         userDataLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 320).isActive = true
-        gest.addTarget(self, action: #selector(tranzitNavigation))
-        myDataLabel.addGestureRecognizer(gest)
     }
 
     private func setupInfoImageView() {
@@ -224,8 +226,10 @@ class ProfileViewController: UIViewController {
         profileLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
         profileLabel.widthAnchor.constraint(equalToConstant: 115).isActive = true
     }
-    @objc private func tranzitNavigation() {
-        
+
+    private func recognizerLabel() {
+        myDataLabel.addGestureRecognizer(gest)
+        gest.addTarget(self, action: #selector(tranzitNavigation))
     }
 
     private func setupUI() {
@@ -257,6 +261,11 @@ class ProfileViewController: UIViewController {
         setupFeedBackImageView()
         view.addSubview(feedBackLabel)
         setupFeedBackLabel()
+        recognizerLabel()
+    }
+
+    @objc private func tranzitNavigation() {
+        navigationController?.pushViewController(InformationAboutPersonViewController(), animated: true)
     }
 
     // MARK: - Life cycle
@@ -267,5 +276,3 @@ class ProfileViewController: UIViewController {
         setupUI()
     }
 }
-
-

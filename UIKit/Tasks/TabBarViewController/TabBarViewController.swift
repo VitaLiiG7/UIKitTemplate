@@ -25,6 +25,7 @@ final class TabBarViewController: UITabBarController {
     private func setupController() {
         let catalogViewController = CatalogViewController()
         let basketViewController = BasketViewController()
+        catalogViewController.linkToBasket = basketViewController
         let profileViewController = ProfileViewController()
         let catalogNavViewController = UINavigationController(rootViewController: catalogViewController)
         let profileNavViewController = UINavigationController(rootViewController: profileViewController)

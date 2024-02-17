@@ -7,7 +7,7 @@ import UIKit
 final class BasketViewController: UIViewController {
     // MARK: - Private Properties
 
-    private var arrayMap: [InformationAboutShoes: Int] = [:]
+    private var dictMap: [InformationAboutShoes: Int] = [:]
 
     // MARK: - Life Cycle
 
@@ -19,6 +19,7 @@ final class BasketViewController: UIViewController {
     // MARK: - Public Methods
 
     func addCard(info: InformationAboutShoes, size: Int) {
-        arrayMap.updateValue(size, forKey: info)
+        dictMap.updateValue(size, forKey: info)
+        print(dictMap)
     }
 }

@@ -39,6 +39,7 @@ final class ChoosingShoesViewController: UIViewController {
 
     // MARK: - Private Properties
 
+    var choosinLink: BasketViewController?
     private let product = ProductView()
     private let info = [
         InformationAboutShoes(
@@ -117,6 +118,7 @@ final class ChoosingShoesViewController: UIViewController {
         let modalViewController = ChoosingSizeViewController()
         let tag = button.tag
         let products = view.subviews[tag] as? ProductView
+        modalViewController.basket = choosinLink
 
         if products?.basketButton.currentImage == UIImage(named: Constants.nameImageSix) {
             products?.basketButton.setImage(UIImage(named: Constants.nameImageSeven), for: .normal)

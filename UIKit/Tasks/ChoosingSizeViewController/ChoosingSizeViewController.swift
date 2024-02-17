@@ -22,6 +22,7 @@ final class ChoosingSizeViewController: UIViewController {
 
     // MARK: - Visual Components
 
+    var basket: BasketViewController?
     private let brandLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -118,8 +119,7 @@ final class ChoosingSizeViewController: UIViewController {
 
     @objc func chooseShoeSize(sender: UIButton) {
         let tag = sender.tag
-        let basketViewControlle = BasketViewController()
-        basketViewControlle.addCard(info: currentItem, size: size[tag])
+        basket?.addCard(info: currentItem, size: size[tag])
     }
 
     @objc func closeScreen() {

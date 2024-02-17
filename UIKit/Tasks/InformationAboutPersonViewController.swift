@@ -5,6 +5,11 @@ import UIKit
 
 /// Экран для заполнения персональной информации о пользователе ( делает коллега )
 class InformationAboutPersonViewController: UIViewController {
+    let datePicker = UIDatePicker()
+    let toolBar = UIToolbar()
+    
+ 
+
     // MARK: - Visual Components
 
     private let saveButton: UIButton = {
@@ -105,6 +110,8 @@ class InformationAboutPersonViewController: UIViewController {
         birthDayTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         birthDayTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         birthDayTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
+        birthDayTextField.inputView = datePicker
+        datePicker.datePickerMode = .date
     }
 
     private func setupFootSizeTextField() {
@@ -134,6 +141,23 @@ class InformationAboutPersonViewController: UIViewController {
         nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
     }
+    private func setToolBar() {
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([flexSpace, doneButton], animated: true)
+        birthDayTextField.inputAccessoryView = toolBar
+  
+    }
+    @objc private func doneAction() {
+        getDateFromPicker()
+        view.endEditing(true)
+    }
+    private func getDateFromPicker() {
+        let formater = DateFormatter()
+        formater.dateFormat = "dd.MM.yyyy"
+        birthDayTextField.text = formater.string(from: datePicker.date)
+    }
 
     private func setupUI() {
         view.backgroundColor = .white
@@ -152,6 +176,7 @@ class InformationAboutPersonViewController: UIViewController {
         setupEmailTextField()
         view.addSubview(saveButton)
         setupSaveButton()
+        setToolBar()
     }
 
     // MARK: - Life cycle

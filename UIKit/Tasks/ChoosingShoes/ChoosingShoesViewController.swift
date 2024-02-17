@@ -3,10 +3,6 @@
 
 import UIKit
 
-// protocol InformationDelegate: AnyObject {
-//    func sendInformation(info: InformationAboutShoes)
-// }
-
 /// Экран для выбора размера обуви
 final class ChoosingShoesViewController: UIViewController {
     // MARK: - Constants
@@ -40,6 +36,9 @@ final class ChoosingShoesViewController: UIViewController {
     // MARK: - Private Properties
 
     var choosinLink: BasketViewController?
+
+    // MARK: - Private Properties
+
     private let product = ProductView()
     private let info = [
         InformationAboutShoes(

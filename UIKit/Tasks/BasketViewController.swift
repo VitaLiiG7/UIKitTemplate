@@ -20,6 +20,5 @@ final class BasketViewController: UIViewController {
 
     func addCard(info: InformationAboutShoes, size: Int) {
         dictMap.updateValue(size, forKey: info)
-        print(dictMap)
     }
 }

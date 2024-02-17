@@ -13,8 +13,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
+        createRootViewController(windowScene)
+    }
+
+    private func createRootViewController(_ windowScene: UIWindowScene) {
         let mainViewController = TabBarViewController()
+        window = UIWindow(windowScene: windowScene)
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
     }

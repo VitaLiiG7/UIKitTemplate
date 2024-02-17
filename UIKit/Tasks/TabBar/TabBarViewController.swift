@@ -20,7 +20,7 @@ final class TabBarViewController: UITabBarController {
         setupController()
     }
 
-    // MARK: - Private Properties
+    // MARK: - Private Methods
 
     private func setupController() {
         let catalogViewController = CatalogViewController()

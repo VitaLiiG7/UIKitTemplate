@@ -15,9 +15,12 @@ final class CatalogViewController: UIViewController {
         static let sneakers = "sneakers"
     }
 
-    // MARK: - Private Properties
+    // MARK: - Public Properties
 
     var linkToBasket: BasketViewController?
+
+    // MARK: - Private Properties
+
     private let viewCatalog = ViewCatalog()
     private let shoeImage = [UIImage(named: Constants.boots), UIImage(named: Constants.sneakers)]
     private let shoeImageMap: [[UIImage]] = [
@@ -172,7 +175,6 @@ final class CatalogViewController: UIViewController {
         let choosingShoesViewController = ChoosingShoesViewController()
         choosingShoesViewController.choosinLink = linkToBasket
         navigationItem.backBarButtonItem = backButton
-
         navigationController?.pushViewController(choosingShoesViewController, animated: true)
     }
 }

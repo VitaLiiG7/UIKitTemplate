@@ -1,10 +1,10 @@
-// Model.swift
+// CoffeeAndIngredients.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
 
-/// модель для передачи ингридиетнтов и кофе 
-struct coffeeAndIngredients {
+/// модель для передачи ингридиетнтов и кофе
+struct CoffeeAndIngredients {
     /// Класс модель для передачи данных между контроллерами
     var coffeeMap: [String: String]
     var sum: Int

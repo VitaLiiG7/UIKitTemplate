@@ -21,7 +21,8 @@ extension CoffeeSelectionViewController {
     @objc func popBackLeft() {
         navigationController?.popViewController(animated: true)
     }
-// создаем кнопку в навигешин панеле с правой стороны
+
+    // создаем кнопку в навигешин панеле с правой стороны
     func setNavigationItemRight() -> UIBarButtonItem {
         let button = UIButton(frame: CGRect(x: 330, y: 58, width: 24, height: 24))
         button.setImage(UIImage(named: "plane"), for: .normal)

@@ -2,10 +2,11 @@
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
- /// протокол Делегата для передачи информации
+
+/// протокол Делегата для передачи информации
 protocol IngredientsDelegate: AnyObject {
     // метод который передает информацию изображение обжарки кофе и его название
-    func updatePrice(price: coffeeAndIngredients)
+    func updatePrice(price: CoffeeAndIngredients)
 }
 
 /// Экран выбора дополнительных ингридиентов
@@ -80,7 +81,7 @@ final class IngredientsViewController: UIViewController {
     }
 
     @objc private func closeScreen() {
-        let number = coffeeAndIngredients(sum: Constants.cost, confirmation: Constants.confirmation)
+        let number = CoffeeAndIngredients(sum: Constants.cost, confirmation: Constants.confirmation)
         delegate?.updatePrice(price: number)
         dismiss(animated: true)
     }

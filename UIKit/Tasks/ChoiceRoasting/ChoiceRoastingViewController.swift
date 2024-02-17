@@ -6,7 +6,7 @@ import UIKit
 /// протокол Делегата для передачи информации
 protocol CoffeeRoastDelegate: AnyObject {
     // метод который передает информацию изображение обжарки кофе и его название
-    func changeRoasting(roasting: coffeeAndIngredients)
+    func changeRoasting(roasting: CoffeeAndIngredients)
 }
 
 /// Экрна для выбора обжарки зерен
@@ -144,7 +144,7 @@ final class ChoiceRoastingViewController: UIViewController {
     }
 
     @objc private func closeScreen() {
-        let coffeeMapdict = coffeeAndIngredients(coffeeMap: [Constants.nameRoast: Constants.imageRoast])
+        let coffeeMapdict = CoffeeAndIngredients(coffeeMap: [Constants.nameRoast: Constants.imageRoast])
         delegate?.changeRoasting(roasting: coffeeMapdict)
         dismiss(animated: true)
     }

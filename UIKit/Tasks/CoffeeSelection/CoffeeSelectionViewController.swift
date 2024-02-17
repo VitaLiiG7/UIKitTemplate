@@ -19,11 +19,11 @@ final class CoffeeSelectionViewController: UIViewController, UIGestureRecognizer
     private let coffeeView = ViewCoffee()
     private let coffeePictures = [UIImage(named: "coffee"), UIImage(named: "cappuccino"), UIImage(named: "latte")]
     private lazy var tapGestureRoast = UITapGestureRecognizer(target: self, action: #selector(changeRoast))
-     
+
     private lazy var tapGestureIngredients = UITapGestureRecognizer(target: self, action: #selector(changeIngredients))
 
     private var delegate: CoffeeRoastDelegate?
-   
+
     // MARK: - Life Cycle
 
     override func loadView() {
@@ -46,16 +46,16 @@ final class CoffeeSelectionViewController: UIViewController, UIGestureRecognizer
         navigationItem.leftBarButtonItem = setNavigationItemLeft()
         navigationItem.rightBarButtonItem = setNavigationItemRight()
     }
-    
+
     @objc func presentPlaceOrder() {
         let modalViewController = ChequeViewController()
         present(modalViewController, animated: true)
-        modalViewController.testlabel.text = coffeeView.priceLabel.text
+//      /*  modalViewController.testlabel.text = coffeeView.priceLabel.tex*/t
     }
 
     @objc func presentIssueReceipt() {
         let modalViewController = ChequeViewController()
-        modalViewController.testlabel.text = coffeeView.priceLabel.text ?? ""
+//        modalViewController.testlabel.text = coffeeView.priceLabel.text ?? ""
         present(modalViewController, animated: true)
     }
 
@@ -87,7 +87,7 @@ final class CoffeeSelectionViewController: UIViewController, UIGestureRecognizer
 
 // Изменяем картинку с зернами кофе и название
 extension CoffeeSelectionViewController: CoffeeRoastDelegate {
-    func changeRoasting(roasting: coffeeAndIngredients) {
+    func changeRoasting(roasting: CoffeeAndIngredients) {
         for (key, value) in roasting.coffeeMap {
             coffeeView.roastingLabel.text = key
             coffeeView.darkRoastingImageView.image = UIImage(named: value)
@@ -97,7 +97,7 @@ extension CoffeeSelectionViewController: CoffeeRoastDelegate {
 
 // расширение где изменяем цену и подтверждаем при помощи делегата
 extension CoffeeSelectionViewController: IngredientsDelegate {
-    func updatePriceAndView(price: coffeeAndIngredients) {
+    func updatePrice(price: CoffeeAndIngredients) {
         coffeeView.priceLabel.text = "\(Constants.price) \(String(price.sum)) \(Constants.rub)"
         coffeeView.chooseIngredientsImageView.image = UIImage(named: price.confirmation)
     }

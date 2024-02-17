@@ -75,6 +75,14 @@
 			path = InformationAboutPerson;
 			sourceTree = "<group>";
 		};
+		21214ED42B81288300D4AC56 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				21A8B0D42B7CE369003156B5 /* BasketViewController.swift */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
 		217519D02B71049E00C06FB3 = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +109,7 @@
 				21C085312B7E869200D48833 /* ChoosingSize */,
 				21214ED22B81222A00D4AC56 /* Profile */,
 				21214ED32B81225200D4AC56 /* InformationAboutPerson */,
-				21A8B0D42B7CE369003156B5 /* BasketViewController.swift */,
+				21214ED42B81288300D4AC56 /* Basket */,
 				21A8B0D92B7D1603003156B5 /* Font */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,

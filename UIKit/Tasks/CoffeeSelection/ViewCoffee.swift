@@ -9,8 +9,8 @@ final class ViewCoffee: UIView {
 
     enum Constants {
         static let american = "Американо"
-        static let cappuccino = "Американо"
-        static let latte = "latte"
+        static let cappuccino = "Капучино"
+        static let latte = "Латте"
         static let font = "Verdana-Bold"
         static let modification = "Модификация"
         static let darkRoasting = "Темная \nобжарка"
@@ -114,7 +114,7 @@ final class ViewCoffee: UIView {
 
     var chooseIngredientsImageView: UIImageView = {
         let view = UIImageView()
-        view.frame = CGRect(x: 252, y: 528, width: 50, height: 50)
+        view.frame = CGRect(x: 262, y: 538, width: 29, height: 29)
         view.image = .plus
         view.isUserInteractionEnabled = true
         return view

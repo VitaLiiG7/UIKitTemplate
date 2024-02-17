@@ -104,6 +104,14 @@ final class ChequeViewController: UIViewController {
         return button
     }()
 
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setImage(.cross, for: .normal)
+        button.frame = CGRect(x: 20, y: 26, width: 14, height: 14)
+        button.addTarget(self, action: #selector(dismissLastScreen), for: .touchUpInside)
+        return button
+    }()
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -120,6 +128,10 @@ final class ChequeViewController: UIViewController {
         present(navigationController, animated: true)
     }
 
+    @objc private func dismissLastScreen() {
+        dismiss(animated: true)
+    }
+
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(venzelLeft)
@@ -134,5 +146,6 @@ final class ChequeViewController: UIViewController {
         view.addSubview(americanoPriceLabel)
         view.addSubview(milkPriceLabel)
         view.addSubview(espressoPriceLabel)
+        view.addSubview(cancelButton)
     }
 }

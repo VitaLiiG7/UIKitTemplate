@@ -14,11 +14,11 @@ final class IngredientsViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
-        static let numbers = [50, 28, 50, 70, 50]
+        static let numbers = [50, 20, 50, 70, 50]
         static let confirmation = "choose"
-        static var cost = 100
     }
 
+    var cost = 100
     private let ingredientsView = IngredientsView()
 
     // MARK: - Public Properties
@@ -67,21 +67,21 @@ final class IngredientsViewController: UIViewController {
     @objc private func takeIngredients(sender: UISwitch) {
         switch sender {
         case ingredientsView.milkSwitch:
-            Constants.cost += Constants.numbers[0]
+            cost += Constants.numbers[0]
         case ingredientsView.syrupSwitch:
-            Constants.cost += Constants.numbers[1]
+            cost += Constants.numbers[1]
         case ingredientsView.soyMilkSwitch:
-            Constants.cost += Constants.numbers[2]
+            cost += Constants.numbers[2]
         case ingredientsView.almondMilkSwitch:
-            Constants.cost += Constants.numbers[3]
+            cost += Constants.numbers[3]
         case ingredientsView.espressoSwitch:
-            Constants.cost += Constants.numbers[4]
+            cost += Constants.numbers[4]
         default: break
         }
     }
 
     @objc private func closeScreen() {
-        let number = CoffeeAndIngredients(sum: Constants.cost, confirmation: Constants.confirmation)
+        let number = CoffeeAndIngredients(sum: cost, confirmation: Constants.confirmation)
         delegate?.updatePrice(price: number)
         dismiss(animated: true)
     }

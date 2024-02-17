@@ -17,6 +17,7 @@ final class CoffeeSelectionViewController: UIViewController, UIGestureRecognizer
     // MARK: - Private Properties
 
     private let coffeeView = ViewCoffee()
+    private let cheque = ChequeViewController()
     private let coffeePictures = [UIImage(named: "coffee"), UIImage(named: "cappuccino"), UIImage(named: "latte")]
     private lazy var tapGestureRoast = UITapGestureRecognizer(target: self, action: #selector(changeRoast))
 
@@ -50,12 +51,12 @@ final class CoffeeSelectionViewController: UIViewController, UIGestureRecognizer
     @objc func presentPlaceOrder() {
         let modalViewController = ChequeViewController()
         present(modalViewController, animated: true)
-//      /*  modalViewController.testlabel.text = coffeeView.priceLabel.tex*/t
+        modalViewController.totalLabel.text = coffeeView.priceLabel.text
     }
 
     @objc func presentIssueReceipt() {
         let modalViewController = ChequeViewController()
-//        modalViewController.testlabel.text = coffeeView.priceLabel.text ?? ""
+        modalViewController.totalLabel.text = coffeeView.priceLabel.text ?? ""
         present(modalViewController, animated: true)
     }
 

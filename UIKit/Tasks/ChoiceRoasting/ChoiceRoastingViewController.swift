@@ -14,8 +14,6 @@ final class ChoiceRoastingViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
-        static var nameRoast = ""
-        static var imageRoast = ""
         static let specifyRoasting = "Уточните обжарку зеренъ"
         static let darkRoasting = "Темная \nобжарка"
         static let lightRoasting = "Светлая \nобжарка"
@@ -25,6 +23,8 @@ final class ChoiceRoastingViewController: UIViewController {
 
     // MARK: - Visual Components
 
+    var nameRoast = ""
+    var imageRoast = ""
     private let tapGestureCoffee = UITapGestureRecognizer()
     private let tapGestureIngredients = UITapGestureRecognizer()
 
@@ -125,8 +125,8 @@ final class ChoiceRoastingViewController: UIViewController {
         lightCoffeeView.layer.borderWidth = 0
         darkCoffeeView.layer.borderColor = UIColor(red: 89 / 255.0, green: 190 / 255.0, blue: 199 / 255.0, alpha: 1)
             .cgColor
-        Constants.imageRoast = Constants.darkRoastingImage
-        Constants.nameRoast = Constants.darkRoasting
+        imageRoast = Constants.darkRoastingImage
+        nameRoast = Constants.darkRoasting
     }
 
     @objc func chooseLightRoast() {
@@ -139,12 +139,12 @@ final class ChoiceRoastingViewController: UIViewController {
             alpha: 1
         )
         .cgColor
-        Constants.imageRoast = Constants.lightRoastingImage
-        Constants.nameRoast = Constants.lightRoasting
+        imageRoast = Constants.lightRoastingImage
+        nameRoast = Constants.lightRoasting
     }
 
     @objc private func closeScreen() {
-        let coffeeMapdict = CoffeeAndIngredients(coffeeMap: [Constants.nameRoast: Constants.imageRoast])
+        let coffeeMapdict = CoffeeAndIngredients(coffeeMap: [nameRoast: imageRoast])
         delegate?.changeRoasting(roasting: coffeeMapdict)
         dismiss(animated: true)
     }

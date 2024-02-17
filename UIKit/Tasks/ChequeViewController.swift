@@ -38,9 +38,9 @@ final class ChequeViewController: UIViewController {
         return image
     }()
 
-    private let totalLabel: UILabel = {
+    let totalLabel: UILabel = {
         let label = UILabel()
-        label.text = "Цѣна - 200 руб"
+        label.text = ""
         label.font = UIFont(name: "Verdana-Bold", size: 18)
         label.frame = CGRect(x: 100, y: 450, width: 231, height: 30)
         return label
@@ -92,7 +92,7 @@ final class ChequeViewController: UIViewController {
         return image
     }()
 
-    private let payButton: UIButton = {
+    private lazy var payButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Оплатить", for: .normal)

@@ -7,10 +7,13 @@ import UIKit
 final class AuthorizationViewController: UIViewController {
     // MARK: - Visual Components
 
+    private let tapGesture = UITapGestureRecognizer()
+
     private let eyeImageView: UIImageView = {
         var image = UIImageView()
         image.frame = CGRect(x: 335, y: 505, width: 22, height: 19)
         image.image = UIImage(named: "eye")
+        image.isUserInteractionEnabled = true
         return image
     }()
 
@@ -28,7 +31,7 @@ final class AuthorizationViewController: UIViewController {
         return image
     }()
 
-    private let enterButton: UIButton = {
+    private lazy var enterButton: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 12, y: 650, width: 335, height: 44)
         button.setTitle("Войти", for: .normal)
@@ -139,5 +142,21 @@ final class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupActionButtonEye()
+    }
+
+    func setupActionButtonEye() {
+        tapGesture.addTarget(self, action: #selector(hideOpenPassword))
+        eyeImageView.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func hideOpenPassword() {
+        if eyeImageView.image == UIImage(named: "eye") {
+            eyeImageView.image = UIImage(named: "eyeOpen")
+            passwordTextField.isSecureTextEntry = false
+        } else {
+            eyeImageView.image = UIImage(named: "eye")
+            passwordTextField.isSecureTextEntry = true
+        }
     }
 }

@@ -44,7 +44,7 @@ final class MenuViewController: UIViewController {
         return image
     }()
 
-    private let choseCoffeButton: UIButton = {
+    private lazy var choseCoffeButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
         button.setTitle("Кофий", for: .normal)
@@ -160,9 +160,8 @@ final class MenuViewController: UIViewController {
     // MARK: - Private methods
 
     @objc private func pushToCheque() {
-        let rootVC = ChequeViewController()
-        let navVC = UINavigationController(rootViewController: rootVC)
-        present(navVC, animated: true)
+        let rootVC = CoffeeSelectionViewController()
+        navigationController?.pushViewController(rootVC, animated: true)
     }
 
     private func setupUI() {

@@ -38,9 +38,9 @@ final class ChequeViewController: UIViewController {
         return image
     }()
 
-    private let totalLabel: UILabel = {
+    let totalLabel: UILabel = {
         let label = UILabel()
-        label.text = "Цѣна - 200 руб"
+        label.text = ""
         label.font = UIFont(name: "Verdana-Bold", size: 18)
         label.frame = CGRect(x: 100, y: 450, width: 231, height: 30)
         return label
@@ -92,7 +92,7 @@ final class ChequeViewController: UIViewController {
         return image
     }()
 
-    private let payButton: UIButton = {
+    private lazy var payButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Оплатить", for: .normal)
@@ -101,6 +101,14 @@ final class ChequeViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.frame = CGRect(x: 12, y: 650, width: 345, height: 53)
         button.addTarget(self, action: #selector(payButtonAction), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setImage(.cross, for: .normal)
+        button.frame = CGRect(x: 20, y: 26, width: 14, height: 14)
+        button.addTarget(self, action: #selector(dismissLastScreen), for: .touchUpInside)
         return button
     }()
 
@@ -120,6 +128,10 @@ final class ChequeViewController: UIViewController {
         present(navigationController, animated: true)
     }
 
+    @objc private func dismissLastScreen() {
+        dismiss(animated: true)
+    }
+
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(venzelLeft)
@@ -134,5 +146,6 @@ final class ChequeViewController: UIViewController {
         view.addSubview(americanoPriceLabel)
         view.addSubview(milkPriceLabel)
         view.addSubview(espressoPriceLabel)
+        view.addSubview(cancelButton)
     }
 }

@@ -14,8 +14,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = AuthorizationViewController()
+        let menuViewController = AuthorizationViewController()
+//        let navigationController = UINavigationController()
+//        navigationController.viewControllers = [menuViewController]
+        window?.rootViewController = UINavigationController(rootViewController: menuViewController)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
+
+        setupWindow()
     }
+
+    func setupWindow() {}
 }

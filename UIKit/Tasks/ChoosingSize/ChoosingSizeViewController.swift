@@ -55,7 +55,7 @@ final class ChoosingSizeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        configure()
+        setupConstraintView()
         addSize()
     }
 
@@ -65,10 +65,6 @@ final class ChoosingSizeViewController: UIViewController {
         view.addSubview(brandLabel)
         view.addSubview(cancelButton)
         view.backgroundColor = .white
-    }
-
-    private func array(_ item: InformationAboutShoes) {
-        currentItem = item
     }
 
     private func addSize() {
@@ -105,7 +101,7 @@ final class ChoosingSizeViewController: UIViewController {
         }
     }
 
-    private func configure() {
+    private func setupConstraintView() {
         brandLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 11).isActive = true
         brandLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 87).isActive = true
         brandLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true

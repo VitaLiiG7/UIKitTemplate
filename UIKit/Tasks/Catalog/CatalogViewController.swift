@@ -38,7 +38,6 @@ final class CatalogViewController: UIViewController {
         setupActions()
         setNavigationItem()
         settingImageTabBar()
-        view.backgroundColor = .white
     }
 
     // MARK: - Private Methods
@@ -46,38 +45,39 @@ final class CatalogViewController: UIViewController {
     private func setupView() {
         view = viewCatalog
         title = Constants.catalog
+        view.backgroundColor = .white
     }
 
     private func setupActions() {
-        viewCatalog.segmentControll.addTarget(self, action: #selector(changingImage), for: .valueChanged)
+        viewCatalog.segmentControll.addTarget(self, action: #selector(changingImageShoes), for: .valueChanged)
         viewCatalog.tapGestureRoas.addTarget(self, action: #selector(chooseShoes))
         viewCatalog.shoesView.addGestureRecognizer(viewCatalog.tapGestureRoas)
         viewCatalog.segmentControll.selectedSegmentIndex = 1
     }
 
     private func setNavigationItem() {
-        let item = UIBarButtonItem(image: .barcode, style: .done, target: nil, action: nil)
-        let item2 = UIBarButtonItem(image: .camera, style: .done, target: nil, action: nil)
-        navigationItem.rightBarButtonItems = [item, item2]
+        let barcode = UIBarButtonItem(image: .barcode, style: .done, target: nil, action: nil)
+        let camera = UIBarButtonItem(image: .camera, style: .done, target: nil, action: nil)
+        navigationItem.rightBarButtonItems = [barcode, camera]
         navigationItem.rightBarButtonItems?[0].tintColor = .black
         navigationItem.rightBarButtonItems?[1].tintColor = .black
     }
 
     private func settingImageTabBar() {
-        if let tabBarItem1 = tabBarController?.tabBar.items?[0] {
-            tabBarItem1.title = Constants.catalog
-            tabBarItem1.image = .catalogEmpty
-            tabBarItem1.selectedImage = .catalog
+        if let tabBarCatalog = tabBarController?.tabBar.items?[0] {
+            tabBarCatalog.title = Constants.catalog
+            tabBarCatalog.image = .catalogEmpty
+            tabBarCatalog.selectedImage = .catalog
         }
-        if let tabBarItem2 = tabBarController?.tabBar.items?[1] {
-            tabBarItem2.title = Constants.basket
-            tabBarItem2.image = .basket
-            tabBarItem2.selectedImage = .pinkBasket
+        if let tabBarBasket = tabBarController?.tabBar.items?[1] {
+            tabBarBasket.title = Constants.basket
+            tabBarBasket.image = .basket
+            tabBarBasket.selectedImage = .pinkBasket
         }
-        if let tabBarItem3 = tabBarController?.tabBar.items?[2] {
-            tabBarItem3.title = Constants.profile
-            tabBarItem3.image = .profileEmpty
-            tabBarItem3.selectedImage = .profile
+        if let tabBarProfile = tabBarController?.tabBar.items?[2] {
+            tabBarProfile.title = Constants.profile
+            tabBarProfile.image = .profileEmpty
+            tabBarProfile.selectedImage = .profile
         }
     }
 
@@ -157,7 +157,7 @@ final class CatalogViewController: UIViewController {
         viewCatalog.bagLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
     }
 
-    @objc private func changingImage(target: UISegmentedControl) {
+    @objc private func changingImageShoes(target: UISegmentedControl) {
         if target == viewCatalog.segmentControll {
             let segmentIndex = target.selectedSegmentIndex
             let segmenDictionary = shoeImageMap[segmentIndex]

@@ -1,10 +1,10 @@
-// CatalogViewController.swift
+// ChoosingShoesViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Экран Каталог товара
-class CatalogViewController: UIViewController {
+/// Экран для выбора обуви
+class ChoosingShoesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

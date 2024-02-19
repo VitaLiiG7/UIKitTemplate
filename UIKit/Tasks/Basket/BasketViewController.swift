@@ -127,7 +127,7 @@ final class BasketViewController: UIViewController {
         return label
     }()
 
-    private let plusButton: UIButton = {
+    private lazy var plusButton: UIButton = {
         let button = UIButton()
         button.setTitle("+", for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.9788053632, green: 0.919518292, blue: 0.9593327641, alpha: 1)
@@ -139,7 +139,7 @@ final class BasketViewController: UIViewController {
         return button
     }()
 
-    private let minusButton: UIButton = {
+    private lazy var minusButton: UIButton = {
         let button = UIButton()
         button.setTitle("-", for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.9788053632, green: 0.919518292, blue: 0.9593327641, alpha: 1)

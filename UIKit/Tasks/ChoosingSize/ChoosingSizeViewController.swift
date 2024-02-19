@@ -1,10 +1,10 @@
-// ShoeSizeViewController.swift
+// ChoosingSizeViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Экран для выбора размера обуви
-class ShoeSizeViewController: UIViewController {
+class ChoosingSizeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

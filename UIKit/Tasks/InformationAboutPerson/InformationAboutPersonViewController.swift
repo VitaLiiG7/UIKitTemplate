@@ -23,7 +23,7 @@ final class InformationAboutPersonViewController: UIViewController {
         static let emailPatern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         static let emailFormat = "SELF MATCHES %@"
     }
-    
+
     // MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -247,7 +247,7 @@ final class InformationAboutPersonViewController: UIViewController {
         setupSaveButtonConstraints()
         numPad()
     }
-    
+
     @objc private func hideButton() {
         if nameTextField.text?.isEmpty ?? false {
             saveButton.isEnabled = true
@@ -257,7 +257,7 @@ final class InformationAboutPersonViewController: UIViewController {
             saveButton.isHidden = false
         }
     }
-    
+
     @objc private func doneAction() {
         getDateFromPicker()
         view.endEditing(true)

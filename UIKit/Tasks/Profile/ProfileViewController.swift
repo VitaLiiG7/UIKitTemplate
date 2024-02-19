@@ -22,6 +22,7 @@ final class ProfileViewController: UIViewController {
         static let inviteFriend = "Приведи друга"
         static let mediumSize = CGFloat(16)
     }
+
     // MARK: - Life cycle
 
     override func viewDidLoad() {

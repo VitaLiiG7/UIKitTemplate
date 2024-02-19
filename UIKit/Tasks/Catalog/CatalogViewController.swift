@@ -3,7 +3,6 @@
 
 import UIKit
 
-
 /// Экран выбраной категори товара в магазине'
 final class CatalogViewController: UIViewController {
     // MARK: - Constants

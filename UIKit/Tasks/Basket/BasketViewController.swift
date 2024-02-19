@@ -376,6 +376,7 @@ final class BasketViewController: UIViewController {
         totalLabel.text = "4250 ₽"
         checkoutButton.setTitle("Оформить заказ - 4250 ₽", for: .normal)
     }
+
     // MARK: - Private Properties
 
     private var dictMap: [InformationAboutShoes: Int] = [:]

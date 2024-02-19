@@ -5,10 +5,17 @@ import UIKit
 
 /// Экран для заполнения персональной информации о пользователе ( делает коллега )
 class InformationAboutPersonViewController: UIViewController {
-    let datePicker = UIDatePicker()
-    let toolBar = UIToolbar()
-    
- 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let maxNumberCount = 11
+        static let datePicker = UIDatePicker()
+        static let toolBar = UIToolbar()
+        static let phonePatern = "(\\d{1})(\\d{3})(\\d{3})(\\d{2})(\\d+)"
+        static let phoneFormat = "$1 ($2) $3-$4-$5"
+        static let emailPatern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        static let emailFormat = "SELF MATCHES %@"
+    }
 
     // MARK: - Visual Components
 
@@ -69,7 +76,7 @@ class InformationAboutPersonViewController: UIViewController {
         return textField
     }()
 
-    private let nameTextField: UITextField = {
+    private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Имя"
@@ -80,6 +87,13 @@ class InformationAboutPersonViewController: UIViewController {
     }()
 
     // MARK: - Private Methods
+
+    private func setupPhoneNumberTextField() {
+        phoneNumberTextField.widthAnchor.constraint(equalToConstant: 335).isActive = true
+        phoneNumberTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        phoneNumberTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        phoneNumberTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+    }
 
     @objc private func hideButton() {
         if nameTextField.text?.isEmpty ?? false {
@@ -110,8 +124,8 @@ class InformationAboutPersonViewController: UIViewController {
         birthDayTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         birthDayTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         birthDayTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
-        birthDayTextField.inputView = datePicker
-        datePicker.datePickerMode = .date
+        birthDayTextField.inputView = Constants.datePicker
+        Constants.datePicker.datePickerMode = .date
     }
 
     private func setupFootSizeTextField() {
@@ -119,13 +133,6 @@ class InformationAboutPersonViewController: UIViewController {
         footSizeTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         footSizeTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         footSizeTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
-    }
-
-    private func setupPhoneNumberTextField() {
-        phoneNumberTextField.widthAnchor.constraint(equalToConstant: 335).isActive = true
-        phoneNumberTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        phoneNumberTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        phoneNumberTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
     }
 
     private func setupSureNameTextField() {
@@ -141,27 +148,90 @@ class InformationAboutPersonViewController: UIViewController {
         nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
     }
+
     private func setToolBar() {
-        toolBar.sizeToFit()
+        Constants.datePicker.preferredDatePickerStyle = .inline
+        Constants.toolBar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolBar.setItems([flexSpace, doneButton], animated: true)
-        birthDayTextField.inputAccessoryView = toolBar
-  
+        Constants.toolBar.setItems([flexSpace, doneButton], animated: true)
+        birthDayTextField.inputAccessoryView = Constants.toolBar
     }
+
     @objc private func doneAction() {
         getDateFromPicker()
         view.endEditing(true)
     }
+
     private func getDateFromPicker() {
         let formater = DateFormatter()
         formater.dateFormat = "dd.MM.yyyy"
-        birthDayTextField.text = formater.string(from: datePicker.date)
+        birthDayTextField.text = formater.string(from: Constants.datePicker.date)
+    }
+
+    private func regex() -> NSRegularExpression {
+        var regex = NSRegularExpression()
+        do {
+            regex = try NSRegularExpression(pattern: "[\\+\\s-\\(\\)]", options: .caseInsensitive)
+        } catch {
+            print("error")
+        }
+        return regex
+    }
+
+    private func format(phoneNumber: String, shouldRemoveLastDigit: Bool) -> String {
+        guard !(shouldRemoveLastDigit && phoneNumber.count <= 2) else { return "+" }
+        let range = NSString(string: phoneNumber).range(of: phoneNumber)
+        var number = regex().stringByReplacingMatches(in: phoneNumber, options: [], range: range, withTemplate: "")
+
+        if number.count > Constants.maxNumberCount {
+            let maxIndex = number.index(number.startIndex, offsetBy: Constants.maxNumberCount)
+            number = String(number[number.startIndex ..< maxIndex])
+        }
+
+        if shouldRemoveLastDigit {
+            let maxIndex = number.index(number.startIndex, offsetBy: number.count - 1)
+            number = String(number[number.startIndex ..< maxIndex])
+        }
+
+        let maxIndex = number.index(number.startIndex, offsetBy: number.count)
+        let regRange = number.startIndex ..< maxIndex
+
+        if number.count < 7 {
+            let pattern = "(\\d)(\\d{3})(\\d+)"
+            number = number.replacingOccurrences(
+                of: pattern,
+                with: "$1 ($2) $3",
+                options: .regularExpression,
+                range: regRange
+            )
+        } else {
+            let pattern = "(\\d)(\\d{3})(\\d{3})(\\d{2})(\\d+)"
+            number = number.replacingOccurrences(
+                of: pattern,
+                with: "$1 ($2) $3-$4-$5",
+                options: .regularExpression,
+                range: regRange
+            )
+        }
+        return "+" + number
+    }
+
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = Constants.emailPatern
+        let emailPred = NSPredicate(format: Constants.emailFormat, emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+
+    private func numPad() {
+        phoneNumberTextField.delegate = self
+        phoneNumberTextField.keyboardType = .numberPad
     }
 
     private func setupUI() {
         view.backgroundColor = .white
         title = "Мои данные"
+        setToolBar()
         view.addSubview(nameTextField)
         setupNameTextField()
         view.addSubview(sureNameTextField)
@@ -176,7 +246,7 @@ class InformationAboutPersonViewController: UIViewController {
         setupEmailTextField()
         view.addSubview(saveButton)
         setupSaveButton()
-        setToolBar()
+        numPad()
     }
 
     // MARK: - Life cycle
@@ -184,5 +254,17 @@ class InformationAboutPersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+}
+
+extension InformationAboutPersonViewController: UITextFieldDelegate {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        let fullString = (textField.text ?? "") + string
+        textField.text = format(phoneNumber: fullString, shouldRemoveLastDigit: range.length == 1)
+        return false
     }
 }

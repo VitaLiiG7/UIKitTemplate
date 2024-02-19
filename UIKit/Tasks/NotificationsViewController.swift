@@ -1,10 +1,10 @@
-// ViewController.swift
+// NotificationsViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Класс Вью Контроллер
-class ViewController: UIViewController {
+/// экран получения уведомлений
+class NotificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

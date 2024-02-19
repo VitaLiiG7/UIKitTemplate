@@ -4,16 +4,29 @@
 import UIKit
 
 /// Экран профиль пользователя с личными данными ( делает коллега )
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     // MARK: - Constants
 
     private let gest = UITapGestureRecognizer()
 
     enum Constants {
         static let minSize = CGFloat(14)
+        static let profile = "Профиль"
+        static let sale = "15%"
+        static let cardNumber = "1000 0001 0102"
+        static let privateData = "Личные данные"
+        static let myData = "Мои данные"
         static let font = "Verdana"
         static let boldFont = "Verdana-Bold"
+        static let feedback = "Обратная связь"
+        static let inviteFriend = "Приведи друга"
         static let mediumSize = CGFloat(16)
+    }
+    // MARK: - Life cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
     }
 
     // MARK: - Visual Components
@@ -28,7 +41,7 @@ class ProfileViewController: UIViewController {
     private let feedBackLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Обратная связь"
+        label.text = Constants.feedback
         label.font = UIFont(name: Constants.font, size: Constants.mediumSize)
         return label
     }()
@@ -36,7 +49,7 @@ class ProfileViewController: UIViewController {
     private let inviteFriendLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Приведи друга"
+        label.text = Constants.inviteFriend
         label.font = UIFont(name: Constants.font, size: Constants.mediumSize)
         return label
     }()
@@ -52,12 +65,12 @@ class ProfileViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isUserInteractionEnabled = true
-        label.text = "Мои данные"
+        label.text = Constants.myData
         label.font = UIFont(name: Constants.font, size: Constants.mediumSize)
         return label
     }()
 
-    private let iconUserData: UIImageView = {
+    private let iconUserDataImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = .iconUserData
@@ -68,7 +81,7 @@ class ProfileViewController: UIViewController {
     private let userDataLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Личные данные"
+        label.text = Constants.privateData
         label.font = UIFont(name: Constants.boldFont, size: Constants.mediumSize)
         return label
     }()
@@ -90,7 +103,7 @@ class ProfileViewController: UIViewController {
     private let numberOfCardLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "1000 0001 0102"
+        label.text = Constants.cardNumber
         label.textColor = .white
         label.font = UIFont(name: Constants.font, size: Constants.minSize)
         return label
@@ -99,7 +112,7 @@ class ProfileViewController: UIViewController {
     private let saleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "15%"
+        label.text = Constants.sale
         label.textColor = .white
         label.font = UIFont(name: Constants.boldFont, size: Constants.mediumSize)
         return label
@@ -115,7 +128,7 @@ class ProfileViewController: UIViewController {
     private let profileLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Профиль"
+        label.text = Constants.profile
         label.font = UIFont(name: Constants.boldFont, size: Constants.mediumSize)
         return label
     }()
@@ -165,10 +178,10 @@ class ProfileViewController: UIViewController {
     }
 
     private func setupIconUserDate() {
-        iconUserData.widthAnchor.constraint(equalToConstant: 18).isActive = true
-        iconUserData.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        iconUserData.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 48).isActive = true
-        iconUserData.topAnchor.constraint(equalTo: view.topAnchor, constant: 360).isActive = true
+        iconUserDataImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        iconUserDataImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        iconUserDataImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 48).isActive = true
+        iconUserDataImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 360).isActive = true
     }
 
     private func setupUserDataLabel() {
@@ -233,6 +246,7 @@ class ProfileViewController: UIViewController {
     }
 
     private func setupUI() {
+        view.backgroundColor = .white
         view.addSubview(profileLabel)
         setupProfiLabel()
         view.addSubview(blackCardImageView)
@@ -249,7 +263,7 @@ class ProfileViewController: UIViewController {
         setupInfoImageView()
         view.addSubview(userDataLabel)
         setupUserDataLabel()
-        view.addSubview(iconUserData)
+        view.addSubview(iconUserDataImageView)
         setupIconUserDate()
         view.addSubview(myDataLabel)
         setupMyDataLabel()
@@ -266,13 +280,5 @@ class ProfileViewController: UIViewController {
 
     @objc private func tranzitNavigation() {
         navigationController?.pushViewController(InformationAboutPersonViewController(), animated: true)
-    }
-
-    // MARK: - Life cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        setupUI()
     }
 }

@@ -4,7 +4,7 @@
 import UIKit
 
 /// Экран корзина, сюда прихоидт выбранный товар ( делает коллега )
-class BasketViewController: UIViewController {
+final class BasketViewController: UIViewController {
     // MARK: - Constants
 
     private enum Constants {

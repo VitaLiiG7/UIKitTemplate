@@ -4,17 +4,31 @@
 import UIKit
 
 /// Экран для заполнения персональной информации о пользователе ( делает коллега )
-class InformationAboutPersonViewController: UIViewController {
+final class InformationAboutPersonViewController: UIViewController {
     // MARK: - Constants
 
     private enum Constants {
         static let maxNumberCount = 11
         static let datePicker = UIDatePicker()
         static let toolBar = UIToolbar()
+        static let myData = "Мои данные"
+        static let name = "Имя"
+        static let sureName = "Фамилия"
+        static let mail = "Почта"
+        static let bday = " Дата рождения"
+        static let handSize = "Размер ноги"
+        static let phoneNumber = "Номер телефона"
         static let phonePatern = "(\\d{1})(\\d{3})(\\d{3})(\\d{2})(\\d+)"
         static let phoneFormat = "$1 ($2) $3-$4-$5"
         static let emailPatern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         static let emailFormat = "SELF MATCHES %@"
+    }
+    
+    // MARK: - Life cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
     }
 
     // MARK: - Visual Components
@@ -34,7 +48,7 @@ class InformationAboutPersonViewController: UIViewController {
     private let emailTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Почта"
+        textField.placeholder = Constants.mail
         textField.backgroundColor = #colorLiteral(red: 0.9725490212, green: 0.9725490212, blue: 0.9725490212, alpha: 1)
         textField.borderStyle = .roundedRect
         return textField
@@ -43,7 +57,7 @@ class InformationAboutPersonViewController: UIViewController {
     private let birthDayTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Дата рождения"
+        textField.placeholder = Constants.bday
         textField.backgroundColor = #colorLiteral(red: 0.9725490212, green: 0.9725490212, blue: 0.9725490212, alpha: 1)
         textField.borderStyle = .roundedRect
         return textField
@@ -52,7 +66,7 @@ class InformationAboutPersonViewController: UIViewController {
     private let footSizeTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Размер ноги"
+        textField.placeholder = Constants.handSize
         textField.backgroundColor = #colorLiteral(red: 0.9725490212, green: 0.9725490212, blue: 0.9725490212, alpha: 1)
         textField.borderStyle = .roundedRect
         return textField
@@ -61,7 +75,7 @@ class InformationAboutPersonViewController: UIViewController {
     private let phoneNumberTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Номер телефона"
+        textField.placeholder = Constants.phoneNumber
         textField.backgroundColor = #colorLiteral(red: 0.9725490212, green: 0.9725490212, blue: 0.9725490212, alpha: 1)
         textField.borderStyle = .roundedRect
         return textField
@@ -70,7 +84,7 @@ class InformationAboutPersonViewController: UIViewController {
     private let sureNameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Фамилия"
+        textField.placeholder = Constants.sureName
         textField.backgroundColor = #colorLiteral(red: 0.9725490212, green: 0.9725490212, blue: 0.9725490212, alpha: 1)
         textField.borderStyle = .roundedRect
         return textField
@@ -79,7 +93,7 @@ class InformationAboutPersonViewController: UIViewController {
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Имя"
+        textField.placeholder = Constants.name
         textField.backgroundColor = #colorLiteral(red: 0.9725490212, green: 0.9725490212, blue: 0.9725490212, alpha: 1)
         textField.borderStyle = .roundedRect
         textField.addTarget(self, action: #selector(hideButton), for: .editingChanged)
@@ -88,38 +102,28 @@ class InformationAboutPersonViewController: UIViewController {
 
     // MARK: - Private Methods
 
-    private func setupPhoneNumberTextField() {
+    private func setupPhoneNumberTextFieldConstraints() {
         phoneNumberTextField.widthAnchor.constraint(equalToConstant: 335).isActive = true
         phoneNumberTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         phoneNumberTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         phoneNumberTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
     }
 
-    @objc private func hideButton() {
-        if nameTextField.text?.isEmpty ?? false {
-            saveButton.isEnabled = true
-            saveButton.isHidden = false
-        } else {
-            saveButton.isEnabled = true
-            saveButton.isHidden = false
-        }
-    }
-
-    private func setupSaveButton() {
+    private func setupSaveButtonConstraints() {
         saveButton.widthAnchor.constraint(equalToConstant: 335).isActive = true
         saveButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         saveButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         saveButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 650).isActive = true
     }
 
-    private func setupEmailTextField() {
+    private func setupEmailTextFieldConstraints() {
         emailTextField.widthAnchor.constraint(equalToConstant: 335).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         emailTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
     }
 
-    private func setupBirthDayTextField() {
+    private func setupBirthDayTextFieldConstraints() {
         birthDayTextField.widthAnchor.constraint(equalToConstant: 335).isActive = true
         birthDayTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         birthDayTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
@@ -128,21 +132,21 @@ class InformationAboutPersonViewController: UIViewController {
         Constants.datePicker.datePickerMode = .date
     }
 
-    private func setupFootSizeTextField() {
+    private func setupFootSizeTextFieldConstraints() {
         footSizeTextField.widthAnchor.constraint(equalToConstant: 335).isActive = true
         footSizeTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         footSizeTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         footSizeTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
     }
 
-    private func setupSureNameTextField() {
+    private func setupSureNameTextFieldConstraints() {
         sureNameTextField.widthAnchor.constraint(equalToConstant: 335).isActive = true
         sureNameTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         sureNameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         sureNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 250).isActive = true
     }
 
-    private func setupNameTextField() {
+    private func setupNameTextFieldConstraints() {
         nameTextField.widthAnchor.constraint(equalToConstant: 335).isActive = true
         nameTextField.heightAnchor.constraint(equalToConstant: 44).isActive = true
         nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
@@ -156,11 +160,6 @@ class InformationAboutPersonViewController: UIViewController {
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         Constants.toolBar.setItems([flexSpace, doneButton], animated: true)
         birthDayTextField.inputAccessoryView = Constants.toolBar
-    }
-
-    @objc private func doneAction() {
-        getDateFromPicker()
-        view.endEditing(true)
     }
 
     private func getDateFromPicker() {
@@ -230,30 +229,38 @@ class InformationAboutPersonViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .white
-        title = "Мои данные"
+        title = Constants.myData
         setToolBar()
         view.addSubview(nameTextField)
-        setupNameTextField()
+        setupNameTextFieldConstraints()
         view.addSubview(sureNameTextField)
-        setupSureNameTextField()
+        setupSureNameTextFieldConstraints()
         view.addSubview(phoneNumberTextField)
-        setupPhoneNumberTextField()
+        setupPhoneNumberTextFieldConstraints()
         view.addSubview(footSizeTextField)
-        setupFootSizeTextField()
+        setupFootSizeTextFieldConstraints()
         view.addSubview(birthDayTextField)
-        setupBirthDayTextField()
+        setupBirthDayTextFieldConstraints()
         view.addSubview(emailTextField)
-        setupEmailTextField()
+        setupEmailTextFieldConstraints()
         view.addSubview(saveButton)
-        setupSaveButton()
+        setupSaveButtonConstraints()
         numPad()
     }
-
-    // MARK: - Life cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
+    
+    @objc private func hideButton() {
+        if nameTextField.text?.isEmpty ?? false {
+            saveButton.isEnabled = true
+            saveButton.isHidden = false
+        } else {
+            saveButton.isEnabled = true
+            saveButton.isHidden = false
+        }
+    }
+    
+    @objc private func doneAction() {
+        getDateFromPicker()
+        view.endEditing(true)
     }
 }
 

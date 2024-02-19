@@ -362,6 +362,7 @@ final class BasketViewController: UIViewController {
         setupNumberOfShoes()
         view.addSubview(checkoutButton)
         setupCheckoutButton()
+        view.backgroundColor = .white
     }
 
     @objc private func actionPlusButton() {
@@ -375,10 +376,20 @@ final class BasketViewController: UIViewController {
         totalLabel.text = "4250 ₽"
         checkoutButton.setTitle("Оформить заказ - 4250 ₽", for: .normal)
     }
+    // MARK: - Private Properties
+
+    private var dictMap: [InformationAboutShoes: Int] = [:]
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupUI()
+    }
+
+    // MARK: - Public Methods
+
+    func addCard(info: InformationAboutShoes, size: Int) {
+        dictMap.updateValue(size, forKey: info)
     }
 }

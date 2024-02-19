@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "catalogEmpty.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

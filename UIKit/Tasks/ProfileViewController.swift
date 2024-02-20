@@ -4,7 +4,7 @@
 import UIKit
 
 /// экран профиль человека
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

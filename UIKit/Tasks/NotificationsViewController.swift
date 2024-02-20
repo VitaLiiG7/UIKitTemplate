@@ -4,7 +4,7 @@
 import UIKit
 
 /// экран получения уведомлений
-class NotificationsViewController: UIViewController {
+final class NotificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

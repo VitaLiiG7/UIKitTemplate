@@ -11,6 +11,11 @@
 		2110E6E72B8380B900B78936 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110E6E62B8380B900B78936 /* NotificationsViewController.swift */; };
 		2110E6E92B8380E100B78936 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110E6E82B8380E000B78936 /* ProfileViewController.swift */; };
 		2110E6EC2B83938100B78936 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110E6EB2B83938100B78936 /* StoriesView.swift */; };
+		2110E70D2B83ABAC00B78936 /* ProfilePictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110E70C2B83ABAC00B78936 /* ProfilePictureViewCell.swift */; };
+		2110E70F2B83B7F700B78936 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110E70E2B83B7F700B78936 /* Post.swift */; };
+		2110E7112B83CACC00B78936 /* TapeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110E7102B83CACC00B78936 /* TapeTableViewCell.swift */; };
+		2110E7152B84254600B78936 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110E7142B84254600B78936 /* Model.swift */; };
+		2110E7182B84314700B78936 /* RecommendationsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2110E7172B84314700B78936 /* RecommendationsViewCell.swift */; };
 		217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519DC2B71049E00C06FB3 /* AppDelegate.swift */; };
 		217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519DE2B71049E00C06FB3 /* SceneDelegate.swift */; };
 		217519E12B71049E00C06FB3 /* TapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519E02B71049E00C06FB3 /* TapeViewController.swift */; };
@@ -23,6 +28,11 @@
 		2110E6E62B8380B900B78936 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		2110E6E82B8380E000B78936 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2110E6EB2B83938100B78936 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
+		2110E70C2B83ABAC00B78936 /* ProfilePictureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureViewCell.swift; sourceTree = "<group>"; };
+		2110E70E2B83B7F700B78936 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2110E7102B83CACC00B78936 /* TapeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeTableViewCell.swift; sourceTree = "<group>"; };
+		2110E7142B84254600B78936 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2110E7172B84314700B78936 /* RecommendationsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsViewCell.swift; sourceTree = "<group>"; };
 		217519D92B71049E00C06FB3 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		217519DC2B71049E00C06FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		217519DE2B71049E00C06FB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,10 +65,37 @@
 		2110E6EA2B83932B00B78936 /* Tape */ = {
 			isa = PBXGroup;
 			children = (
-				217519E02B71049E00C06FB3 /* TapeViewController.swift */,
-				2110E6EB2B83938100B78936 /* StoriesView.swift */,
+				2110E7122B8402C600B78936 /* Stories */,
+				2110E7132B8409B100B78936 /* ProfilePicture */,
 			);
 			path = Tape;
+			sourceTree = "<group>";
+		};
+		2110E7122B8402C600B78936 /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				2110E70E2B83B7F700B78936 /* Post.swift */,
+				2110E6EB2B83938100B78936 /* StoriesView.swift */,
+				2110E7102B83CACC00B78936 /* TapeTableViewCell.swift */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		2110E7132B8409B100B78936 /* ProfilePicture */ = {
+			isa = PBXGroup;
+			children = (
+				2110E70C2B83ABAC00B78936 /* ProfilePictureViewCell.swift */,
+				2110E7142B84254600B78936 /* Model.swift */,
+			);
+			path = ProfilePicture;
+			sourceTree = "<group>";
+		};
+		2110E7162B842C8600B78936 /* Recommendations */ = {
+			isa = PBXGroup;
+			children = (
+				2110E7172B84314700B78936 /* RecommendationsViewCell.swift */,
+			);
+			path = Recommendations;
 			sourceTree = "<group>";
 		};
 		217519D02B71049E00C06FB3 = {
@@ -83,6 +120,8 @@
 				2110E6E52B837F4400B78936 /* Setting */,
 				2110E6E32B837F3B00B78936 /* TabBarViewController.swift */,
 				2110E6EA2B83932B00B78936 /* Tape */,
+				2110E7162B842C8600B78936 /* Recommendations */,
+				217519E02B71049E00C06FB3 /* TapeViewController.swift */,
 				2110E6E62B8380B900B78936 /* NotificationsViewController.swift */,
 				2110E6E82B8380E000B78936 /* ProfileViewController.swift */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
@@ -205,13 +244,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2110E70F2B83B7F700B78936 /* Post.swift in Sources */,
+				2110E7112B83CACC00B78936 /* TapeTableViewCell.swift in Sources */,
 				2110E6E92B8380E100B78936 /* ProfileViewController.swift in Sources */,
 				2110E6E72B8380B900B78936 /* NotificationsViewController.swift in Sources */,
 				2110E6E42B837F3B00B78936 /* TabBarViewController.swift in Sources */,
+				2110E70D2B83ABAC00B78936 /* ProfilePictureViewCell.swift in Sources */,
 				2110E6EC2B83938100B78936 /* StoriesView.swift in Sources */,
 				217519E12B71049E00C06FB3 /* TapeViewController.swift in Sources */,
+				2110E7152B84254600B78936 /* Model.swift in Sources */,
 				217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */,
 				217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */,
+				2110E7182B84314700B78936 /* RecommendationsViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

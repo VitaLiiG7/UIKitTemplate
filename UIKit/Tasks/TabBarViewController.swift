@@ -20,6 +20,8 @@ final class TabBarViewController: UITabBarController {
         setupController()
     }
 
+    // MARK: - Private Methods
+
     private func setupController() {
         let tapeViewController = TapeViewController()
         let notificationsViewController = NotificationsViewController()

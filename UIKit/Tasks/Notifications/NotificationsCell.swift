@@ -3,16 +3,19 @@
 
 import UIKit
 
-/// Ячейка для уведомлений с кнопкой
+/// Ячейка уведомления
 class NotificationsCell: UITableViewCell {
+    // MARK: - Constants
+
     enum Constants {
         static let comment =
             "tur_v_dagestan Насладитесь красотой природы. \nЗабронировать тур в Дагестан можно уже сейчас!"
         static let sizeUsername = 12
         static let verdanaBold = "Verdana-Bold"
+        static let verdana = "Verdana"
     }
 
-    static let identifier = "NotificationsCell"
+    // MARK: - Visual Components
 
     private let avatarImageView: UIImageView = {
         let image = UIImageView()
@@ -31,7 +34,7 @@ class NotificationsCell: UITableViewCell {
 
     private let usernameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constants.verdanaBold, size: CGFloat(Constants.sizeUsername))
+        label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeUsername))
         label.textAlignment = .left
         label.textColor = .black
         label.numberOfLines = 0
@@ -55,21 +58,33 @@ class NotificationsCell: UITableViewCell {
         return label
     }()
 
+    // MARK: - Initializers
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
         setupConstraint()
     }
 
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
+
+    // MARK: - Public Methods
+
+    func setupCell(user: Notifications) {
+        avatarImageView.image = UIImage(named: user.nameImage)
+        usernameLabel.text = user.nameLabel
+        photoImageView.image = UIImage(named: user.photoImage)
+    }
+
+    // MARK: - Private Methods
 
     private func setupUI() {
         for item in [avatarImageView, usernameLabel, photoImageView] {
             item.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(item)
+            selectionStyle = .none
         }
     }
 
@@ -78,6 +93,7 @@ class NotificationsCell: UITableViewCell {
         avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         avatarImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -6).isActive = true
 
         usernameLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
         usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 7).isActive = true
@@ -88,11 +104,5 @@ class NotificationsCell: UITableViewCell {
         photoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         photoImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         photoImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-    }
-
-    func configure(user: Notifications) {
-        avatarImageView.image = UIImage(named: user.nameImage)
-        usernameLabel.text = user.nameLabel
-        photoImageView.image = UIImage(named: user.photoImage)
     }
 }

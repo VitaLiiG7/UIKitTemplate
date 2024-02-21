@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// аватарка с информацией
+/// Экран профиля
 final class ProfilePictureViewCell: UITableViewCell {
     // MARK: - Constants
 
@@ -19,18 +19,24 @@ final class ProfilePictureViewCell: UITableViewCell {
         static let smallAvatarCornerRadius = 30
         static let leaveCommentLabel = "Комментировать ..."
         static let tenMinutesAgo = "10 минут назад"
+        static let xCoordinate = 0
     }
 
     // MARK: - Private Properties
 
-    static let identifier = "ProfilePictureViewCell"
+    private let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = .gray
+        pageControl.currentPageIndicatorTintColor = .black
+        return pageControl
+    }()
 
-    private let pageControl = UIPageControl()
     private let scrollView = UIScrollView()
 
     private let avatarImageView: UIImageView = {
         let image = UIImageView()
-        image.image = .vitalik
+//        image.image = .vitalik
         image.layer.cornerRadius = 15
         image.clipsToBounds = true
         image.backgroundColor = .red
@@ -45,7 +51,7 @@ final class ProfilePictureViewCell: UITableViewCell {
 
     private let landscapeImageView: UIImageView = {
         let image = UIImageView()
-        image.image = .castle
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         return image
     }()
@@ -55,7 +61,6 @@ final class ProfilePictureViewCell: UITableViewCell {
         label.font = UIFont(name: Constants.verdanaBold, size: CGFloat(Constants.sizeUsername))
         label.textAlignment = .left
         label.textColor = .black
-        label.text = "tur_v_dagestan"
         return label
     }()
 
@@ -132,7 +137,7 @@ final class ProfilePictureViewCell: UITableViewCell {
         return label
     }()
 
-    // MARK: - Life Cycle
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -140,6 +145,7 @@ final class ProfilePictureViewCell: UITableViewCell {
         setupConstraint()
         pageControl.addTarget(self, action: #selector(flippingPictures), for: .valueChanged)
         scrollView.delegate = self
+        selectionStyle = .none
     }
 
     required init?(coder: NSCoder) {
@@ -163,8 +169,6 @@ final class ProfilePictureViewCell: UITableViewCell {
             smallAvatarImageView,
             leaveCommentLabel,
             tenMinutesAgoLabell
-            //            scrollView,
-            //            pageControl
         ] {
             item.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(item)
@@ -174,61 +178,67 @@ final class ProfilePictureViewCell: UITableViewCell {
     private func setupConstraint() {
         avatarImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
-        avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
 
         ellipsisImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         ellipsisImageView.heightAnchor.constraint(equalToConstant: 10).isActive = true
         ellipsisImageView.centerYAnchor.constraint(equalTo: usernameLabel.centerYAnchor).isActive = true
         ellipsisImageView.centerXAnchor.constraint(equalTo: bookmarksImageView.centerXAnchor).isActive = true
-        //        ellipsisImageView.topAnchor.constraint(equalTo: topAnchor, constant: 14).isActive = true
-        //        ellipsisImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14).isActive = true
-
-        usernameLabel.widthAnchor.constraint(equalToConstant: 107).isActive = true
-        usernameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 6).isActive = true
-        usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
 
         landscapeImageView.widthAnchor.constraint(equalToConstant: 375).isActive = true
         landscapeImageView.heightAnchor.constraint(equalToConstant: 239).isActive = true
-        landscapeImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        landscapeImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         landscapeImageView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10).isActive = true
 
         heartImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
         heartImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        heartImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        heartImageView.topAnchor.constraint(equalTo: landscapeImageView.bottomAnchor, constant: 12).isActive = true
+        heartImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
+        heartImageView.topAnchor.constraint(equalTo: landscapeImageView.bottomAnchor, constant: 10).isActive = true
 
         commentsImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
         commentsImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
         commentsImageView.leadingAnchor.constraint(equalTo: heartImageView.trailingAnchor, constant: 14).isActive = true
-        commentsImageView.topAnchor.constraint(equalTo: landscapeImageView.bottomAnchor, constant: 11).isActive = true
+        commentsImageView.centerYAnchor.constraint(equalTo: heartImageView.centerYAnchor).isActive = true
 
         planeImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
         planeImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
         planeImageView.leadingAnchor.constraint(equalTo: commentsImageView.trailingAnchor, constant: 14.59)
             .isActive = true
-        planeImageView.topAnchor.constraint(equalTo: landscapeImageView.bottomAnchor, constant: 11.63).isActive = true
+        planeImageView.centerYAnchor.constraint(equalTo: commentsImageView.centerYAnchor).isActive = true
 
         bookmarksImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
         bookmarksImageView.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        bookmarksImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -14).isActive = true
-        bookmarksImageView.topAnchor.constraint(equalTo: landscapeImageView.bottomAnchor, constant: 8).isActive = true
+        bookmarksImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14).isActive = true
+        bookmarksImageView.centerYAnchor.constraint(equalTo: heartImageView.centerYAnchor).isActive = true
 
-        likesLabel.widthAnchor.constraint(equalToConstant: 107).isActive = true
-        likesLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        likesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        likesLabel.topAnchor.constraint(equalTo: commentsImageView.bottomAnchor, constant: 9).isActive = true
-
-        commentLabel.widthAnchor.constraint(equalToConstant: 361).isActive = true
-        commentLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        commentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        commentLabel.topAnchor.constraint(equalTo: likesLabel.bottomAnchor, constant: 6).isActive = true
-
-        smallAvatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        smallAvatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
         smallAvatarImageView.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 4).isActive = true
         smallAvatarImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
         smallAvatarImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isPagingEnabled = true
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+
+        setupConstraintLabel()
+    }
+
+    private func setupConstraintLabel() {
+        usernameLabel.widthAnchor.constraint(equalToConstant: 107).isActive = true
+        usernameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        usernameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor).isActive = true
+        usernameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 6).isActive = true
+
+        likesLabel.widthAnchor.constraint(equalToConstant: 107).isActive = true
+        likesLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        likesLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
+        likesLabel.topAnchor.constraint(equalTo: heartImageView.bottomAnchor, constant: 9).isActive = true
+
+        commentLabel.widthAnchor.constraint(equalToConstant: 361).isActive = true
+        commentLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        commentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
+        commentLabel.topAnchor.constraint(equalTo: likesLabel.bottomAnchor, constant: 6).isActive = true
 
         leaveCommentLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
         leaveCommentLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
@@ -238,18 +248,13 @@ final class ProfilePictureViewCell: UITableViewCell {
 
         tenMinutesAgoLabell.topAnchor.constraint(equalTo: smallAvatarImageView.bottomAnchor, constant: 4)
             .isActive = true
-        tenMinutesAgoLabell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        tenMinutesAgoLabell.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
+        tenMinutesAgoLabell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12).isActive = true
         tenMinutesAgoLabell.widthAnchor.constraint(equalToConstant: 150).isActive = true
         tenMinutesAgoLabell.heightAnchor.constraint(equalToConstant: 15).isActive = true
-
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.isPagingEnabled = true
-
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.pageIndicatorTintColor = .black
-        pageControl.currentPageIndicatorTintColor = .white
-        pageControl.backgroundStyle = .automatic
     }
+
+    // MARK: - Public Methods
 
     func configure(user: Post) {
         avatarImageView.image = UIImage(named: user.avatarImage)
@@ -257,7 +262,7 @@ final class ProfilePictureViewCell: UITableViewCell {
         likesLabel.text = user.likesCount
         commentLabel.text = user.lastComment
         landscapeImageView.image = UIImage(named: user.postImage[0])
-        var xCoordinate = 0
+        var xCoordinate = Constants.xCoordinate
 
         if user.postImage.count <= 1 {
             pageControl.isHidden = true
@@ -274,10 +279,10 @@ final class ProfilePictureViewCell: UITableViewCell {
                 xCoordinate += Int(UIScreen.main.bounds.width)
                 pageControl.centerXAnchor.constraint(equalTo: landscapeImageView.centerXAnchor).isActive = true
                 pageControl.topAnchor.constraint(equalTo: landscapeImageView.bottomAnchor, constant: 8).isActive = true
-                scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-                scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-                scrollView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+                scrollView.widthAnchor.constraint(equalToConstant: 375).isActive = true
                 scrollView.heightAnchor.constraint(equalToConstant: 239).isActive = true
+                scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+                scrollView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10).isActive = true
             }
         }
     }
@@ -287,6 +292,8 @@ final class ProfilePictureViewCell: UITableViewCell {
         scrollView.setContentOffset(CGPoint(x: ofsetX, y: 0), animated: true)
     }
 }
+
+// MARK: ProfilePictureViewCell + UIScrollViewDelegate
 
 extension ProfilePictureViewCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

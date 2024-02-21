@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Ячейка истории инстограмма
+/// Вью с историей
 final class StoriesView: UIView {
     // MARK: - Constants
 
@@ -12,12 +12,13 @@ final class StoriesView: UIView {
         static let sizeFont = 8
     }
 
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     private let storiesImageView: UIImageView = {
         let image = UIImageView()
         image.image = .womanInField
         image.layer.cornerRadius = 30
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         return image
     }()
@@ -26,6 +27,7 @@ final class StoriesView: UIView {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeFont))
         label.textAlignment = .center
+        label.textColor = .black
         return label
     }()
 
@@ -40,6 +42,13 @@ final class StoriesView: UIView {
         setupConstraints()
     }
 
+    // MARK: - Public Methods
+
+    func editFirstElement() {
+        usernameLabel.textColor = .gray
+        storiesImageView.layer.cornerRadius = 0
+    }
+
     // MARK: - Private Methods
 
     private func setupView() {
@@ -52,7 +61,6 @@ final class StoriesView: UIView {
         storiesImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         storiesImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         storiesImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
-        storiesImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15).isActive = true
 
         usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         usernameLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true

@@ -3,16 +3,18 @@
 
 import UIKit
 
-/// ячейка с историей
+/// Ячейка истории
 class TapeTableViewCell: UITableViewCell {
+    // MARK: - Constants
+
     private enum Constants {
         static let verdana = "Verdana"
         static let sizeFont = 8
+        static let startLead = 12
+        static let topLead = 85
     }
 
-    static let identifier = "TapeTableViewCell"
-
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -25,34 +27,46 @@ class TapeTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupConstraint()
+        setupConstraintScroll()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 
+    // MARK: - Public Methods
+
     func setupScrollView(stories: [StoriesView]) {
-        var startLead = 12
-        scrollView.contentSize = CGSize(width: 85, height: 75)
-        for item in stories {
+        var startLead = Constants.startLead
+        for (index, item) in stories.enumerated() {
+            if index == 0 {
+                item.editFirstElement()
+            }
             scrollView.addSubview(item)
+            item.translatesAutoresizingMaskIntoConstraints = false
             item.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: CGFloat(startLead))
                 .isActive = true
             item.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+            item.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
             item.widthAnchor.constraint(equalToConstant: 84).isActive = true
             item.heightAnchor.constraint(equalToConstant: 75).isActive = true
-            startLead += 85
-            scrollView.contentSize.width += 85
+            item.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
+            if index == stories.count - 1 {
+                item.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+            }
+            startLead += Constants.topLead
         }
     }
 
-    private func setupConstraint() {
+    // MARK: - Private Methods
+
+    private func setupConstraintScroll() {
         contentView.addSubview(scrollView)
-        scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        selectionStyle = .none
     }
 }

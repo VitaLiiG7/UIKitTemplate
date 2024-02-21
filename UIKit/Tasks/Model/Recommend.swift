@@ -1,4 +1,4 @@
-/// рекомендация
+/// Рекомендация
 struct Recommend {
     /// Название изображения пользователя
     var avatarImage: String

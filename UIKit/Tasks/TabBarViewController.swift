@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// экран где создается таб бар контроллер
+/// Экран где создается таб бар контроллер
 final class TabBarViewController: UITabBarController {
     // MARK: - Constants
 

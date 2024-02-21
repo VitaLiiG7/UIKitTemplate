@@ -5,6 +5,14 @@ import UIKit
 
 /// экран получения уведомлений
 final class NotificationsViewController: UIViewController {
+    // MARK: - Types
+
+    private enum CellTypes {
+        case subscriptionRequests
+        case today
+        case forThisWeek
+    }
+
     // MARK: - Constants
 
     private enum Constants {
@@ -14,25 +22,17 @@ final class NotificationsViewController: UIViewController {
         static let request = "Запросы на подписку"
     }
 
-    // MARK: - Types
-
-    private enum InstagramCells {
-        case subscriptionRequests
-        case today
-        case forThisWeek
-    }
-
     // MARK: - Private Properties
 
-    private let messages: [InstagramCells] = [.subscriptionRequests, .today, .forThisWeek]
+    private let notifications: [CellTypes] = [.subscriptionRequests, .today, .forThisWeek]
 
     private let todayNotifications: [Any] = [
-        Notifications(
+        Notification(
             nameImage: "woman",
             nameLabel: "lavanda123  понравился ваш \nкомментарий: \"Очень красиво!\" 5 ч",
             photoImage: "womanInField"
         ),
-        Notifications(
+        Notification(
             nameImage: "womanOld",
             nameLabel: "lavanda123 упомянул(-а) вас в комментарии: @rm Спасибо! 5 ч",
             photoImage: "castle"
@@ -40,7 +40,7 @@ final class NotificationsViewController: UIViewController {
     ]
 
     private let lastWeekNotifications: [Any] = [
-        Notifications(
+        Notification(
             nameImage: "womanOld",
             nameLabel: "lavanda123 упомянул(-а) вас в комментарии: @rm Спасибо! 5 ч",
             photoImage: "castle"
@@ -53,7 +53,7 @@ final class NotificationsViewController: UIViewController {
             nameImage: "woman",
             nameLabel: "lavanda123 появился(-ась) в RMLink. Вы можете быть знакомы 5 ч"
         ),
-        Notifications(
+        Notification(
             nameImage: "womanOld",
             nameLabel: "lavanda123 упомянул(-а) вас в комментарии: @rm Спасибо! 5 ч",
             photoImage: "castle"
@@ -70,23 +70,24 @@ final class NotificationsViewController: UIViewController {
 
     // MARK: - Visual Components
 
-    private let tableView: UITableView = {
+    private let tableView = {
         let table = UITableView()
         table.register(NotificationsCell.self, forCellReuseIdentifier: String(describing: NotificationsCell.self))
         table.register(
             NotificationsButtonCell.self,
             forCellReuseIdentifier: String(describing: NotificationsButtonCell.self)
         )
+        table.separatorStyle = .none
+        table.estimatedRowHeight = UITableView.automaticDimension
         return table
-
     }()
 
-    // MARK: - Initializers
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupConstraint()
+        setupTableViewConstraint()
     }
 
     // MARK: - Private Methods
@@ -94,29 +95,18 @@ final class NotificationsViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(tableView)
-        navigationItem.title = "Уведомления"
+        navigationItem.title = Constants.titleText
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.dataSource = self
-        tableView.delegate = self
     }
 
-    private func setupConstraint() {
+    private func setupTableViewConstraint() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-    }
-}
-
-// MARK: NotificationsViewController + UITableViewDelegate
-
-extension NotificationsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
     }
 }
 
@@ -124,11 +114,11 @@ extension NotificationsViewController: UITableViewDelegate {
 
 extension NotificationsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        messages.count
+        notifications.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch messages[section] {
+        switch notifications[section] {
         case .subscriptionRequests:
             return Constants.request
         case .today:
@@ -139,8 +129,8 @@ extension NotificationsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let number = messages[section]
-        switch number {
+        let sectionType = notifications[section]
+        switch sectionType {
         case .subscriptionRequests:
             return 0
         case .today:
@@ -151,12 +141,12 @@ extension NotificationsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = messages[indexPath.section]
+        let cell = notifications[indexPath.section]
         switch cell {
         case .subscriptionRequests:
             return UITableViewCell()
         case .today:
-            if let item = todayNotifications[indexPath.row] as? Notifications {
+            if let item = todayNotifications[indexPath.row] as? Notification {
                 guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: String(describing: NotificationsCell.self),
                     for: indexPath
@@ -179,7 +169,7 @@ extension NotificationsViewController: UITableViewDataSource {
                 ) as? NotificationsButtonCell else { return UITableViewCell() }
                 cell.setupCell(user: item)
                 return cell
-            } else if let item = lastWeekNotifications[indexPath.row] as? Notifications {
+            } else if let item = lastWeekNotifications[indexPath.row] as? Notification {
                 guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: String(describing: NotificationsCell.self),
                     for: indexPath

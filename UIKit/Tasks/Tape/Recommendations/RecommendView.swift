@@ -3,8 +3,8 @@
 
 import UIKit
 
-// для отображения в ячейки рекомендации
-class RecommendView: UIView {
+// для отображения вью рекомендации
+final class RecommendView: UIView {
     // MARK: - Constants
 
     private enum Constants {
@@ -20,14 +20,14 @@ class RecommendView: UIView {
 
     // MARK: - Visual Components
 
-    private let deleteRecommendationButton: UIButton = {
+    private let deleteRecommendationButton = {
         let button = UIButton()
         button.setImage(.cross, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
-    private let avatarImageView: UIImageView = {
+    private let avatarImageView = {
         let image = UIImageView()
         image.image = .guy
         image.layer.cornerRadius = 50
@@ -35,7 +35,7 @@ class RecommendView: UIView {
         return image
     }()
 
-    private let usernameLabel: UILabel = {
+    private let usernameLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeFont))
         label.textAlignment = .center
@@ -43,7 +43,7 @@ class RecommendView: UIView {
         return label
     }()
 
-    private let subscribeButton: UIButton = {
+    private let subscribeButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(named: Constants.buttonColor)
         button.setTitle(Constants.subscribe, for: .normal)
@@ -61,7 +61,7 @@ class RecommendView: UIView {
         usernameLabel.text = recommend.avatarName
         translatesAutoresizingMaskIntoConstraints = false
         setupView()
-        constraint()
+        setupConstraints()
         backgroundColor = .white
     }
 
@@ -79,7 +79,7 @@ class RecommendView: UIView {
         }
     }
 
-    private func constraint() {
+    private func setupConstraints() {
         deleteRecommendationButton.topAnchor.constraint(equalTo: topAnchor, constant: 25)
             .isActive = true
         deleteRecommendationButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.5)

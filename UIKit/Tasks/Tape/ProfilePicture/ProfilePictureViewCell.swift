@@ -24,7 +24,7 @@ final class ProfilePictureViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
-    private let pageControl: UIPageControl = {
+    private let pageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = .gray
@@ -34,29 +34,28 @@ final class ProfilePictureViewCell: UITableViewCell {
 
     private let scrollView = UIScrollView()
 
-    private let avatarImageView: UIImageView = {
+    private let avatarImageView = {
         let image = UIImageView()
-//        image.image = .vitalik
         image.layer.cornerRadius = 15
         image.clipsToBounds = true
         image.backgroundColor = .red
         return image
     }()
 
-    private let ellipsisImageView: UIButton = {
+    private let ellipsisImageView = {
         let image = UIButton()
         image.setImage(.ellipsis, for: .normal)
         return image
     }()
 
-    private let landscapeImageView: UIImageView = {
+    private let landscapeImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         return image
     }()
 
-    private let usernameLabel: UILabel = {
+    private let usernameLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdanaBold, size: CGFloat(Constants.sizeUsername))
         label.textAlignment = .left
@@ -64,44 +63,44 @@ final class ProfilePictureViewCell: UITableViewCell {
         return label
     }()
 
-    private let heartImageView: UIImageView = {
+    private let heartImageView = {
         let image = UIImageView()
         image.image = .heart
         image.clipsToBounds = true
         return image
     }()
 
-    private let commentsImageView: UIImageView = {
+    private let commentsImageView = {
         let image = UIImageView()
         image.image = .comments
         image.clipsToBounds = true
         return image
     }()
 
-    private let planeImageView: UIImageView = {
+    private let planeImageView = {
         let image = UIImageView()
         image.image = .plane
         image.clipsToBounds = true
         return image
     }()
 
-    private let bookmarksImageView: UIImageView = {
+    private let bookmarksImageView = {
         let image = UIImageView()
         image.image = .bookmarks
         image.clipsToBounds = true
         return image
     }()
 
-    private let likesLabel: UILabel = {
+    private let likesLabel = {
         let label = UILabel()
-        label.font = UIFont(name: Constants.verdanaBold, size: CGFloat(Constants.sizeFontLikes))
+        label.font = .init(name: Constants.verdanaBold, size: CGFloat(Constants.sizeFontLikes))
         label.textAlignment = .left
         label.text = Constants.like
         label.textColor = .black
         return label
     }()
 
-    private let commentLabel: UILabel = {
+    private let commentLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeFontLikes))
         label.textAlignment = .left
@@ -110,7 +109,7 @@ final class ProfilePictureViewCell: UITableViewCell {
         return label
     }()
 
-    private let smallAvatarImageView: UIImageView = {
+    private let smallAvatarImageView = {
         let image = UIImageView()
         image.image = .vitalik
         image.clipsToBounds = true
@@ -118,7 +117,7 @@ final class ProfilePictureViewCell: UITableViewCell {
         return image
     }()
 
-    private let leaveCommentLabel: UILabel = {
+    private let leaveCommentLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeFontLikes))
         label.textAlignment = .left
@@ -128,7 +127,7 @@ final class ProfilePictureViewCell: UITableViewCell {
         return label
     }()
 
-    private let tenMinutesAgoLabell: UILabel = {
+    private let tenMinutesAgoLabell = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeFontLikes))
         label.textAlignment = .left
@@ -142,9 +141,10 @@ final class ProfilePictureViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
-        setupConstraint()
-        pageControl.addTarget(self, action: #selector(flippingPictures), for: .valueChanged)
-        scrollView.delegate = self
+        setupConstraints()
+        setupScrollView()
+        setupPageControl()
+        setupScrollView()
         selectionStyle = .none
     }
 
@@ -153,6 +153,17 @@ final class ProfilePictureViewCell: UITableViewCell {
     }
 
     // MARK: - Private Methods
+
+    private func setupPageControl() {
+        pageControl.addTarget(self, action: #selector(flippingPictures), for: .valueChanged)
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    private func setupScrollView() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.delegate = self
+        scrollView.isPagingEnabled = true
+    }
 
     private func setupView() {
         for item in [
@@ -175,7 +186,7 @@ final class ProfilePictureViewCell: UITableViewCell {
         }
     }
 
-    private func setupConstraint() {
+    private func setupConstraints() {
         avatarImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
@@ -191,22 +202,6 @@ final class ProfilePictureViewCell: UITableViewCell {
         landscapeImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         landscapeImageView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10).isActive = true
 
-        heartImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
-        heartImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        heartImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
-        heartImageView.topAnchor.constraint(equalTo: landscapeImageView.bottomAnchor, constant: 10).isActive = true
-
-        commentsImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
-        commentsImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        commentsImageView.leadingAnchor.constraint(equalTo: heartImageView.trailingAnchor, constant: 14).isActive = true
-        commentsImageView.centerYAnchor.constraint(equalTo: heartImageView.centerYAnchor).isActive = true
-
-        planeImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
-        planeImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        planeImageView.leadingAnchor.constraint(equalTo: commentsImageView.trailingAnchor, constant: 14.59)
-            .isActive = true
-        planeImageView.centerYAnchor.constraint(equalTo: commentsImageView.centerYAnchor).isActive = true
-
         bookmarksImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
         bookmarksImageView.heightAnchor.constraint(equalToConstant: 18).isActive = true
         bookmarksImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14).isActive = true
@@ -217,14 +212,11 @@ final class ProfilePictureViewCell: UITableViewCell {
         smallAvatarImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
         smallAvatarImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.isPagingEnabled = true
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-
-        setupConstraintLabel()
+        setupConstraintsLabel()
+        setupConstraintsPostActions()
     }
 
-    private func setupConstraintLabel() {
+    private func setupConstraintsLabel() {
         usernameLabel.widthAnchor.constraint(equalToConstant: 107).isActive = true
         usernameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         usernameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor).isActive = true
@@ -253,6 +245,24 @@ final class ProfilePictureViewCell: UITableViewCell {
         tenMinutesAgoLabell.widthAnchor.constraint(equalToConstant: 150).isActive = true
         tenMinutesAgoLabell.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
+    
+  private func setupConstraintsPostActions() {
+        heartImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        heartImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        heartImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
+        heartImageView.topAnchor.constraint(equalTo: landscapeImageView.bottomAnchor, constant: 10).isActive = true
+
+        commentsImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        commentsImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        commentsImageView.leadingAnchor.constraint(equalTo: heartImageView.trailingAnchor, constant: 14).isActive = true
+        commentsImageView.centerYAnchor.constraint(equalTo: heartImageView.centerYAnchor).isActive = true
+
+        planeImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
+        planeImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        planeImageView.leadingAnchor.constraint(equalTo: commentsImageView.trailingAnchor, constant: 14.59)
+            .isActive = true
+        planeImageView.centerYAnchor.constraint(equalTo: commentsImageView.centerYAnchor).isActive = true
+    }
 
     // MARK: - Public Methods
 
@@ -271,7 +281,8 @@ final class ProfilePictureViewCell: UITableViewCell {
             for image in user.postImage {
                 contentView.addSubview(pageControl)
                 contentView.addSubview(scrollView)
-                pageControl.numberOfPages = user.userImages.count
+                pageControl.numberOfPages = user.postImage.count
+
                 let imageView = UIImageView()
                 imageView.image = UIImage(named: image)
                 imageView.frame = CGRect(x: xCoordinate, y: 0, width: Int(UIScreen.main.bounds.width), height: 239)

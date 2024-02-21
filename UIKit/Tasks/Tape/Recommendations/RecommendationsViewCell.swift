@@ -4,7 +4,7 @@
 import UIKit
 
 /// Ячейка с рекомендациями
-class RecommendationsViewCell: UITableViewCell {
+final class RecommendationsViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
@@ -18,14 +18,14 @@ class RecommendationsViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
-    private let scrollView: UIScrollView = {
+    private let scrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
 
-    private let recommendLabel: UILabel = {
+    private let recommendLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdanaBold, size: CGFloat(Constants.sizeFont))
         label.textAlignment = .center
@@ -34,7 +34,7 @@ class RecommendationsViewCell: UITableViewCell {
         return label
     }()
 
-    private let allLabel: UILabel = {
+    private let allLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdanaBold, size: CGFloat(Constants.sizeFont))
         label.textAlignment = .right
@@ -47,7 +47,7 @@ class RecommendationsViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupConstraint()
+        setupConstraints()
         contentView.backgroundColor = .myBackground
     }
 
@@ -56,7 +56,7 @@ class RecommendationsViewCell: UITableViewCell {
         super.init(coder: coder)
     }
 
-    // MARK: - Public Properties
+    // MARK: - Public Methods
 
     func setupScrollView(recomend: [RecommendView]) {
         var startLead = Constants.startLead
@@ -78,7 +78,7 @@ class RecommendationsViewCell: UITableViewCell {
 
     // MARK: - Private Methods
 
-    private func setupConstraint() {
+    private func setupConstraints() {
         contentView.addSubview(scrollView)
         contentView.addSubview(recommendLabel)
         contentView.addSubview(allLabel)

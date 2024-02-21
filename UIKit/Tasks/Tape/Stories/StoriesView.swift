@@ -14,7 +14,7 @@ final class StoriesView: UIView {
 
     // MARK: - Visual Components
 
-    private let storiesImageView: UIImageView = {
+    private let storiesImageView = {
         let image = UIImageView()
         image.image = .womanInField
         image.layer.cornerRadius = 30
@@ -23,7 +23,7 @@ final class StoriesView: UIView {
         return image
     }()
 
-    private let usernameLabel: UILabel = {
+    private let usernameLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeFont))
         label.textAlignment = .center
@@ -38,7 +38,7 @@ final class StoriesView: UIView {
         storiesImageView.image = UIImage(named: stories.nameImage)
         usernameLabel.text = stories.nameLabel
         translatesAutoresizingMaskIntoConstraints = false
-        setupView()
+        addSubviews()
         setupConstraints()
     }
 
@@ -51,7 +51,7 @@ final class StoriesView: UIView {
 
     // MARK: - Private Methods
 
-    private func setupView() {
+    private func addSubviews() {
         addSubview(storiesImageView)
         addSubview(usernameLabel)
     }

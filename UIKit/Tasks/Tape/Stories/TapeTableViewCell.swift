@@ -4,7 +4,7 @@
 import UIKit
 
 /// Ячейка истории
-class TapeTableViewCell: UITableViewCell {
+final class TapeTableViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
@@ -16,7 +16,7 @@ class TapeTableViewCell: UITableViewCell {
 
     // MARK: - Visual Components
 
-    private let scrollView: UIScrollView = {
+    private let scrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsHorizontalScrollIndicator = false
@@ -27,7 +27,7 @@ class TapeTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupConstraintScroll()
+        setupScrollConstraints()
     }
 
     @available(*, unavailable)
@@ -61,7 +61,7 @@ class TapeTableViewCell: UITableViewCell {
 
     // MARK: - Private Methods
 
-    private func setupConstraintScroll() {
+    private func setupScrollConstraints() {
         contentView.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true

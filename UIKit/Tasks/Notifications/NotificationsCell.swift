@@ -4,10 +4,10 @@
 import UIKit
 
 /// Ячейка уведомления
-class NotificationsCell: UITableViewCell {
+final class NotificationsCell: UITableViewCell {
     // MARK: - Constants
 
-    enum Constants {
+    private enum Constants {
         static let comment =
             "tur_v_dagestan Насладитесь красотой природы. \nЗабронировать тур в Дагестан можно уже сейчас!"
         static let sizeUsername = 12
@@ -17,7 +17,7 @@ class NotificationsCell: UITableViewCell {
 
     // MARK: - Visual Components
 
-    private let avatarImageView: UIImageView = {
+    private let avatarImageView = {
         let image = UIImageView()
         image.image = .vitalik
         image.layer.cornerRadius = 20
@@ -25,14 +25,14 @@ class NotificationsCell: UITableViewCell {
         return image
     }()
 
-    private let photoImageView: UIImageView = {
+    private let photoImageView = {
         let image = UIImageView()
         image.image = .castle
         image.clipsToBounds = true
         return image
     }()
 
-    private let usernameLabel: UILabel = {
+    private let usernameLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeUsername))
         label.textAlignment = .left
@@ -42,14 +42,14 @@ class NotificationsCell: UITableViewCell {
         return label
     }()
 
-    private let heartImageView: UIImageView = {
+    private let heartImageView = {
         let image = UIImageView()
         image.image = .vitalik
         image.clipsToBounds = true
         return image
     }()
 
-    private let answerLabel: UILabel = {
+    private let answerLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdanaBold, size: CGFloat(Constants.sizeUsername))
         label.textAlignment = .left
@@ -72,7 +72,7 @@ class NotificationsCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setupCell(user: Notifications) {
+    func setupCell(user: Notification) {
         avatarImageView.image = UIImage(named: user.nameImage)
         usernameLabel.text = user.nameLabel
         photoImageView.image = UIImage(named: user.photoImage)

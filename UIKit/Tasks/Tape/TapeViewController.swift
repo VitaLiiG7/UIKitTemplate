@@ -5,18 +5,22 @@ import UIKit
 
 /// Экран лента приложения
 final class TapeViewController: UIViewController {
-    // MARK: - Type
+    // MARK: - Types
 
-    private enum InstagramCells {
+    private enum CellTypes {
         case stories
+        /// Истории
         case firstPost
+        /// Первый пост
         case recommendations
+        ///  Рекомендации
         case otherPosts
+        /// Посты 
     }
 
     // MARK: - Private Properties
 
-    private let posts: [InstagramCells] = [.stories, .firstPost, .recommendations, .otherPosts]
+    private let posts: [CellTypes] = [.stories, .firstPost, .recommendations, .otherPosts]
 
     private let stories = [
         StoriesView(stories: Stories(nameImage: "myAvatar", nameLabel: "Ваша история")),
@@ -73,14 +77,14 @@ final class TapeViewController: UIViewController {
         )
     ]
 
-    private let recomend = [
+    private let recommends = [
         RecommendView(recommend: Recommend(avatarImage: "vitalik", avatarName: "Alan")),
         RecommendView(recommend: Recommend(avatarImage: "womanInField", avatarName: "Ivanre")),
         RecommendView(recommend: Recommend(avatarImage: "castle", avatarName: "Ruslan")),
         RecommendView(recommend: Recommend(avatarImage: "womanInField", avatarName: "Alina"))
     ]
 
-    private let tableView: UITableView = {
+    private let tableView = {
         let table = UITableView()
         table.register(TapeTableViewCell.self, forCellReuseIdentifier: String(describing: TapeTableViewCell.self))
         table.register(
@@ -99,14 +103,14 @@ final class TapeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationItem()
-        setupUI()
-        constraintsTableView()
+        setNavigationItems()
+        configureUI()
+        setupTableViewConstraints()
     }
 
     // MARK: - Private Methods
 
-    private func setupUI() {
+    private func configureUI() {
         view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.dataSource = self
@@ -114,29 +118,21 @@ final class TapeViewController: UIViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
     }
 
-    private func setNavigationItem() {
-        let rmLink = UIBarButtonItem(image: .rmLink, style: .done, target: nil, action: nil)
-        let message = UIBarButtonItem(image: .message, style: .done, target: nil, action: nil)
-        navigationItem.leftBarButtonItem = rmLink
-        navigationItem.rightBarButtonItem = message
+    private func setNavigationItems() {
+        let logoBarButtonItemLeft = UIBarButtonItem(image: .rmLink, style: .done, target: nil, action: nil)
+        let logoBarButtonItemRich = UIBarButtonItem(image: .message, style: .done, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = logoBarButtonItemLeft
+        navigationItem.rightBarButtonItem = logoBarButtonItemRich
         navigationItem.leftBarButtonItem?.tintColor = .black
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
 
-    private func constraintsTableView() {
+    private func setupTableViewConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-    }
-}
-
-// MARK: TapeViewController + UITableViewDelegate
-
-extension TapeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
     }
 }
 
@@ -179,7 +175,7 @@ extension TapeViewController: UITableViewDataSource {
                 withIdentifier: String(describing: RecommendationsViewCell.self),
                 for: indexPath
             ) as? RecommendationsViewCell else { return UITableViewCell() }
-            cell.setupScrollView(recomend: recomend)
+            cell.setupScrollView(recomend: recommends)
             return cell
         case .otherPosts:
             guard let cell = tableView.dequeueReusableCell(

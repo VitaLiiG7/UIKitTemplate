@@ -3,11 +3,11 @@
 
 import UIKit
 
-/// Ячейка c изображением поста
-class NotificationsButtonCell: UITableViewCell {
+/// Ячейка c изображением постаfi
+final class NotificationsButtonCell: UITableViewCell {
     // MARK: - Constants
 
-    enum Constants {
+    private enum Constants {
         static let sizeUsername = 12
         static let verdanaBold = "Verdana-Bold"
         static let verdana = "Verdana"
@@ -19,7 +19,7 @@ class NotificationsButtonCell: UITableViewCell {
 
     // MARK: - Visual Components
 
-    private let avatarImageView: UIImageView = {
+    private let avatarImageView = {
         let image = UIImageView()
         image.image = .vitalik
         image.layer.cornerRadius = 20
@@ -27,7 +27,7 @@ class NotificationsButtonCell: UITableViewCell {
         return image
     }()
 
-    private let usernameLabel: UILabel = {
+    private let usernameLabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeUsername))
         label.textAlignment = .left
@@ -36,7 +36,7 @@ class NotificationsButtonCell: UITableViewCell {
         return label
     }()
 
-    private let subscribeButton: UIButton = {
+    private let subscribeButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(named: Constants.buttonColor)
         button.setTitle(Constants.subscribe, for: .normal)

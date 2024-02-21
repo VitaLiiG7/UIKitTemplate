@@ -31,7 +31,7 @@ final class StoriesView: UIView {
 
     // MARK: - Life Cycle
 
-    convenience init(stories: Post) {
+    convenience init(stories: Stories) {
         self.init(frame: .zero)
         storiesImageView.image = UIImage(named: stories.nameImage)
         usernameLabel.text = stories.nameLabel

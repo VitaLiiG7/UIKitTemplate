@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// класс
+/// ячейка с историей
 class TapeTableViewCell: UITableViewCell {
     private enum Constants {
         static let verdana = "Verdana"
@@ -19,21 +19,6 @@ class TapeTableViewCell: UITableViewCell {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
-    }()
-
-    private let storiesImageView: UIImageView = {
-        let image = UIImageView()
-        image.image = .womanInField
-        image.layer.cornerRadius = 60
-        image.clipsToBounds = true
-        return image
-    }()
-
-    private let usernameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: Constants.verdana, size: CGFloat(Constants.sizeFont))
-        label.textAlignment = .center
-        return label
     }()
 
     // MARK: - Life Cycle
@@ -69,19 +54,5 @@ class TapeTableViewCell: UITableViewCell {
         scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-
-//        storiesImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-//        storiesImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-//        storiesImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-//        storiesImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15).isActive = true
-//
-//        usernameLabel.widthAnchor.constraint(equalToConstant: 74).isActive = true
-//        usernameLabel.heightAnchor.constraint(equalToConstant: 10).isActive = true
-//        usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-//        usernameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
     }
-
-//    func setupCell(image: [Post]) {
-//        setupConstraint()
-//    }
 }

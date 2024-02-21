@@ -1,16 +1,11 @@
-// RecommendationsViewCell.swift
+// NotificationsButtonCell.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Ячейка
-class RecommendationsViewCell: UITableViewCell {
-    private let backgroundPostView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(named: "backgroundColor")
-
-        return view
-    }()
+/// Ячейка для уведомлений без кнопок
+class NotificationsButtonCell: UITableViewCell {
+    static let identifier = "NotificationsButtonCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

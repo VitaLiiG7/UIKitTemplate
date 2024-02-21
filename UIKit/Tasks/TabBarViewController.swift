@@ -28,6 +28,7 @@ final class TabBarViewController: UITabBarController {
         let profileViewController = ProfileViewController()
         let tapeNavViewController = UINavigationController(rootViewController: tapeViewController)
         let notificationsNavViewController = UINavigationController(rootViewController: notificationsViewController)
+        let profileNavViewController = UINavigationController(rootViewController: profileViewController)
 
         tapeViewController.tabBarItem = UITabBarItem(title: Constants.tape, image: .home, tag: 0)
         notificationsViewController.tabBarItem = UITabBarItem(
@@ -38,7 +39,7 @@ final class TabBarViewController: UITabBarController {
         profileViewController.tabBarItem = UITabBarItem(title: Constants.profile, image: .profile, tag: 2)
 
         setViewControllers(
-            [tapeNavViewController, notificationsNavViewController, profileViewController],
+            [tapeNavViewController, notificationsNavViewController, profileNavViewController],
             animated: true
         )
     }

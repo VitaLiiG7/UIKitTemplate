@@ -19,6 +19,8 @@
 		211132052B867BDE00220DE8 /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211132042B867BDE00220DE8 /* Recommend.swift */; };
 		211132072B867C4700220DE8 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211132062B867C4700220DE8 /* Notification.swift */; };
 		2111320A2B867C9F00220DE8 /* FollowerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211132092B867C9F00220DE8 /* FollowerNotifications.swift */; };
+		2111320D2B86BCD000220DE8 /* ProfileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111320C2B86BCD000220DE8 /* ProfileViewCell.swift */; };
+		2111320F2B86D02300220DE8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111320E2B86D02300220DE8 /* Profile.swift */; };
 		217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519DC2B71049E00C06FB3 /* AppDelegate.swift */; };
 		217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519DE2B71049E00C06FB3 /* SceneDelegate.swift */; };
 		217519E12B71049E00C06FB3 /* TapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519E02B71049E00C06FB3 /* TapeViewController.swift */; };
@@ -42,6 +44,8 @@
 		211132042B867BDE00220DE8 /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
 		211132062B867C4700220DE8 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		211132092B867C9F00220DE8 /* FollowerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerNotifications.swift; sourceTree = "<group>"; };
+		2111320C2B86BCD000220DE8 /* ProfileViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewCell.swift; sourceTree = "<group>"; };
+		2111320E2B86D02300220DE8 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		217519D92B71049E00C06FB3 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		217519DC2B71049E00C06FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		217519DE2B71049E00C06FB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +123,18 @@
 				211132042B867BDE00220DE8 /* Recommend.swift */,
 				211132092B867C9F00220DE8 /* FollowerNotifications.swift */,
 				2110E70E2B83B7F700B78936 /* Post.swift */,
+				2111320E2B86D02300220DE8 /* Profile.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2111320B2B86BAFD00220DE8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2110E6E82B8380E000B78936 /* ProfileViewController.swift */,
+				2111320C2B86BCD000220DE8 /* ProfileViewCell.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		217519D02B71049E00C06FB3 = {
@@ -147,7 +161,7 @@
 				2110E6E32B837F3B00B78936 /* TabBarViewController.swift */,
 				2110E6EA2B83932B00B78936 /* Tape */,
 				21D6CF8E2B85029E00CCADB5 /* Notifications */,
-				2110E6E82B8380E000B78936 /* ProfileViewController.swift */,
+				2111320B2B86BAFD00220DE8 /* Profile */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,
 				217519EA2B7104A000C06FB3 /* Info.plist */,
@@ -279,8 +293,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2110E70F2B83B7F700B78936 /* Post.swift in Sources */,
+				2111320F2B86D02300220DE8 /* Profile.swift in Sources */,
 				21D6CF902B8503A000CCADB5 /* NotificationsCell.swift in Sources */,
 				2110E7112B83CACC00B78936 /* TapeTableViewCell.swift in Sources */,
+				2111320D2B86BCD000220DE8 /* ProfileViewCell.swift in Sources */,
 				211132032B867B8200220DE8 /* Stories.swift in Sources */,
 				211132052B867BDE00220DE8 /* Recommend.swift in Sources */,
 				2110E6E92B8380E100B78936 /* ProfileViewController.swift in Sources */,

@@ -30,7 +30,6 @@ final class StoriesCellView: UIView {
         return label
     }()
 
-    /// ------------------
     private let circleImage = {
         let image = UIImageView()
         image.layer.cornerRadius = 25
@@ -45,8 +44,8 @@ final class StoriesCellView: UIView {
     convenience init(storiesSpace: StoriesSpace) {
         self.init(frame: .zero)
         addSubviews()
-        storiesSpaceImageView.image = UIImage(named: storiesSpace.nameImageSpace)
-        usernameSpaceLabel.text = storiesSpace.nameLabelSpace
+        storiesSpaceImageView.image = UIImage(named: storiesSpace.spaceImageName)
+        usernameSpaceLabel.text = storiesSpace.spaceUserName
         translatesAutoresizingMaskIntoConstraints = false
         setupConstraints()
     }

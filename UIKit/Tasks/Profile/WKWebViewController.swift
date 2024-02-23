@@ -15,8 +15,6 @@ final class WKWebViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Private Properties
-
     private let webView = WKWebView()
 
     // MARK: - Life Cycle

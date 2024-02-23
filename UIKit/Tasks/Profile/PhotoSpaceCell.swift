@@ -4,11 +4,12 @@
 import UIKit
 
 /// Ячейка с фотографиями космоса
-class PhotoSpaceCell: UITableViewCell {
+final class PhotoSpaceCell: UITableViewCell {
     // MARK: - Constants
 
-    enum Constants {
+    private enum Constants {
         static let number = 3
+        static let scalingFactor = 3.04
     }
 
     // MARK: - Visual Components
@@ -17,7 +18,10 @@ class PhotoSpaceCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1.5
         layout.minimumLineSpacing = 1.5
-        layout.itemSize = .init(width: UIScreen.main.bounds.width / 3.04, height: UIScreen.main.bounds.width / 3.04)
+        layout.itemSize = .init(
+            width: UIScreen.main.bounds.width / Constants.scalingFactor,
+            height: UIScreen.main.bounds.width / Constants.scalingFactor
+        )
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView

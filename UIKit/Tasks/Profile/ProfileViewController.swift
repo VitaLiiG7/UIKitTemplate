@@ -18,10 +18,11 @@ final class ProfileViewController: UIViewController {
 
     // MARK: - Constants
 
-    enum Constants {
+    private enum Constants {
         static let nameUser = "mary_rmLink"
         static let fontVerdanaBold = "Verdana-Bold"
         static let nameUserSize = 18.0
+        static let numbercellsInSection = 1
     }
 
     // MARK: - Visual Components
@@ -115,11 +116,7 @@ extension ProfileViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let posts = posts[section]
-        switch posts {
-        case .profile, .stories, .userPhotos:
-            return 1
-        }
+        Constants.numbercellsInSection
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

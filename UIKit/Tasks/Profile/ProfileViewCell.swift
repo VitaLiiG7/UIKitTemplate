@@ -7,7 +7,7 @@ import UIKit
 final class ProfileViewCell: UITableViewCell {
     // MARK: - Constants
 
-    enum Constants {
+    private enum Constants {
         static let fontVerdanaBold = "Verdana-Bold"
         static let fontVerdana = "Verdana"
         static let fontVerdanaSize = 14.0
@@ -52,15 +52,6 @@ final class ProfileViewCell: UITableViewCell {
         return label
     }()
 
-    lazy var goingTositeButton = {
-        let button = UIButton()
-        button.setTitle(Constants.nameSite, for: .normal)
-        button.setTitleColor(.colorSiteName, for: .normal)
-        button.contentHorizontalAlignment = .left
-        button.titleLabel?.font = UIFont(name: Constants.fontVerdana, size: Constants.fontVerdanaSize)
-        return button
-    }()
-
     private let changeProfileButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(named: Constants.colorChangeButton)
@@ -89,6 +80,15 @@ final class ProfileViewCell: UITableViewCell {
         return button
     }()
 
+    private lazy var goingTositeButton = {
+        let button = UIButton()
+        button.setTitle(Constants.nameSite, for: .normal)
+        button.setTitleColor(.colorSiteName, for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.titleLabel?.font = UIFont(name: Constants.fontVerdana, size: Constants.fontVerdanaSize)
+        return button
+    }()
+
     // MARK: - Private Properties
 
     private let count = [67, 458, 120]
@@ -114,11 +114,12 @@ final class ProfileViewCell: UITableViewCell {
         goingTositeButton
     }
 
+    // MARK: - Private Methods
+    
     private func setupUI() {
         contentView.backgroundColor = .white
+        selectionStyle = .none
     }
-
-    // MARK: - Private Methods
 
     private func addSubview() {
         for item in [

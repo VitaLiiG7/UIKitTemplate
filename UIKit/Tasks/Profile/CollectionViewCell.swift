@@ -4,7 +4,7 @@
 import UIKit
 
 /// Ячейка коллекции
-class CollectionViewCell: UICollectionViewCell {
+final class CollectionViewCell: UICollectionViewCell {
     // MARK: - Visual Components
 
     private let storiesSpaceImageView = {

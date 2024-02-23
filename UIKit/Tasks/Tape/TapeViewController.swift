@@ -84,6 +84,7 @@ final class TapeViewController: UIViewController {
         RecommendView(recommend: Recommend(avatarImage: "womanInField", avatarName: "Alina"))
     ]
 
+    // MARK: - Visual Components
     private let tableView = {
         let table = UITableView()
         table.register(TapeTableViewCell.self, forCellReuseIdentifier: String(describing: TapeTableViewCell.self))

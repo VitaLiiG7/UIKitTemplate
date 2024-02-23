@@ -16,7 +16,7 @@ final class RecommendationsViewCell: UITableViewCell {
         static let topLead = 205
     }
 
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     private let scrollView = {
         let scrollView = UIScrollView()

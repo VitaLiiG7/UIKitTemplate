@@ -297,6 +297,7 @@ final class ProfilePictureViewCell: UITableViewCell {
             }
         }
     }
+    // MARK: - Private Methods
 
     @objc private func flippingPictures() {
         let ofsetX = UIScreen.main.bounds.width * CGFloat(pageControl.currentPage)

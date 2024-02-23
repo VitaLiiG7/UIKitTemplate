@@ -7,7 +7,7 @@ import UIKit
 final class TabBarViewController: UITabBarController {
     // MARK: - Constants
 
-    enum Constants {
+   private enum Constants {
         static let tape = "Лента"
         static let notifications = "Уведомления"
         static let profile = "Профиль"

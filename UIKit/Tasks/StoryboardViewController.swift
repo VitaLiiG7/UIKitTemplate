@@ -1,10 +1,10 @@
-// ViewController.swift
+// StoryboardViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Класс Вью Контроллер
-class ViewController: UIViewController {
+/// Экран Вью Контроллер
+final class StoryboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

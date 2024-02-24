@@ -24,6 +24,8 @@
 		21A8B0D52B7CE369003156B5 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8B0D42B7CE369003156B5 /* BasketViewController.swift */; };
 		21A8B0DC2B7D168A003156B5 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21A8B0DA2B7D168A003156B5 /* Verdana.ttf */; };
 		21A8B0DD2B7D168A003156B5 /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21A8B0DB2B7D168A003156B5 /* Verdana-Bold.ttf */; };
+		48550DF52B8A262D00F4AFC7 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48550DF42B8A262D00F4AFC7 /* BasketView.swift */; };
+		48550DF72B8A2A1F00F4AFC7 /* ShoesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48550DF62B8A2A1F00F4AFC7 /* ShoesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		21A8B0D42B7CE369003156B5 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		21A8B0DA2B7D168A003156B5 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		21A8B0DB2B7D168A003156B5 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		48550DF42B8A262D00F4AFC7 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
+		48550DF62B8A2A1F00F4AFC7 /* ShoesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,11 +125,11 @@
 				480A9ED12B837A0B00EF57F7 /* InformationAboutPerson */,
 				480A9ED02B8379FE00EF57F7 /* Profile */,
 				480A9ECF2B8379E900EF57F7 /* Basket */,
-				21A8B0D82B7CE40B003156B5 /* Setting */,
 				21A8B0D92B7D1603003156B5 /* Font */,
 				217519E52B7104A000C06FB3 /* Assets.xcassets */,
 				217519E72B7104A000C06FB3 /* LaunchScreen.storyboard */,
 				217519EA2B7104A000C06FB3 /* Info.plist */,
+				21A8B0D82B7CE40B003156B5 /* Setting */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -152,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				21A8B0D42B7CE369003156B5 /* BasketViewController.swift */,
+				48550DF42B8A262D00F4AFC7 /* BasketView.swift */,
+				48550DF62B8A2A1F00F4AFC7 /* ShoesModel.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 			files = (
 				2110E6FB2B83A3BC00B78936 /* ChoosingSizeViewController.swift in Sources */,
 				2110E7052B83A40D00B78936 /* ViewCatalog.swift in Sources */,
+				48550DF72B8A2A1F00F4AFC7 /* ShoesModel.swift in Sources */,
 				21A8B0D12B7CD7DA003156B5 /* ProfileViewController.swift in Sources */,
 				2110E70A2B83A40D00B78936 /* TabBarViewController.swift in Sources */,
 				2110E7072B83A40D00B78936 /* CatalogViewController.swift in Sources */,
@@ -299,6 +306,7 @@
 				21A8B0D52B7CE369003156B5 /* BasketViewController.swift in Sources */,
 				2110E6FA2B83A3BC00B78936 /* InformationAboutShoes.swift in Sources */,
 				2110E7082B83A40D00B78936 /* ProductView.swift in Sources */,
+				48550DF52B8A262D00F4AFC7 /* BasketView.swift in Sources */,
 				21A8B0D32B7CE298003156B5 /* InformationAboutPersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

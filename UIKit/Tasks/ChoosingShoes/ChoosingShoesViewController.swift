@@ -3,6 +3,12 @@
 
 import UIKit
 
+/// struct
+
+protocol ChoosingShoesViewControllerDelegate: AnyObject {
+    func transitionInformation(item: Shoes)
+}
+
 /// Экран для выбора размера обуви
 final class ChoosingShoesViewController: UIViewController {
     // MARK: - Constants
@@ -35,7 +41,7 @@ final class ChoosingShoesViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    var choosinLink: BasketViewController?
+    weak var transitionHandler: ChoosingShoesViewControllerDelegate?
 
     // MARK: - Private Properties
 
@@ -117,7 +123,8 @@ final class ChoosingShoesViewController: UIViewController {
         let modalViewController = ChoosingSizeViewController()
         let tag = button.tag
         let products = view.subviews[tag] as? ProductView
-        modalViewController.basket = choosinLink
+        let shoes = Shoes(image: info[tag].shoeImage, price: info[tag].price)
+        transitionHandler?.transitionInformation(item: shoes)
 
         if products?.basketButton.currentImage == UIImage(named: Constants.nameImageSix) {
             products?.basketButton.setImage(UIImage(named: Constants.nameImageSeven), for: .normal)

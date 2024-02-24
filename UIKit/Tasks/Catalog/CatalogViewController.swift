@@ -173,7 +173,13 @@ final class CatalogViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = ""
         let choosingShoesViewController = ChoosingShoesViewController()
-        choosingShoesViewController.choosinLink = linkToBasket
+        guard let basketViewController = (
+            navigationController?.tabBarController?
+                .viewControllers?[1] as? UINavigationController
+        )?.viewControllers[0] as? BasketViewController
+        else { return }
+        choosingShoesViewController.transitionHandler = basketViewController
+//        choosingShoesViewController.choosinLink = linkToBasket
         navigationItem.backBarButtonItem = backButton
         navigationController?.pushViewController(choosingShoesViewController, animated: true)
     }

@@ -25,12 +25,15 @@ final class TabBarViewController: UITabBarController {
     private func setupController() {
         let catalogViewController = CatalogViewController()
         let basketViewController = BasketViewController()
-        catalogViewController.linkToBasket = basketViewController
         let profileViewController = ProfileViewController()
         let catalogNavViewController = UINavigationController(rootViewController: catalogViewController)
+        let basketNavigationViewController = UINavigationController(rootViewController: basketViewController)
         let profileNavViewController = UINavigationController(rootViewController: profileViewController)
 
         tabBar.tintColor = .colorButton
-        setViewControllers([catalogNavViewController, basketViewController, profileNavViewController], animated: true)
+        setViewControllers(
+            [catalogNavViewController, basketNavigationViewController, profileNavViewController],
+            animated: true
+        )
     }
 }

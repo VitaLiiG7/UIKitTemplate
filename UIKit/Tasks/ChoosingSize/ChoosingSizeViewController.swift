@@ -115,7 +115,7 @@ final class ChoosingSizeViewController: UIViewController {
 
     @objc func chooseShoeSize(sender: UIButton) {
         let tag = sender.tag
-        basket?.addCard(info: currentItem, size: size[tag])
+//        basket?.addCard(info: currentItem, size: size[tag])
     }
 
     @objc func closeScreen() {

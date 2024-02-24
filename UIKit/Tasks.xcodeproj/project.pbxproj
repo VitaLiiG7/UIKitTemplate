@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21350B152B8A60090068FAE8 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21350B142B8A60090068FAE8 /* MyView.swift */; };
 		217519DD2B71049E00C06FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519DC2B71049E00C06FB3 /* AppDelegate.swift */; };
 		217519DF2B71049E00C06FB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519DE2B71049E00C06FB3 /* SceneDelegate.swift */; };
 		217519E12B71049E00C06FB3 /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217519E02B71049E00C06FB3 /* StoryboardViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21350B142B8A60090068FAE8 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		217519D92B71049E00C06FB3 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		217519DC2B71049E00C06FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		217519DE2B71049E00C06FB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		217519D02B71049E00C06FB3 = {
 			isa = PBXGroup;
 			children = (
+				21350B142B8A60090068FAE8 /* MyView.swift */,
 				217519DB2B71049E00C06FB3 /* Tasks */,
 				217519DA2B71049E00C06FB3 /* Products */,
 			);
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21350B152B8A60090068FAE8 /* MyView.swift in Sources */,
 				217519E12B71049E00C06FB3 /* StoryboardViewController.swift in Sources */,
 				21AF635F2B8965FA00B65A13 /* NSLayoutAnchorViewController.swift in Sources */,
 				21AF635D2B89653700B65A13 /* StackViewController.swift in Sources */,

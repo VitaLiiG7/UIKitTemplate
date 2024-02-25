@@ -3,11 +3,15 @@
 
 import UIKit
 
-/// Экран Вью Контроллер
+/// Экран создание светофора на сториборде
 final class StoryboardViewController: UIViewController {
+    // MARK: - IBOutlets
+
     @IBOutlet var redView: UIView!
     @IBOutlet var yellowView: UIView!
     @IBOutlet var greenView: UIView!
+
+    // MARK: - Life Cycle
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

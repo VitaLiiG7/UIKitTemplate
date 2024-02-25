@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Экран Вью Контроллер
+/// Экран создание светофора с помощью Якорей
 final class NSLayoutAnchorViewController: UIViewController {
     // MARK: - Visual Components
 
@@ -26,6 +26,8 @@ final class NSLayoutAnchorViewController: UIViewController {
         yellowView.layer.cornerRadius = yellowView.bounds.height / 2
         greenView.layer.cornerRadius = greenView.bounds.height / 2
     }
+
+    // MARK: - Private Methods
 
     private func setupLayoutAnchor() {
         setupyellowViewAnchor()

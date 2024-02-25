@@ -3,32 +3,17 @@
 
 import UIKit
 
-/// Экран Вью Контроллер
+/// Экран создание сфетофора с помощью StckView
 final class StackViewController: UIViewController {
     // MARK: - Visual Components
 
-//    private let redView = UIView()
-//    private let yellowView = UIView()
-//    private let greenView = UIView()
-//    private let grayView = UIView()
-//    private var stackView = UIStackView()
-
-    private let redView = MyView()
-    private let yellowView = MyView()
-    private let greenView = MyView()
+    private let redView = CustomView()
+    private let yellowView = CustomView()
+    private let greenView = CustomView()
     private let grayView = UIView()
     private var stackView = UIStackView()
 
-    // drorect
-
     // MARK: - Life Cycle
-
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        greenView.layer.cornerRadius = greenView.bounds.height / 2
-//        yellowView.layer.cornerRadius = greenView.bounds.height / 2
-//        redView.layer.cornerRadius = greenView.bounds.height / 2
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

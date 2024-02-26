@@ -8,14 +8,14 @@ final class TapeViewController: UIViewController {
     // MARK: - Types
 
     private enum CellTypes {
-        case stories
         /// Истории
-        case firstPost
+        case stories
         /// Первый пост
-        case recommendations
+        case firstPost
         ///  Рекомендации
+        case recommendations
+        /// Посты
         case otherPosts
-        /// Посты 
     }
 
     // MARK: - Private Properties

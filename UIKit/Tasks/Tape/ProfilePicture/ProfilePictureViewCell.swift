@@ -245,8 +245,8 @@ final class ProfilePictureViewCell: UITableViewCell {
         tenMinutesAgoLabell.widthAnchor.constraint(equalToConstant: 150).isActive = true
         tenMinutesAgoLabell.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
-    
-  private func setupConstraintsPostActions() {
+
+    private func setupConstraintsPostActions() {
         heartImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
         heartImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
         heartImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true

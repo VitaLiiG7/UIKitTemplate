@@ -16,8 +16,8 @@ final class NSLayoutAnchorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setupLayoutAnchor()
+        configureUI()
+        setupLayoutAnchors()
     }
 
     override func viewDidLayoutSubviews() {
@@ -29,14 +29,14 @@ final class NSLayoutAnchorViewController: UIViewController {
 
     // MARK: - Private Methods
 
-    private func setupLayoutAnchor() {
-        setupyellowViewAnchor()
-        setupRedViewAnchor()
-        setupGreenViewAnchor()
-        setupGrayViewAnchor()
+    private func setupLayoutAnchors() {
+        setupYellowViewAnchors()
+        setupRedViewAnchors()
+        setupGreenViewAnchors()
+        setupGrayViewAnchors()
     }
 
-    private func setupUI() {
+    private func configureUI() {
         redView.backgroundColor = .red
         yellowView.backgroundColor = .yellow
         greenView.backgroundColor = .green
@@ -48,7 +48,7 @@ final class NSLayoutAnchorViewController: UIViewController {
         }
     }
 
-    private func setupyellowViewAnchor() {
+    private func setupYellowViewAnchors() {
         yellowView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         yellowView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         yellowView.topAnchor.constraint(equalTo: redView.bottomAnchor, constant: 8).isActive = true
@@ -59,7 +59,7 @@ final class NSLayoutAnchorViewController: UIViewController {
         yellowView.widthAnchor.constraint(equalTo: yellowView.heightAnchor).isActive = true
     }
 
-    private func setupRedViewAnchor() {
+    private func setupRedViewAnchors() {
         redView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         redView.widthAnchor.constraint(equalTo: yellowView.widthAnchor).isActive = true
         redView.heightAnchor.constraint(equalTo: yellowView.heightAnchor).isActive = true
@@ -67,14 +67,14 @@ final class NSLayoutAnchorViewController: UIViewController {
             .isActive = true
     }
 
-    private func setupGreenViewAnchor() {
+    private func setupGreenViewAnchors() {
         greenView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         greenView.topAnchor.constraint(equalTo: yellowView.bottomAnchor, constant: 8).isActive = true
         greenView.widthAnchor.constraint(equalTo: yellowView.widthAnchor).isActive = true
         greenView.heightAnchor.constraint(equalTo: yellowView.heightAnchor).isActive = true
     }
 
-    private func setupGrayViewAnchor() {
+    private func setupGrayViewAnchors() {
         grayView.topAnchor.constraint(equalTo: redView.topAnchor, constant: -15).isActive = true
         grayView.leadingAnchor.constraint(equalTo: redView.leadingAnchor, constant: -25).isActive = true
         grayView.trailingAnchor.constraint(equalTo: redView.trailingAnchor, constant: 25).isActive = true

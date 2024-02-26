@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Экран создание сфетофора с помощью StckView
+/// Экран создания сфетофора с помощью StckView
 final class StackViewController: UIViewController {
     // MARK: - Visual Components
 
@@ -17,29 +17,36 @@ final class StackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        configureStackView()
+        configureUI()
+        addSubview()
         setupStackViewConstraints()
-        setupUIGrayViewConstraints()
+        setupGrayViewConstraints()
     }
 
     // MARK: - Private Methods
 
-    private func setupUI() {
+    private func addSubview() {
+        view.addSubview(grayView)
+        view.addSubview(stackView)
+    }
+
+    private func configureUI() {
         redView.backgroundColor = .red
         yellowView.backgroundColor = .yellow
         greenView.backgroundColor = .green
         grayView.backgroundColor = .gray
-        view.addSubview(grayView)
+    }
+
+    private func configureStackView() {
         stackView = UIStackView(arrangedSubviews: [redView, yellowView, greenView])
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        grayView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 8
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
     }
 
     private func setupStackViewConstraints() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackView.heightAnchor.constraint(lessThanOrEqualToConstant: 376).isActive = true
@@ -49,7 +56,8 @@ final class StackViewController: UIViewController {
         stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.33).isActive = true
     }
 
-    private func setupUIGrayViewConstraints() {
+    private func setupGrayViewConstraints() {
+        grayView.translatesAutoresizingMaskIntoConstraints = false
         grayView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: -15).isActive = true
         grayView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -25).isActive = true
         grayView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 25).isActive = true

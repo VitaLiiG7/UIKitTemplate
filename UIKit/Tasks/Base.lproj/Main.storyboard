@@ -92,69 +92,6 @@
             </objects>
             <point key="canvasLocation" x="1326" y="-356"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="vil-3g-JhB">
-            <objects>
-                <viewController id="DxW-Ci-RBX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zV9-ae-gYU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENQ-d8-XUd" userLabel="yellow">
-                                <rect key="frame" x="132.66666666666666" y="359" width="110" height="110"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="110" id="CcR-5h-JHI"/>
-                                    <constraint firstAttribute="width" secondItem="ENQ-d8-XUd" secondAttribute="height" multiplier="1:1" id="OWI-fu-KoH"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbc-PE-4fx" userLabel="green">
-                                <rect key="frame" x="132.66666666666666" y="477" width="110" height="110"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Rbc-PE-4fx" secondAttribute="height" multiplier="1:1" id="sd7-wE-W4N"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUh-Bc-5P2" userLabel="redView">
-                                <rect key="frame" x="132.66666666666666" y="241" width="110" height="110"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="rUh-Bc-5P2" secondAttribute="height" id="sXi-nS-Vi3"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZg-ZY-eAh">
-                                <rect key="frame" x="258" y="95" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="V4j-Xv-E06"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Rbc-PE-4fx" firstAttribute="centerX" secondItem="V4j-Xv-E06" secondAttribute="centerX" id="6p6-dI-GkB"/>
-                            <constraint firstItem="Rbc-PE-4fx" firstAttribute="width" secondItem="ENQ-d8-XUd" secondAttribute="width" id="EWO-Cg-Xqv"/>
-                            <constraint firstItem="ENQ-d8-XUd" firstAttribute="centerY" secondItem="V4j-Xv-E06" secondAttribute="centerY" id="NBT-sq-i6C"/>
-                            <constraint firstItem="rUh-Bc-5P2" firstAttribute="centerX" secondItem="V4j-Xv-E06" secondAttribute="centerX" id="RDx-9Y-bIc"/>
-                            <constraint firstItem="JZg-ZY-eAh" firstAttribute="top" secondItem="V4j-Xv-E06" secondAttribute="top" constant="45" id="biM-iT-hzg"/>
-                            <constraint firstItem="ENQ-d8-XUd" firstAttribute="top" secondItem="rUh-Bc-5P2" secondAttribute="bottom" constant="8" id="c81-qz-fKc"/>
-                            <constraint firstItem="ENQ-d8-XUd" firstAttribute="height" secondItem="zV9-ae-gYU" secondAttribute="height" multiplier="0.25" priority="750" id="cLQ-3I-lbz"/>
-                            <constraint firstItem="JZg-ZY-eAh" firstAttribute="leading" secondItem="V4j-Xv-E06" secondAttribute="leading" constant="258" id="hM5-HE-FMu"/>
-                            <constraint firstItem="rUh-Bc-5P2" firstAttribute="width" secondItem="ENQ-d8-XUd" secondAttribute="width" id="jLZ-Cm-Zga"/>
-                            <constraint firstItem="Rbc-PE-4fx" firstAttribute="top" secondItem="ENQ-d8-XUd" secondAttribute="bottom" constant="8" id="rRv-vq-Sv1"/>
-                            <constraint firstItem="ENQ-d8-XUd" firstAttribute="centerX" secondItem="zV9-ae-gYU" secondAttribute="centerX" id="vT4-Zq-u1B"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="oDv-u0-dim"/>
-                    <connections>
-                        <outlet property="greenView" destination="Rbc-PE-4fx" id="wXp-xl-mB1"/>
-                        <outlet property="redView" destination="rUh-Bc-5P2" id="fgD-jN-Ted"/>
-                        <outlet property="yellowView" destination="ENQ-d8-XUd" id="e4O-js-lIr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uvd-n1-dgC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="143" y="-1192"/>
-        </scene>
         <!--Storyboard View Controller-->
         <scene sceneID="jrM-XT-6Ww">
             <objects>
@@ -244,10 +181,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

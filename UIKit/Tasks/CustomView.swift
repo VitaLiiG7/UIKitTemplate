@@ -3,11 +3,17 @@
 
 import UIKit
 
-/// вью для округления квадратов
+/// Вью для округления квадратов
 final class CustomView: UIView {
+    // MARK: - Constants
+
+    enum Constants {
+        static let number = 2.0
+    }
+
     // MARK: - Life Cycle
 
     override func layoutSubviews() {
-        layer.cornerRadius = bounds.height / 2
+        layer.cornerRadius = bounds.height / Constants.number
     }
 }
